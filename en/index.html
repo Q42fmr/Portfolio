@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Junior Frontend Developer</title>
+    <meta
+      name="description"
+      content="Junior frontend developer portfolio with experience, skills, projects and resume."
+    />
+    <meta property="og:title" content="Portfolio | Junior Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Professional portfolio and resume website."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: "#2563eb",
+              accent: "#14b8a6"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased">
+    <header class="sticky top-0 z-20 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6" aria-label="Main navigation">
+        <a href="#hero" class="text-lg font-semibold tracking-tight">Alexandr Portfolio</a>
+        <button
+          id="menu-toggle"
+          class="rounded border border-slate-700 px-3 py-2 text-sm md:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          Menu
+        </button>
+        <ul class="hidden items-center gap-6 text-sm md:flex">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#resume">Resume</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="rounded border border-slate-700 px-3 py-1.5 hover:border-brand hover:text-brand" href="../index.html">UA</a></li>
+        </ul>
+      </nav>
+      <ul id="mobile-menu" class="hidden border-t border-slate-800 px-4 py-4 text-sm md:hidden">
+        <li><a class="nav-link block py-2" href="#about">About</a></li>
+        <li><a class="nav-link block py-2" href="#skills">Skills</a></li>
+        <li><a class="nav-link block py-2" href="#projects">Projects</a></li>
+        <li><a class="nav-link block py-2" href="#resume">Resume</a></li>
+        <li><a class="nav-link block py-2" href="#contact">Contact</a></li>
+        <li><a class="nav-link block py-2" href="../index.html">Ukrainian version</a></li>
+      </ul>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
+      <section id="hero" class="grid gap-8 md:grid-cols-2 md:items-center">
+        <div>
+          <p class="mb-3 inline-flex rounded-full border border-brand/50 bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
+            Open to Junior roles
+          </p>
+          <h1 class="text-4xl font-bold leading-tight md:text-5xl">Junior Frontend Developer</h1>
+          <p class="mt-5 max-w-xl text-slate-300">
+            Experience in building interfaces, dashboards and analytical tools. Working with HTML, CSS, JavaScript,
+            Tailwind, with additional background in business analytics and process automation.
+          </p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="#projects" class="rounded bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-blue-500">View projects</a>
+            <a href="../assets/files/cv.pdf" class="rounded border border-slate-600 px-5 py-3 text-sm font-semibold hover:border-accent hover:text-accent">Download CV</a>
+          </div>
+        </div>
+        <div class="hero-card rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
+          <h2 class="text-lg font-semibold">Profile Highlights</h2>
+          <ul class="mt-4 space-y-3 text-sm text-slate-300">
+            <li>Frontend: HTML5, CSS/SCSS, Tailwind, JavaScript.</li>
+            <li>Analytics: SQL, Power BI, market and sales reports.</li>
+            <li>Tools: Asana, Notion, Bitrix, Jira, Miro.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about" class="section-block">
+        <h2 class="section-title">About</h2>
+        <p class="max-w-4xl text-slate-300">
+          I am a specialist with experience in marketing, analytics and web development. Since 2019, I worked on launching
+          and improving marketing and analytics initiatives, and then focused on frontend: responsive pages, internal
+          dashboards, forms and UI components for business tasks. I combine analytical thinking with practical interface
+          implementation.
+        </p>
+      </section>
+
+      <section id="skills" class="section-block">
+        <h2 class="section-title">Skills</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">Technical</h3>
+            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <span class="skill-badge">Python (Pandas, Aiogram, BS4, Selenium)</span>
+              <span class="skill-badge">SQL, MongoDB</span>
+              <span class="skill-badge">Power BI (basic)</span>
+              <span class="skill-badge">1C</span>
+              <span class="skill-badge">HTML5</span>
+              <span class="skill-badge">CSS, SCSS, Tailwind</span>
+              <span class="skill-badge">Native JavaScript</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">Other</h3>
+            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <span class="skill-badge">Asana, Notion, Bitrix, Jira</span>
+              <span class="skill-badge">Slack, ClickUp</span>
+              <span class="skill-badge">Miro</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-block">
+        <div class="mb-5 flex items-center justify-between gap-3">
+          <h2 class="section-title mb-0">Projects</h2>
+          <p class="text-xs text-slate-400">Collage + details + live demo</p>
+        </div>
+        <p class="mb-4 text-sm text-slate-400">
+          Most commercial tasks were done in corporate GitLab, so public GitHub contains only part of the project history.
+        </p>
+        <div id="projects-grid" class="grid gap-5 md:grid-cols-2"></div>
+      </section>
+
+      <section id="resume" class="section-block">
+        <h2 class="section-title">Resume</h2>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
+            <h3 class="text-lg font-semibold">Experience</h3>
+            <ul class="mt-4 space-y-6 text-sm text-slate-300">
+              <li>
+                <p class="font-semibold text-slate-100">Marketer</p>
+                <p class="text-xs text-slate-400">10.2019 - 07.2021 | SMM Curatorship, Chernihiv</p>
+                <p class="mt-2">Consulting companies, auditing sales calls, creating scripts and supporting promoted campaigns toward profitability.</p>
+              </li>
+              <li>
+                <p class="font-semibold text-slate-100">Analyst</p>
+                <p class="text-xs text-slate-400">09.2021 - 05.2025 | Collar, Chernihiv</p>
+                <p class="mt-2">Prepared market analytics reports for America, Europe and Ukraine and introduced data-driven product recommendations.</p>
+                <ul class="mt-2 list-disc space-y-1 pl-5">
+                  <li>Built responsive interfaces and dashboards for internal reporting tools.</li>
+                  <li>Designed and changed frontend components for data visualization platforms.</li>
+                  <li>Improved existing company website forms, design and bug fixes.</li>
+                  <li>Automated data processing and business routines using Python scripts.</li>
+                </ul>
+              </li>
+            </ul>
+          </article>
+          <article class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
+            <h3 class="text-lg font-semibold">Education</h3>
+            <ul class="mt-4 space-y-4 text-sm text-slate-300">
+              <li>
+                <p class="font-semibold text-slate-100">2010 - 2014 | CTTK</p>
+                <p>Technical school (Computer specialty).</p>
+              </li>
+              <li>
+                <p class="font-semibold text-slate-100">2014 - 2017 | Chernihiv Institute of Business and Law</p>
+                <p>Technological engineer. Basic programming knowledge.</p>
+              </li>
+              <li>
+                <p class="font-semibold text-slate-100">2024 - 2025 | Genius Space</p>
+                <p>Profession Business Analyst in IT.</p>
+              </li>
+              <li>
+                <p class="font-semibold text-slate-100">2025 | ItGrid</p>
+                <p>Front-end courses.</p>
+              </li>
+            </ul>
+            <h3 class="mt-6 text-lg font-semibold">Languages</h3>
+            <ul class="mt-3 space-y-2 text-sm text-slate-300">
+              <li>English (B1)</li>
+              <li>Ukrainian</li>
+              <li>Russian</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section-block">
+        <h2 class="section-title">Contact</h2>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div class="space-y-3 text-sm text-slate-300">
+            <p>Phone: <a class="text-brand hover:text-blue-400" href="tel:+380633758707">063-37-58-707</a></p>
+            <p>Email: <a class="text-brand hover:text-blue-400" href="mailto:Q42frm@gmail.com">Q42frm@gmail.com</a></p>
+            <p>City: Chernihiv</p>
+          </div>
+          <form
+            id="contact-form"
+            class="space-y-3 rounded-xl border border-slate-800 bg-slate-900/60 p-5"
+            novalidate
+            data-mailto="Q42frm@gmail.com"
+            data-msg-required="Please fill in all form fields."
+            data-msg-invalid="Please enter a valid email."
+            data-msg-success="Thank you! Your email client will open now."
+            data-subject="Portfolio website request"
+            data-label-name="Name"
+            data-label-message="Message"
+          >
+            <label class="block text-sm">
+              <span class="mb-1 block text-slate-300">Name</span>
+              <input class="form-field" type="text" name="name" placeholder="Your name" />
+            </label>
+            <label class="block text-sm">
+              <span class="mb-1 block text-slate-300">Email</span>
+              <input class="form-field" type="email" name="email" placeholder="name@example.com" />
+            </label>
+            <label class="block text-sm">
+              <span class="mb-1 block text-slate-300">Message</span>
+              <textarea class="form-field min-h-28" name="message" placeholder="Briefly describe your request"></textarea>
+            </label>
+            <p id="form-feedback" class="min-h-5 text-xs text-rose-300" aria-live="polite"></p>
+            <button type="submit" class="rounded bg-accent px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-teal-300">
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="project-modal" class="project-modal hidden" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal="true"></div>
+      <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+        <button id="project-modal-close" class="project-modal-close" aria-label="Close">✕</button>
+        <h3 id="project-modal-title" class="text-2xl font-bold"></h3>
+        <p id="project-modal-description" class="mt-3 text-slate-300"></p>
+        <div class="mt-5">
+          <p class="text-xs uppercase tracking-wide text-slate-400">Technologies</p>
+          <p id="project-modal-stack" class="mt-2 text-sm text-slate-200"></p>
+        </div>
+        <div class="mt-5">
+          <p class="text-xs uppercase tracking-wide text-slate-400">Implementation</p>
+          <p id="project-modal-process" class="mt-2 text-sm text-slate-300"></p>
+        </div>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a id="project-modal-open" class="rounded bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500" target="_blank" rel="noreferrer">Open site</a>
+          <a id="project-modal-github" class="rounded border border-slate-700 px-4 py-2 text-sm font-semibold hover:border-accent hover:text-accent" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="border-t border-slate-800 py-8">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 text-sm text-slate-400 md:px-6">
+        <p>© <span id="year"></span> Alexandr Portfolio</p>
+        <a href="#hero" class="hover:text-slate-200">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>

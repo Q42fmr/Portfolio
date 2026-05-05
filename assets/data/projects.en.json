@@ -1,0 +1,26 @@
+[
+  {
+    "title": "E-commerce Landing",
+    "description": "Responsive landing page for an online store with a focus on conversion and loading speed.",
+    "stack": ["HTML", "Tailwind CSS", "JavaScript"],
+    "demoUrl": "https://example.com/ecommerce-landing",
+    "githubUrl": "https://github.com/your-username/ecommerce-landing",
+    "caseStudyUrl": "./projects/ecommerce-landing.html"
+  },
+  {
+    "title": "Assistant | Online Task Manager with AI",
+    "description": "Online task manager with an AI assistant: tasks, notes, schedule and chat in one interface.",
+    "stack": ["Vite", "Vue", "JavaScript", "Cloudflare Functions"],
+    "demoUrl": "../portfolio/Assistant/index.html",
+    "githubUrl": "https://github.com/Q42fmr/Assistant/",
+    "caseStudyUrl": "./projects/assistant.html"
+  },
+  {
+    "title": "Portfolio Template",
+    "description": "Developer portfolio template with SEO meta tags, responsive layout and resume section.",
+    "stack": ["HTML", "Tailwind CSS"],
+    "demoUrl": "https://example.com/portfolio-template",
+    "githubUrl": "https://github.com/your-username/portfolio-template",
+    "caseStudyUrl": "./projects/portfolio-template.html"
+  }
+]
