@@ -1,0 +1,26 @@
+[
+  {
+    "title": "E-commerce Landing",
+    "description": "Адаптивний лендинг для онлайн-магазину з акцентом на конверсію та швидке завантаження.",
+    "stack": ["HTML", "Tailwind CSS", "JavaScript"],
+    "demoUrl": "https://example.com/ecommerce-landing",
+    "githubUrl": "https://github.com/your-username/ecommerce-landing",
+    "caseStudyUrl": "./projects/ecommerce-landing.html"
+  },
+  {
+    "title": "Assistant | Online Task Manager with AI",
+    "description": "Онлайн таск-менеджер із AI-асистентом: задачі, нотатки, розклад і чат в одному інтерфейсі.",
+    "stack": ["Vite", "Vue", "JavaScript", "Cloudflare Functions"],
+    "demoUrl": "./portfolio/Assistant/index.html",
+    "githubUrl": "https://github.com/Q42fmr/Assistant/",
+    "caseStudyUrl": "./projects/assistant.html"
+  },
+  {
+    "title": "Portfolio Template",
+    "description": "Шаблон портфоліо для розробників з SEO-мета, адаптивом і готовою секцією резюме.",
+    "stack": ["HTML", "Tailwind CSS"],
+    "demoUrl": "https://example.com/portfolio-template",
+    "githubUrl": "https://github.com/your-username/portfolio-template",
+    "caseStudyUrl": "./projects/portfolio-template.html"
+  }
+]
