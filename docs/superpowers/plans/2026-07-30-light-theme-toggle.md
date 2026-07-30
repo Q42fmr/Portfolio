@@ -24,7 +24,7 @@
 - Modify: `assets/css/style.css:1-3` (root block), and the custom classes `.nav-link`, `.hero-card`, `.skill-badge`, `.project-card`, `.project-screen`, `.project-screen-label`, `.project-modal-backdrop`, `.project-modal-panel`, `.project-modal-close`, `.form-field`, `.form-field:focus`.
 
 **Interfaces:**
-- Produces: CSS custom properties `--surface-1`, `--surface-2`, `--surface-3`, `--border-1`, `--border-2`, `--text-1`, `--text-2`, `--text-3`, `--nav-link`, `--modal-backdrop` (each an `R G B` triplet, no commas, for use in `rgb(var(--x))` / `rgb(var(--x) / <alpha>)`), scoped light by default and dark under `:root.dark`. Task 3/4 rely on `:root.dark` being the selector toggled by the `dark` class Tailwind also uses.
+- Produces: CSS custom properties `--surface-1`, `--surface-2`, `--surface-3`, `--border-1`, `--border-2`, `--border-3`, `--text-1`, `--text-0`, `--text-2`, `--text-3`, `--nav-link`, `--modal-backdrop` (each an `R G B` triplet, no commas, for use in `rgb(var(--x))` / `rgb(var(--x) / <alpha>)`), scoped light by default and dark under `:root.dark`. Task 3/4 rely on `:root.dark` being the selector toggled by the `dark` class Tailwind also uses.
 
 - [ ] **Step 1: Replace the `:root` block (lines 1-3) with tokens**
 
@@ -44,7 +44,9 @@ New:
   --surface-3: 241 245 249;
   --border-1: 226 232 240;
   --border-2: 203 213 225;
+  --border-3: 148 163 184;
   --text-1: 15 23 42;
+  --text-0: 71 85 105;
   --text-2: 71 85 105;
   --text-3: 100 116 139;
   --nav-link: 100 116 139;
@@ -58,7 +60,9 @@ New:
   --surface-3: 30 41 59;
   --border-1: 30 41 59;
   --border-2: 51 65 85;
+  --border-3: 71 85 105;
   --text-1: 241 245 249;
+  --text-0: 226 232 240;
   --text-2: 203 213 225;
   --text-3: 148 163 184;
   --nav-link: 148 163 184;
@@ -108,11 +112,11 @@ New:
   align-items: center;
   border-radius: 0.75rem;
   border: 1px solid rgb(var(--border-2));
-  background: rgb(var(--surface-3) / 0.7);
+  background: rgb(var(--surface-2) / 0.7);
   padding: 0.7rem 0.9rem;
   font-size: 0.9rem;
   font-weight: 500;
-  color: rgb(var(--text-1));
+  color: rgb(var(--text-0));
 }
 ```
 
@@ -133,7 +137,7 @@ New:
 ```css
 .project-card {
   border: 1px solid rgb(var(--border-2));
-  background: rgb(var(--surface-3) / 0.6);
+  background: rgb(var(--surface-2) / 0.6);
   border-radius: 0.9rem;
   padding: 1.25rem;
   transition: border-color 0.25s ease, transform 0.25s ease;
@@ -272,11 +276,11 @@ New:
   position: absolute;
   right: 0.8rem;
   top: 0.8rem;
-  border: 1px solid rgb(var(--border-2));
+  border: 1px solid rgb(var(--border-3));
   border-radius: 0.5rem;
   width: 2rem;
   height: 2rem;
-  color: rgb(var(--text-1));
+  color: rgb(var(--text-0));
 }
 ```
 
@@ -305,7 +309,7 @@ New:
 .form-field {
   width: 100%;
   border-radius: 0.6rem;
-  border: 1px solid rgb(var(--border-2));
+  border: 1px solid rgb(var(--border-3));
   background: rgb(var(--surface-1) / 0.75);
   padding: 0.65rem 0.8rem;
   color: rgb(var(--text-1));
