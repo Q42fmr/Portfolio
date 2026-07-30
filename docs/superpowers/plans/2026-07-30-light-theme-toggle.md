@@ -523,7 +523,11 @@ replacements = [
     ("text-rose-300", "text-rose-600 dark:text-rose-300"),
 ]
 
-pattern = re.compile("|".join(re.escape(old) for old, _ in replacements))
+# (?<!dark:) guards every alternative so a token already living inside an
+# inserted "dark:<token>" pair (e.g. from Steps 2-3's hand edits) is never
+# matched again — this makes the script safe regardless of whether Steps
+# 2-3 ran before or after it.
+pattern = re.compile("|".join(f"(?<!dark:)(?:{re.escape(old)})" for old, _ in replacements))
 lookup = dict(replacements)
 count = 0
 
@@ -532,11 +536,6 @@ def _sub(match):
     count += 1
     return lookup[match.group(0)]
 
-# Skip the <body> tag and header button already hand-edited in Steps 2-3:
-# re.sub over the whole file is safe here because those two spots were edited
-# to their FINAL light/dark form already, and none of the bare tokens above
-# appear as standalone tokens inside an already-inserted "dark:xxx" pair
-# (matches are found in original text order, left to right, non-overlapping).
 text = pattern.sub(_sub, text)
 open(path, "w", encoding="utf-8").write(text)
 print(f"replacements applied: {count}")
@@ -544,28 +543,32 @@ print(f"replacements applied: {count}")
 
 Expected output: `replacements applied: 33` (count is illustrative — the exact number depends on final occurrence counts; what matters is the run completes without error and the number is greater than 0).
 
-**IMPORTANT:** Run Step 2 and Step 3 (the hand-edits to `<body>` and the header button) *before* this script, OR run this script first and then apply steps 2-3 by hand — do not apply Step 2/3's hand-written snippets a second time after the script runs, since the script does not touch text inside `<script>` tags differently than body text (it's a plain string replace across the whole file). If Steps 2-3 are done first, their inserted text already contains `dark:` pairs and will NOT be double-processed, because each token in the replacement list is matched once, left-to-right, in original-file order, per the `re.sub` single pass. Recommended order: **Step 2 and 3 first, then Step 4.**
+Run this script either before or after Steps 2-3's hand edits — the `(?<!dark:)` lookbehind makes it order-independent and idempotent (running it twice is a no-op the second time).
 
 - [ ] **Step 5: Verify no bare tokens remain**
 
 ```python
 import re
 text = open("index.html", encoding="utf-8").read()
-bare_pattern = re.compile(
-    r'(?<!dark:)(?<!-)\b(?:bg-slate-950(?!/)|bg-slate-900/(?:70|60)(?!\s*dark)|text-slate-(?:100|200|300|400)\b|border-slate-(?:800|700|600)\b|text-rose-300\b)'
-)
-# Simple heuristic check: every occurrence of a bare-mapped token should be
-# immediately preceded somewhere on the same class="..." by a "dark:" pair.
-# Easiest concrete check: count occurrences of "dark:bg-slate-950" etc. and
-# confirm they equal the count of the base classes.
+
 for token in ["bg-slate-950", "text-slate-100", "text-slate-300", "text-slate-400",
               "border-slate-800", "border-slate-700", "border-slate-600", "text-rose-300"]:
     total = len(re.findall(re.escape(token), text))
     darked = len(re.findall("dark:" + re.escape(token), text))
     print(token, "total:", total, "dark-prefixed:", darked)
+
+# Corruption signal: none of the *light-base* replacement values should ever
+# appear with a "dark:" prefix — that pattern only happens if the base token
+# got matched a second time after already being wrapped in "dark:oldtoken".
+corruption = re.findall(
+    r"dark:(?:bg-white(?:/90)?|bg-slate-50|text-slate-900|text-slate-700|"
+    r"text-slate-600|text-slate-500|border-slate-200|border-slate-300|text-rose-600)\b",
+    text,
+)
+print("corruption signals found:", corruption)
 ```
 
-Expected: for every token, `total == darked` (every occurrence is the `dark:`-prefixed one; the light-base replacement introduced a *different* class name, e.g. `bg-white`, so it doesn't count toward `total`).
+Expected: for every token, `total == darked` (every occurrence is the `dark:`-prefixed one; the light-base replacement introduced a *different* class name, e.g. `bg-white`, so it doesn't count toward `total`), and `corruption signals found: []`.
 
 - [ ] **Step 6: Commit**
 
@@ -671,7 +674,7 @@ Same sun/moon visibility rule as Task 3 Step 3: sun (`block dark:hidden`) shows 
 
 - [ ] **Step 4: Run the mechanical color-class conversion**
 
-Run Steps 2-3 first (so their inserted `dark:` pairs aren't re-matched), then run this Python script via the `eval` tool:
+Run this script before, after, or interleaved with Steps 2-3's hand edits — it is order-independent and idempotent:
 
 ```python
 import re
@@ -695,7 +698,10 @@ replacements = [
     ("text-rose-300", "text-rose-600 dark:text-rose-300"),
 ]
 
-pattern = re.compile("|".join(re.escape(old) for old, _ in replacements))
+# (?<!dark:) guards every alternative so a token already living inside an
+# inserted "dark:<token>" pair (e.g. from Steps 2-3's hand edits) is never
+# matched again — this makes the script safe regardless of run order.
+pattern = re.compile("|".join(f"(?<!dark:)(?:{re.escape(old)})" for old, _ in replacements))
 lookup = dict(replacements)
 count = 0
 
@@ -716,14 +722,22 @@ Expected: script completes without error, `replacements applied` is greater than
 ```python
 import re
 text = open("en/index.html", encoding="utf-8").read()
+
 for token in ["bg-slate-950", "text-slate-100", "text-slate-300", "text-slate-400",
               "border-slate-800", "border-slate-700", "border-slate-600", "text-rose-300"]:
     total = len(re.findall(re.escape(token), text))
     darked = len(re.findall("dark:" + re.escape(token), text))
     print(token, "total:", total, "dark-prefixed:", darked)
+
+corruption = re.findall(
+    r"dark:(?:bg-white(?:/90)?|bg-slate-50|text-slate-900|text-slate-700|"
+    r"text-slate-600|text-slate-500|border-slate-200|border-slate-300|text-rose-600)\b",
+    text,
+)
+print("corruption signals found:", corruption)
 ```
 
-Expected: `total == darked` for every token.
+Expected: `total == darked` for every token, and `corruption signals found: []`.
 
 - [ ] **Step 6: Commit**
 
