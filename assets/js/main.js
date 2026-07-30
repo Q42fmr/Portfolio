@@ -15,6 +15,28 @@ const contactForm = document.getElementById("contact-form");
 const feedback = document.getElementById("form-feedback");
 const isEnglish = document.documentElement.lang === "en";
 
+const THEME_KEY = "theme";
+const themeToggle = document.getElementById("theme-toggle");
+const rootEl = document.documentElement;
+
+function setStoredTheme(theme) {
+  try {
+    localStorage.setItem(THEME_KEY, theme);
+  } catch (error) {
+    /* localStorage unavailable (private mode, etc.) */
+  }
+}
+
+if (themeToggle) {
+  themeToggle.setAttribute("aria-pressed", String(rootEl.classList.contains("dark")));
+  themeToggle.addEventListener("click", () => {
+    const nextIsDark = !rootEl.classList.contains("dark");
+    rootEl.classList.toggle("dark", nextIsDark);
+    themeToggle.setAttribute("aria-pressed", String(nextIsDark));
+    setStoredTheme(nextIsDark ? "dark" : "light");
+  });
+}
+
 const PROJECTS_UA = [
   {
     title: "Assistant | Online Task Manager with AI",
@@ -237,8 +259,8 @@ if (contactForm && feedback) {
     );
     window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
     feedback.textContent = successMessage;
-    feedback.classList.remove("text-rose-300");
-    feedback.classList.add("text-emerald-300");
+    feedback.classList.remove("text-rose-600", "dark:text-rose-300");
+    feedback.classList.add("text-emerald-600", "dark:text-emerald-300");
   });
 }
 
