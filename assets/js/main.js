@@ -57,7 +57,7 @@ const PROJECTS_EN = [
     process:
       "Built SPA architecture, implemented task/schedule/notes modules, connected AI chat via API proxy and managed client state persistence with LocalStorage.",
     siteUrl: "../portfolio/Assistant/",
-    githubUrl: "https://github.com/your-username/assistant"
+    githubUrl: "https://github.com/Q42fmr/Assistant/"
   },
   {
     title: "E-commerce Landing",
