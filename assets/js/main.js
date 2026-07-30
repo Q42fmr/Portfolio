@@ -154,8 +154,8 @@ function renderProjects() {
           </div>
         </div>
         <h3 class="mt-4 text-lg font-semibold">${project.title}</h3>
-        <p class="mt-2 text-sm text-slate-300">${project.description}</p>
-        <p class="mt-3 text-xs text-slate-400">${project.stack.join(" • ")}</p>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${project.description}</p>
+        <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">${project.stack.join(" • ")}</p>
       </article>
     `
     )
