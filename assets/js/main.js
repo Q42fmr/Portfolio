@@ -49,7 +49,7 @@ const PROJECTS_UA = [
       "Спроєктував SPA-структуру, реалізував модулі задач/розкладу/нотаток, додав AI-чат через API-проксі та організував збереження стану в LocalStorage.",
     siteUrl: "./portfolio/Assistant/index.html",
     githubUrl: "https://github.com/Q42fmr/Assistant/",
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "plant-shop",
@@ -61,7 +61,7 @@ const PROJECTS_UA = [
       "Задача: конверсійна вітрина з повним клієнтським флоу покупки. Реалізація: SPA на Vue 3 — реактивні фільтри й кошик, персист у LocalStorage, валідація форми замовлення.",
     siteUrl: "./portfolio/plant-shop/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "saas-landing",
@@ -73,7 +73,7 @@ const PROJECTS_UA = [
       "Задача: конверсійний SaaS-лендінг із чіткою структурою офера. Реалізація: секції hero/features/pricing/FAQ на Tailwind, анімовані переходи та валідація форми на JS.",
     siteUrl: "./portfolio/saas-landing/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "coffee-landing",
@@ -85,7 +85,7 @@ const PROJECTS_UA = [
       "Задача: атмосферний лендінг локального бізнесу з бронюванням. Реалізація: адаптивна верстка на Tailwind, галерея меню та форма бронювання з валідацією.",
     siteUrl: "./portfolio/coffee-landing/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "photographer-portfolio",
@@ -97,7 +97,7 @@ const PROJECTS_UA = [
       "Задача: візуально мінімалістичне портфоліо з акцентом на фото. Реалізація: адаптивні галереї з фільтрами за жанром, лайтбокс на JS, форма контакту.",
     siteUrl: "./portfolio/photographer-portfolio/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "dance-studio",
@@ -109,7 +109,7 @@ const PROJECTS_UA = [
       "Задача: сайт-каталог послуг із записом на заняття. Реалізація: інтерактивна таблиця розкладу з фільтрами на JS, адаптивна сітка тренерів і тарифів на Tailwind.",
     siteUrl: "./portfolio/dance-studio/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "analytics-dashboard",
@@ -121,7 +121,7 @@ const PROJECTS_UA = [
       "Задача: наочний дашборд для аналізу продажів без бекенду. Реалізація: графіки на Chart.js з мокованими даними, таблиця транзакцій із сортуванням, пошуком і пагінацією на JS.",
     siteUrl: "./portfolio/analytics-dashboard/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   }
 ];
 
@@ -136,7 +136,7 @@ const PROJECTS_EN = [
       "Built SPA architecture, implemented task/schedule/notes modules, connected AI chat via API proxy and managed client state persistence with LocalStorage.",
     siteUrl: "../portfolio/Assistant/",
     githubUrl: "https://github.com/Q42fmr/Assistant/",
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "plant-shop",
@@ -148,7 +148,7 @@ const PROJECTS_EN = [
       "Task: conversion-focused storefront with a full client-side purchase flow. Implementation: Vue 3 SPA — reactive filters and cart, LocalStorage persistence, checkout form validation.",
     siteUrl: "../portfolio/plant-shop/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "saas-landing",
@@ -160,7 +160,7 @@ const PROJECTS_EN = [
       "Task: high-conversion SaaS landing with a clear offer structure. Implementation: hero/features/pricing/FAQ sections built with Tailwind, animated transitions and JS form validation.",
     siteUrl: "../portfolio/saas-landing/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "coffee-landing",
@@ -172,7 +172,7 @@ const PROJECTS_EN = [
       "Task: an atmospheric landing page for a local business with booking. Implementation: responsive Tailwind layout, menu gallery and a validated booking form.",
     siteUrl: "../portfolio/coffee-landing/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "photographer-portfolio",
@@ -184,7 +184,7 @@ const PROJECTS_EN = [
       "Task: a visually minimal portfolio focused on the photography. Implementation: responsive genre-filtered galleries, a JS lightbox and a contact form.",
     siteUrl: "../portfolio/photographer-portfolio/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "dance-studio",
@@ -196,7 +196,7 @@ const PROJECTS_EN = [
       "Task: a service-catalog site with class booking. Implementation: an interactive, filterable schedule table in JS, a responsive instructor and pricing grid built with Tailwind.",
     siteUrl: "../portfolio/dance-studio/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   },
   {
     slug: "analytics-dashboard",
@@ -208,7 +208,7 @@ const PROJECTS_EN = [
       "Task: a clear, backend-free dashboard for sales analysis. Implementation: Chart.js charts driven by mock data, a transactions table with sorting, search and pagination in JS.",
     siteUrl: "../portfolio/analytics-dashboard/",
     githubUrl: null,
-    hasImages: false
+    hasImages: true
   }
 ];
 
