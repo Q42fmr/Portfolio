@@ -14,6 +14,7 @@ const projectModalClose = document.getElementById("project-modal-close");
 const contactForm = document.getElementById("contact-form");
 const feedback = document.getElementById("form-feedback");
 const isEnglish = document.documentElement.lang === "en";
+const ASSET_PREFIX = isEnglish ? ".." : ".";
 
 const THEME_KEY = "theme";
 const themeToggle = document.getElementById("theme-toggle");
@@ -39,6 +40,7 @@ if (themeToggle) {
 
 const PROJECTS_UA = [
   {
+    slug: "assistant",
     title: "Assistant | Online Task Manager with AI",
     description:
       "Онлайн таск-менеджер із AI-асистентом: задачі, нотатки, розклад і чат в одному інтерфейсі.",
@@ -46,32 +48,86 @@ const PROJECTS_UA = [
     process:
       "Спроєктував SPA-структуру, реалізував модулі задач/розкладу/нотаток, додав AI-чат через API-проксі та організував збереження стану в LocalStorage.",
     siteUrl: "./portfolio/Assistant/index.html",
-    githubUrl: "https://github.com/Q42fmr/Assistant/"
+    githubUrl: "https://github.com/Q42fmr/Assistant/",
+    hasImages: false
   },
   {
-    title: "E-commerce Landing",
+    slug: "plant-shop",
+    title: "Verde | Онлайн-магазин рослин",
     description:
-      "Адаптивний лендинг для онлайн-магазину з фокусом на конверсію, швидкість завантаження і чітку структуру блоків.",
-    stack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+      "Інтернет-магазин кімнатних рослин: каталог із фільтрами, пошуком і сортуванням, кошик із збереженням стану та оформлення замовлення.",
+    stack: ["Vue 3", "Vite", "JavaScript", "CSS", "LocalStorage"],
     process:
-      "Зібрав верстку з нуля, продумав ієрархію контенту, оптимізував CTA-блоки та адаптивність для mobile і desktop.",
-    siteUrl: "./portfolio/ecommerce-landing/",
-    githubUrl: "https://github.com/your-username/ecommerce-landing"
+      "Задача: конверсійна вітрина з повним клієнтським флоу покупки. Реалізація: SPA на Vue 3 — реактивні фільтри й кошик, персист у LocalStorage, валідація форми замовлення.",
+    siteUrl: "./portfolio/plant-shop/",
+    githubUrl: null,
+    hasImages: false
   },
   {
-    title: "Portfolio Template",
+    slug: "saas-landing",
+    title: "Pulse | SaaS-лендінг",
     description:
-      "Шаблон персонального портфоліо з SEO, адаптивною версткою і структурою резюме для швидкого старту.",
+      "Лендінг сервісу аналітики продажів для малого бізнесу: звіти в реальному часі, дашборди без коду та форма реєстрації.",
     stack: ["HTML", "Tailwind CSS", "JavaScript"],
     process:
-      "Побудував універсальну структуру секцій, додав якірну навігацію, адаптивні стилі та базову SEO-оптимізацію.",
-    siteUrl: "./portfolio/portfolio-template/",
-    githubUrl: "https://github.com/your-username/portfolio-template"
+      "Задача: конверсійний SaaS-лендінг із чіткою структурою офера. Реалізація: секції hero/features/pricing/FAQ на Tailwind, анімовані переходи та валідація форми на JS.",
+    siteUrl: "./portfolio/saas-landing/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "coffee-landing",
+    title: "KAVA Roasters | Лендінг кав'ярні",
+    description:
+      "Лендінг кав'ярні та обсмажувальні: меню напоїв і десертів, історія бренду та онлайн-бронювання столика.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    process:
+      "Задача: атмосферний лендінг локального бізнесу з бронюванням. Реалізація: адаптивна верстка на Tailwind, галерея меню та форма бронювання з валідацією.",
+    siteUrl: "./portfolio/coffee-landing/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "photographer-portfolio",
+    title: "Anna Kovalenko | Портфоліо фотографа",
+    description:
+      "Портфоліо фотографа з галереями за жанрами (весільна, портретна, стріт, пейзажна), лайтбоксом і формою для запису на зйомку.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    process:
+      "Задача: візуально мінімалістичне портфоліо з акцентом на фото. Реалізація: адаптивні галереї з фільтрами за жанром, лайтбокс на JS, форма контакту.",
+    siteUrl: "./portfolio/photographer-portfolio/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "dance-studio",
+    title: "Flow | Сайт студії танцю",
+    description:
+      "Сайт студії танцю з інтерактивним розкладом занять, картками тренерів, тарифами абонементів і формою запису на пробне заняття.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    process:
+      "Задача: сайт-каталог послуг із записом на заняття. Реалізація: інтерактивна таблиця розкладу з фільтрами на JS, адаптивна сітка тренерів і тарифів на Tailwind.",
+    siteUrl: "./portfolio/dance-studio/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "analytics-dashboard",
+    title: "Insight | Аналітичний дашборд",
+    description:
+      "BI-дашборд аналітики продажів: KPI-картки з динамікою, графіки доходу за днями/категоріями/каналами та таблиця транзакцій із пошуком і пагінацією.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript", "Chart.js"],
+    process:
+      "Задача: наочний дашборд для аналізу продажів без бекенду. Реалізація: графіки на Chart.js з мокованими даними, таблиця транзакцій із сортуванням, пошуком і пагінацією на JS.",
+    siteUrl: "./portfolio/analytics-dashboard/",
+    githubUrl: null,
+    hasImages: false
   }
 ];
 
 const PROJECTS_EN = [
   {
+    slug: "assistant",
     title: "Assistant | Online Task Manager with AI",
     description:
       "Online task manager with AI assistant: tasks, notes, schedule and chat in one interface.",
@@ -79,27 +135,80 @@ const PROJECTS_EN = [
     process:
       "Built SPA architecture, implemented task/schedule/notes modules, connected AI chat via API proxy and managed client state persistence with LocalStorage.",
     siteUrl: "../portfolio/Assistant/",
-    githubUrl: "https://github.com/Q42fmr/Assistant/"
+    githubUrl: "https://github.com/Q42fmr/Assistant/",
+    hasImages: false
   },
   {
-    title: "E-commerce Landing",
+    slug: "plant-shop",
+    title: "Verde | Houseplant Online Store",
     description:
-      "Responsive e-commerce landing focused on conversion, loading speed and clean content hierarchy.",
-    stack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+      "Houseplant e-commerce store: catalog with filters, search and sorting, cart with persisted state, and checkout flow.",
+    stack: ["Vue 3", "Vite", "JavaScript", "CSS", "LocalStorage"],
     process:
-      "Implemented layout from scratch, designed section hierarchy, polished CTA blocks and tuned responsive behavior for mobile and desktop.",
-    siteUrl: "../portfolio/ecommerce-landing/",
-    githubUrl: "https://github.com/your-username/ecommerce-landing"
+      "Task: conversion-focused storefront with a full client-side purchase flow. Implementation: Vue 3 SPA — reactive filters and cart, LocalStorage persistence, checkout form validation.",
+    siteUrl: "../portfolio/plant-shop/",
+    githubUrl: null,
+    hasImages: false
   },
   {
-    title: "Portfolio Template",
+    slug: "saas-landing",
+    title: "Pulse | SaaS Landing Page",
     description:
-      "Developer portfolio template with SEO setup, responsive layout and resume-focused structure.",
+      "Landing page for a sales analytics service for small businesses: real-time reports, no-code dashboards and a signup form.",
     stack: ["HTML", "Tailwind CSS", "JavaScript"],
     process:
-      "Created reusable section structure, anchor navigation, responsive styles and baseline SEO metadata.",
-    siteUrl: "../portfolio/portfolio-template/",
-    githubUrl: "https://github.com/your-username/portfolio-template"
+      "Task: high-conversion SaaS landing with a clear offer structure. Implementation: hero/features/pricing/FAQ sections built with Tailwind, animated transitions and JS form validation.",
+    siteUrl: "../portfolio/saas-landing/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "coffee-landing",
+    title: "KAVA Roasters | Coffee Shop Landing Page",
+    description:
+      "Landing page for a coffee shop and roastery: drinks and dessert menu, brand story and online table booking.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    process:
+      "Task: an atmospheric landing page for a local business with booking. Implementation: responsive Tailwind layout, menu gallery and a validated booking form.",
+    siteUrl: "../portfolio/coffee-landing/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "photographer-portfolio",
+    title: "Anna Kovalenko | Photographer Portfolio",
+    description:
+      "Photographer portfolio with genre galleries (wedding, portrait, street, landscape), a lightbox and a booking contact form.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    process:
+      "Task: a visually minimal portfolio focused on the photography. Implementation: responsive genre-filtered galleries, a JS lightbox and a contact form.",
+    siteUrl: "../portfolio/photographer-portfolio/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "dance-studio",
+    title: "Flow | Dance Studio Website",
+    description:
+      "Dance studio website with an interactive class schedule, instructor cards, membership pricing and a trial-class signup form.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    process:
+      "Task: a service-catalog site with class booking. Implementation: an interactive, filterable schedule table in JS, a responsive instructor and pricing grid built with Tailwind.",
+    siteUrl: "../portfolio/dance-studio/",
+    githubUrl: null,
+    hasImages: false
+  },
+  {
+    slug: "analytics-dashboard",
+    title: "Insight | Analytics Dashboard",
+    description:
+      "BI sales analytics dashboard: KPI cards with trends, revenue charts by day/category/channel, and a searchable, paginated transactions table.",
+    stack: ["HTML", "Tailwind CSS", "JavaScript", "Chart.js"],
+    process:
+      "Task: a clear, backend-free dashboard for sales analysis. Implementation: Chart.js charts driven by mock data, a transactions table with sorting, search and pagination in JS.",
+    siteUrl: "../portfolio/analytics-dashboard/",
+    githubUrl: null,
+    hasImages: false
   }
 ];
 
@@ -146,12 +255,25 @@ function renderProjects() {
       (project, index) => `
       <article class="project-card project-card-clickable" data-project-index="${index}">
         <div class="project-collage">
+          ${
+            project.hasImages
+              ? `
+          <div class="project-screen project-screen-desktop">
+            <img src="${ASSET_PREFIX}/assets/img/projects/${project.slug}-desktop.jpg" alt="${project.title} — desktop" loading="lazy">
+          </div>
+          <div class="project-screen project-screen-mobile">
+            <img src="${ASSET_PREFIX}/assets/img/projects/${project.slug}-mobile.jpg" alt="${project.title} — mobile" loading="lazy">
+          </div>
+          `
+              : `
           <div class="project-screen project-screen-desktop">
             <span class="project-screen-label">${isEnglish ? "Desktop" : "Десктоп"}</span>
           </div>
           <div class="project-screen project-screen-mobile">
             <span class="project-screen-label">${isEnglish ? "Mobile" : "Мобайл"}</span>
           </div>
+          `
+          }
         </div>
         <h3 class="mt-4 text-lg font-semibold">${project.title}</h3>
         <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${project.description}</p>
@@ -187,7 +309,12 @@ function openProjectModal(project) {
   projectModalStack.textContent = project.stack.join(" • ");
   projectModalProcess.textContent = project.process;
   projectModalOpen.href = project.siteUrl;
-  projectModalGithub.href = project.githubUrl;
+  projectModalGithub.classList.toggle("hidden", !project.githubUrl);
+  if (project.githubUrl) {
+    projectModalGithub.href = project.githubUrl;
+  } else {
+    projectModalGithub.removeAttribute("href");
+  }
   projectModal.classList.remove("hidden");
   projectModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
