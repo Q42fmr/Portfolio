@@ -1,0 +1,238 @@
+/* ─── Pulse · фірмові стилі поверх Tailwind ─────────────────────── */
+
+:root {
+  --brand: #6366f1;
+  --brand-dark: #4f46e5;
+  --ink: #1a1732;
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html {
+  /* Плавний скрол до анкорів виконує app.js (initAnchors) — надійніше за
+     нативний scroll-behavior: smooth, який зривається при реф-лоу sticky-хедера. */
+  scroll-padding-top: 92px;
+}
+
+body {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgb(99 102 241 / 0.2);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* ── Кнопки ─────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.8125rem 1.5rem;
+  font-weight: 700;
+  transition:
+    background-color 0.2s var(--ease),
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow:
+    0 1px 2px rgb(26 23 50 / 0.1),
+    0 10px 24px -12px rgb(99 102 241 / 0.55);
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: rgb(99 102 241 / 0.04);
+}
+
+.btn-sm {
+  padding: 0.5625rem 1.125rem;
+  font-size: 0.875rem;
+  border-radius: 0.625rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ── Декор: крапковий растр ─────────────────────────────────────── */
+
+.bg-dots {
+  background-image: radial-gradient(rgb(99 102 241 / 0.14) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+.bg-dots-dark {
+  background-image: radial-gradient(rgb(255 255 255 / 0.12) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* ── Reveal: поява при скролі (клас .visible додає app.js) ──────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-1 { transition-delay: 0.08s; }
+.reveal-2 { transition-delay: 0.16s; }
+
+/* ── Мокап дашборда: стовпчики та донат ─────────────────────────── */
+
+.bars > span {
+  transform-origin: bottom;
+  animation: bar-grow 0.9s var(--ease) backwards;
+}
+
+.bars > span:nth-child(2) { animation-delay: 0.07s; }
+.bars > span:nth-child(3) { animation-delay: 0.14s; }
+.bars > span:nth-child(4) { animation-delay: 0.21s; }
+.bars > span:nth-child(5) { animation-delay: 0.28s; }
+.bars > span:nth-child(6) { animation-delay: 0.35s; }
+.bars > span:nth-child(7) { animation-delay: 0.42s; }
+
+@keyframes bar-grow {
+  from { transform: scaleY(0.06); }
+}
+
+.donut {
+  background: conic-gradient(var(--brand) 0 44%, #a5b4fc 44% 76%, #e2e8f0 76% 100%);
+}
+
+/* ── Перемикач періоду оплати ───────────────────────────────────── */
+
+.seg-btn {
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #64748b;
+  transition:
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.seg-btn .seg-badge {
+  margin-left: 0.375rem;
+  border-radius: 9999px;
+  background: #d1fae5;
+  color: #047857;
+  padding: 0.125rem 0.4375rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  transition:
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.seg-active {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 2px 8px rgb(26 23 50 / 0.25);
+}
+
+.seg-active .seg-badge {
+  background: rgb(255 255 255 / 0.18);
+  color: #fff;
+}
+
+.js-price.price-swap {
+  animation: price-pop 0.35s var(--ease);
+}
+
+@keyframes price-pop {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FAQ-акордеон ───────────────────────────────────────────────── */
+
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease);
+}
+
+.faq-item.open .faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-panel > div {
+  overflow: hidden;
+}
+
+.faq-chevron {
+  transition: transform 0.35s var(--ease);
+}
+
+.faq-item.open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item.open {
+  border-color: rgb(99 102 241 / 0.4);
+  box-shadow: 0 12px 32px -16px rgb(99 102 241 / 0.25);
+}
+
+/* ── Доступність: вимкнути рух за налаштуванням системи ─────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .reveal-1,
+  .reveal-2 {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .bars > span {
+    animation: none;
+  }
+
+  .faq-panel,
+  .faq-chevron,
+  .btn {
+    transition: none;
+  }
+}

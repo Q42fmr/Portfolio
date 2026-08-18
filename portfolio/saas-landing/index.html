@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse — аналітика продажів для малого бізнесу</title>
+  <meta name="description" content="Pulse — сервіс аналітики продажів для малого бізнесу: звіти в реальному часі, прогнози, дашборди без коду, експорт у Excel і сповіщення в Telegram. Почніть безкоштовно." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#6366f1",
+            "brand-dark": "#4f46e5",
+            ink: "#1a1732",
+            surface: "#f6f6fb",
+          },
+          fontFamily: {
+            sans: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./app.js" defer></script>
+</head>
+<body class="bg-white font-sans text-ink">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white">Перейти до вмісту</a>
+
+  <!-- 1. Navbar -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Головна навігація">
+      <a href="#" class="flex items-center gap-2.5" aria-label="Pulse — на початок сторінки"><span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span class="text-xl font-extrabold tracking-tight">Pulse</span></a>
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="#features" class="text-sm font-semibold text-slate-600 transition hover:text-ink">Можливості</a>
+        <a href="#how" class="text-sm font-semibold text-slate-600 transition hover:text-ink">Як працює</a>
+        <a href="#pricing" class="text-sm font-semibold text-slate-600 transition hover:text-ink">Тарифи</a>
+        <a href="#faq" class="text-sm font-semibold text-slate-600 transition hover:text-ink">FAQ</a>
+      </div>
+      <div class="hidden items-center gap-3 lg:flex">
+        <a href="#cta" class="text-sm font-semibold text-slate-600 transition hover:text-ink">Увійти</a>
+        <a href="#cta" class="btn btn-primary btn-sm">Спробувати</a>
+      </div>
+      <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center rounded-xl text-slate-600 transition hover:bg-slate-100 lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
+        <svg id="icon-burger" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="icon-close" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-slate-100 bg-white px-4 pb-6 pt-2 sm:px-6 lg:hidden">
+      <a href="#features" class="block border-b border-slate-100 py-3.5 font-semibold text-slate-700">Можливості</a>
+      <a href="#how" class="block border-b border-slate-100 py-3.5 font-semibold text-slate-700">Як працює</a>
+      <a href="#pricing" class="block border-b border-slate-100 py-3.5 font-semibold text-slate-700">Тарифи</a>
+      <a href="#faq" class="block border-b border-slate-100 py-3.5 font-semibold text-slate-700">FAQ</a>
+      <a href="#cta" class="btn btn-primary btn-block mt-4">Спробувати безкоштовно</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 2. Hero -->
+    <section class="relative overflow-hidden">
+      <div class="bg-dots absolute inset-x-0 top-0 -z-10 h-[560px] [mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
+      <div class="mx-auto max-w-7xl px-4 pb-24 pt-14 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
+        <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+
+          <div class="max-w-xl reveal">
+            <span class="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3.5 py-1.5 text-xs font-bold text-brand"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>Нове: сповіщення у Telegram</span>
+            <h1 class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">Аналітика продажів для <span class="text-brand">малого бізнесу</span></h1>
+            <p class="mt-5 text-lg leading-relaxed text-slate-600">Pulse збирає дані з ваших каналів продажів і перетворює їх на зрозумілі звіти. Без таблиць і формул — рішення за хвилини, а не тижні.</p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#cta" class="btn btn-primary">Почати безкоштовно <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              <a href="#how" class="btn btn-ghost"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .85.94 1.36 1.65.9l10.2-6.86a1.08 1.08 0 0 0 0-1.8L9.65 4.24A1.08 1.08 0 0 0 8 5.14Z"/></svg> Як це працює</a>
+            </div>
+            <p class="mt-5 text-sm text-slate-500">14 днів плану «Бізнес» безкоштовно · Без банківської карти</p>
+          </div>
+
+          <!-- CSS-мокап дашборда -->
+          <div class="relative reveal reveal-2">
+            <div class="absolute -right-10 -top-16 -z-10 h-80 w-80 rounded-full bg-brand/15 blur-3xl"></div>
+            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-indigo-500/10">
+              <div class="flex items-center gap-2 border-b border-slate-100 px-5 py-3.5">
+                <span class="h-2.5 w-2.5 rounded-full bg-rose-300"></span><span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span><span class="h-2.5 w-2.5 rounded-full bg-emerald-300"></span>
+                <span class="ml-3 hidden rounded-md bg-slate-100 px-3 py-1 text-[11px] font-semibold text-slate-400 sm:block">app.pulse.ua/dashboard</span>
+                <span class="ml-auto inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600"><span class="relative flex h-1.5 w-1.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span></span>онлайн</span>
+              </div>
+              <div class="space-y-5 p-5 sm:p-6">
+                <div class="flex items-end justify-between">
+                  <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Огляд продажів</p>
+                    <p class="text-lg font-extrabold">Серпень 2026</p>
+                  </div>
+                  <span class="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-500">7 днів</span>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                  <div class="rounded-xl bg-slate-50 p-3">
+                    <p class="text-[11px] font-semibold text-slate-500">Дохід</p>
+                    <p class="mt-0.5 text-sm font-extrabold sm:text-base">₴128 400</p>
+                    <p class="mt-0.5 text-[11px] font-bold text-emerald-600">+12,4%</p>
+                  </div>
+                  <div class="rounded-xl bg-slate-50 p-3">
+                    <p class="text-[11px] font-semibold text-slate-500">Замовлення</p>
+                    <p class="mt-0.5 text-sm font-extrabold sm:text-base">1 284</p>
+                    <p class="mt-0.5 text-[11px] font-bold text-emerald-600">+8,1%</p>
+                  </div>
+                  <div class="rounded-xl bg-slate-50 p-3">
+                    <p class="text-[11px] font-semibold text-slate-500">Середній чек</p>
+                    <p class="mt-0.5 text-sm font-extrabold sm:text-base">₴312</p>
+                    <p class="mt-0.5 text-[11px] font-bold text-rose-500">−2,3%</p>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-xs font-bold text-slate-500">Продажі за тиждень</p>
+                    <p class="text-xs font-extrabold text-emerald-600">+18% до минулого</p>
+                  </div>
+                  <div class="bars flex h-28 items-end gap-1.5" aria-hidden="true">
+                    <span class="w-full rounded-md bg-indigo-100" style="height:42%"></span>
+                    <span class="w-full rounded-md bg-indigo-100" style="height:58%"></span>
+                    <span class="w-full rounded-md bg-indigo-100" style="height:36%"></span>
+                    <span class="w-full rounded-md bg-indigo-200" style="height:72%"></span>
+                    <span class="w-full rounded-md bg-indigo-100" style="height:54%"></span>
+                    <span class="w-full rounded-md bg-brand" style="height:88%"></span>
+                    <span class="w-full rounded-md bg-indigo-200" style="height:64%"></span>
+                  </div>
+                  <div class="mt-2 grid grid-cols-7 gap-1.5 text-center text-[10px] font-semibold text-slate-400"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Нд</span></div>
+                </div>
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div class="flex items-center gap-4">
+                    <div class="donut relative h-20 w-20 shrink-0 rounded-full" aria-hidden="true"><div class="absolute inset-[7px] grid place-items-center rounded-full bg-white"><span class="text-xs font-extrabold">44%</span></div></div>
+                    <ul class="space-y-1.5 text-[11px] font-semibold text-slate-500">
+                      <li class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-sm bg-brand"></span>Instagram · 44%</li>
+                      <li class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-sm bg-indigo-300"></span>Сайт · 32%</li>
+                      <li class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-sm bg-slate-200"></span>Інше · 24%</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="mb-3 text-xs font-bold text-slate-500">Топ товарів</p>
+                    <ul class="space-y-2.5">
+                      <li>
+                        <div class="mb-1 flex justify-between text-[11px] font-semibold"><span class="text-slate-600">Свічка «Лаванда»</span><span class="text-slate-400">82%</span></div>
+                        <div class="h-1.5 rounded-full bg-slate-100"><div class="h-full rounded-full bg-brand" style="width:82%"></div></div>
+                      </li>
+                      <li>
+                        <div class="mb-1 flex justify-between text-[11px] font-semibold"><span class="text-slate-600">Подарунковий бокс</span><span class="text-slate-400">64%</span></div>
+                        <div class="h-1.5 rounded-full bg-slate-100"><div class="h-full rounded-full bg-indigo-300" style="width:64%"></div></div>
+                      </li>
+                      <li>
+                        <div class="mb-1 flex justify-between text-[11px] font-semibold"><span class="text-slate-600">Листівки</span><span class="text-slate-400">41%</span></div>
+                        <div class="h-1.5 rounded-full bg-slate-100"><div class="h-full rounded-full bg-indigo-200" style="width:41%"></div></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-6 -left-3 flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-xl shadow-slate-900/10 sm:-left-8">
+              <span class="grid h-9 w-9 place-items-center rounded-xl bg-emerald-100 text-emerald-600"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+              <div><p class="text-sm font-extrabold leading-none">+24%</p><p class="mt-1 text-[11px] text-slate-500">до продажів за квартал</p></div>
+            </div>
+            <div class="absolute -right-3 -top-4 hidden items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-xl shadow-slate-900/10 sm:flex">
+              <span class="grid h-9 w-9 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+              <div><p class="text-xs font-extrabold leading-none">Звіт за день готовий</p><p class="mt-1 text-[11px] text-slate-500">Telegram · щойно</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Нам довіряють -->
+    <section class="border-y border-slate-100">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <p class="text-center text-xs font-bold uppercase tracking-[0.22em] text-slate-400">Нам довіряють</p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-5 text-slate-400 reveal">
+          <span class="text-xl font-extrabold tracking-tight">Craft&amp;Co</span>
+          <span class="text-xl font-bold italic">Bloomly</span>
+          <span class="text-lg font-extrabold uppercase tracking-[0.18em]">Ferma+</span>
+          <span class="text-xl font-bold">Kavun<span class="text-slate-300">.ua</span></span>
+          <span class="text-xl font-extrabold tracking-tight">Lys<span class="text-slate-300">tok</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Можливості -->
+    <section id="features" class="bg-surface">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-brand">Можливості</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Усе, щоб ухвалювати рішення на основі даних</h2>
+          <p class="mt-4 text-lg leading-relaxed text-slate-600">Pulse замінює десятки таблиць одним зрозумілим робочим простором.</p>
+        </div>
+        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-indigo-500/10 reveal">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+            <h3 class="mt-4 text-lg font-extrabold">Звіти в реальному часі</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Продажі, повернення та залишки оновлюються щохвилини. Ви завжди бачите актуальну картину бізнесу.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-indigo-500/10 reveal reveal-1">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+            <h3 class="mt-4 text-lg font-extrabold">Інтеграція з CRM</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Підключіть свою CRM, таблиці чи маркетплейс через готові конектори або відкритий API — без розробників.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-indigo-500/10 reveal reveal-2">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+            <h3 class="mt-4 text-lg font-extrabold">Прогноз продажів</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Модель враховує сезонність і тренди та прогнозує виторг на 30 днів уперед із точністю до 93%.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-indigo-500/10 reveal">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>
+            <h3 class="mt-4 text-lg font-extrabold">Дашборди без коду</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Складайте власні панелі з готових блоків простим перетягуванням — жодного рядка коду.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-indigo-500/10 reveal reveal-1">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></span>
+            <h3 class="mt-4 text-lg font-extrabold">Експорт у Excel/PDF</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Один клік — і готовий звіт для бухгалтера, партнера чи інвестора вже у вас на пошті.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200/80 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-indigo-500/10 reveal reveal-2">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand/10 text-brand"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+            <h3 class="mt-4 text-lg font-extrabold">Сповіщення у Telegram</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Щоденні підсумки та миттєві алерти про незвичні падіння продажів — просто у вашому месенджері.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Як працює -->
+    <section id="how">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-brand">Як працює</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Від даних до звітів за один вечір</h2>
+        </div>
+        <div class="relative mt-14">
+          <div class="absolute left-0 right-0 top-6 hidden border-t-2 border-dashed border-slate-200 lg:block" aria-hidden="true"></div>
+          <div class="grid gap-10 lg:grid-cols-3 lg:gap-8">
+            <div class="relative reveal">
+              <div class="grid h-12 w-12 place-items-center rounded-full border-2 border-brand/30 bg-white text-sm font-extrabold text-brand">01</div>
+              <h3 class="mt-5 text-lg font-extrabold">Підключіть дані</h3>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-slate-600">Імпортуйте продажі з CRM, Google Таблиць або маркетплейсів у кілька кліків.</p>
+            </div>
+            <div class="relative reveal reveal-1">
+              <div class="grid h-12 w-12 place-items-center rounded-full border-2 border-brand/30 bg-white text-sm font-extrabold text-brand">02</div>
+              <h3 class="mt-5 text-lg font-extrabold">Оберіть шаблон</h3>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-slate-600">Готові дашборди для роздрібу, послуг і онлайн-торгівлі — або зберіть власний.</p>
+            </div>
+            <div class="relative reveal reveal-2">
+              <div class="grid h-12 w-12 place-items-center rounded-full border-2 border-brand/30 bg-white text-sm font-extrabold text-brand">03</div>
+              <h3 class="mt-5 text-lg font-extrabold">Отримуйте звіти</h3>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-slate-600">Щоранку — стислий підсумок на пошту чи в Telegram. Деталі — завжди в дашборді.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Тарифи -->
+    <section id="pricing" class="border-y border-slate-100 bg-surface">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div class="mx-auto max-w-2xl text-center reveal">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-brand">Тарифи</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Чесні ціни, що ростуть разом із вами</h2>
+          <p class="mt-4 text-lg leading-relaxed text-slate-600">Почніть безкоштовно — оновлюйте план, коли буде потрібно більше.</p>
+          <div class="mt-8 inline-flex rounded-full border border-slate-200 bg-white p-1" role="group" aria-label="Період оплати">
+            <button type="button" class="js-period-btn seg-btn seg-active" data-period="monthly" aria-pressed="true">Щомісяця</button>
+            <button type="button" class="js-period-btn seg-btn" data-period="yearly" aria-pressed="false">Щороку <span class="seg-badge">−20%</span></button>
+          </div>
+        </div>
+        <div class="mx-auto mt-12 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
+          <div class="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 reveal">
+            <h3 class="text-lg font-extrabold">Старт</h3>
+            <p class="mt-1 text-sm text-slate-500">Для знайомства з сервісом</p>
+            <div class="mt-6 flex items-baseline gap-1.5">
+              <span class="text-4xl font-extrabold tracking-tight"><span class="js-price" data-monthly="0" data-yearly="0">0</span> ₴</span>
+              <span class="text-sm font-semibold text-slate-500">/міс</span>
+            </div>
+            <p class="js-note mt-1.5 text-xs font-semibold text-slate-500" data-monthly="Безкоштовно назавжди" data-yearly="Безкоштовно назавжди">Безкоштовно назавжди</p>
+            <ul class="mt-7 space-y-3 text-sm font-medium text-slate-600">
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>1 джерело даних</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>3 готові звіти</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Історія за 30 днів</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Експорт у PDF</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost btn-block mt-8">Почати безкоштовно</a>
+          </div>
+          <div class="relative flex flex-col rounded-3xl bg-ink p-7 text-white shadow-2xl shadow-indigo-950/30 reveal reveal-1">
+            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-white">Популярний</span>
+            <h3 class="text-lg font-extrabold">Бізнес</h3>
+            <p class="mt-1 text-sm text-slate-300">Для команд, що ростуть</p>
+            <div class="mt-6 flex items-baseline gap-1.5">
+              <span class="text-4xl font-extrabold tracking-tight"><span class="js-price" data-monthly="499" data-yearly="399">499</span> ₴</span>
+              <span class="text-sm font-semibold text-slate-300">/міс</span>
+            </div>
+            <p class="js-note mt-1.5 text-xs font-semibold text-indigo-200/80" data-monthly="При щомісячній оплаті" data-yearly="4 788 ₴/рік — економія 1 200 ₴">При щомісячній оплаті</p>
+            <ul class="mt-7 space-y-3 text-sm font-medium text-slate-200">
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>5 джерел даних</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Усі готові звіти + конструктор</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Прогноз продажів на 30 днів</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Сповіщення у Telegram</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Історія за 12 місяців</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary btn-block mt-8">Спробувати 14 днів</a>
+          </div>
+          <div class="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 reveal reveal-2">
+            <h3 class="text-lg font-extrabold">Про</h3>
+            <p class="mt-1 text-sm text-slate-500">Для мереж і великих команд</p>
+            <div class="mt-6 flex items-baseline gap-1.5">
+              <span class="text-4xl font-extrabold tracking-tight"><span class="js-price" data-monthly="999" data-yearly="799">999</span> ₴</span>
+              <span class="text-sm font-semibold text-slate-500">/міс</span>
+            </div>
+            <p class="js-note mt-1.5 text-xs font-semibold text-slate-500" data-monthly="При щомісячній оплаті" data-yearly="9 588 ₴/рік — економія 2 400 ₴">При щомісячній оплаті</p>
+            <ul class="mt-7 space-y-3 text-sm font-medium text-slate-600">
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Необмежені джерела даних</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>API та власні інтеграції</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Персональний менеджер</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Пріоритетна підтримка 24/7</li>
+              <li class="flex items-start gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Історія без обмежень</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost btn-block mt-8">Звʼязатися з нами</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Відгуки -->
+    <section>
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div class="max-w-2xl reveal">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-brand">Відгуки</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Команди відчувають різницю з першого тижня</h2>
+        </div>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          <figure class="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 reveal">
+            <div class="flex gap-1 text-amber-400" aria-label="Оцінка 5 з 5"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg></div>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-slate-700">«Раніше я зводила продажі в таблицях щонеділі. Тепер відкриваю Pulse зранку — і за хвилину бачу все: від виторгу до залишків.»</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-brand/10 text-brand text-sm font-extrabold">ОМ</span>
+              <div>
+                <p class="text-sm font-extrabold">Олена Марченко</p>
+                <p class="text-xs text-slate-500">Власниця крамниці подарунків</p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 reveal reveal-1">
+            <div class="flex gap-1 text-amber-400" aria-label="Оцінка 5 з 5"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg></div>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-slate-700">«Прогноз продажів допоміг спланувати закупівлі перед святами. Влучив із точністю до кількох відсотків — без магії, просто дані.»</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-100 text-emerald-700 text-sm font-extrabold">ТГ</span>
+              <div>
+                <p class="text-sm font-extrabold">Тарас Гнатюк</p>
+                <p class="text-xs text-slate-500">Співзасновник мережі кавʼярень</p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 reveal reveal-2">
+            <div class="flex gap-1 text-amber-400" aria-label="Оцінка 5 з 5"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.94 6.34 6.94.63-5.24 4.6 1.55 6.8L12 16.77 5.81 20.37l1.55-6.8-5.24-4.6 6.94-.63L12 2z"/></svg></div>
+            <blockquote class="mt-4 flex-1 leading-relaxed text-slate-700">«Сповіщення у Telegram — топ. Команда бачить результати дня одразу, без нагадувань і зайвих дзвінків. Планірки стали вдвічі коротшими.»</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-amber-100 text-amber-700 text-sm font-extrabold">ІС</span>
+              <div>
+                <p class="text-sm font-extrabold">Ірина Соколова</p>
+                <p class="text-xs text-slate-500">Керівниця відділу продажів</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section id="faq" class="border-y border-slate-100 bg-surface">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div class="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
+          <div class="reveal">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-brand">FAQ</p>
+            <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Часті запитання</h2>
+            <p class="mt-4 leading-relaxed text-slate-600">Не знайшли відповіді? Напишіть нам — відповідаємо протягом робочого дня.</p>
+            <a href="#cta" class="mt-5 inline-flex items-center gap-1.5 font-bold text-brand transition hover:text-brand-dark">Написати в підтримку <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+          <div class="space-y-3">
+            <div class="faq-item open rounded-2xl border border-slate-200 bg-white reveal">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold" aria-expanded="true" aria-controls="faq-panel-1" id="faq-trigger-1">
+                <span>Чи потрібна банківська карта, щоб почати?</span>
+                <svg class="faq-chevron h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+                <div><p class="px-6 pb-5 text-sm leading-relaxed text-slate-600">Ні. План «Старт» безкоштовний назавжди, а пробні 14 днів плану «Бізнес» не вимагають карти. Платити почнете, лише коли самі оберете платний план.</p></div>
+              </div>
+            </div>
+            <div class="faq-item rounded-2xl border border-slate-200 bg-white reveal">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+                <span>Які джерела даних можна підключити?</span>
+                <svg class="faq-chevron h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+                <div><p class="px-6 pb-5 text-sm leading-relaxed text-slate-600">CRM-системи, Google Таблиці, файли Excel і маркетплейси. Для нестандартних джерел є відкритий API та вебхуки — підключення займає близько 10 хвилин.</p></div>
+              </div>
+            </div>
+            <div class="faq-item rounded-2xl border border-slate-200 bg-white reveal">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+                <span>Чи можна скасувати підписку будь-коли?</span>
+                <svg class="faq-chevron h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+                <div><p class="px-6 pb-5 text-sm leading-relaxed text-slate-600">Так, одним кліком у налаштуваннях — без дзвінків і листів. Доступ збережеться до кінця оплаченого періоду, а всі дані можна експортувати.</p></div>
+              </div>
+            </div>
+            <div class="faq-item rounded-2xl border border-slate-200 bg-white reveal">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trigger-4">
+                <span>Як швидко оновлюються дані у звітах?</span>
+                <svg class="faq-chevron h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
+                <div><p class="px-6 pb-5 text-sm leading-relaxed text-slate-600">У планах «Бізнес» і «Про» — щохвилини. У безкоштовному «Старті» — раз на годину. Історичні дані підтягуються одразу після підключення джерела.</p></div>
+              </div>
+            </div>
+            <div class="faq-item rounded-2xl border border-slate-200 bg-white reveal">
+              <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-bold" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trigger-5">
+                <span>Чи безпечно зберігати дані у Pulse?</span>
+                <svg class="faq-chevron h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
+                <div><p class="px-6 pb-5 text-sm leading-relaxed text-slate-600">Так. Дані шифруються під час передавання та зберігання, доступ захищений двофакторною автентифікацією, а резервні копії створюються щодня.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CTA + форма -->
+    <section id="cta">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <div class="relative overflow-hidden rounded-[2.5rem] bg-ink px-6 py-16 text-center sm:px-16 reveal">
+          <div class="bg-dots-dark absolute inset-0 opacity-60 [mask-image:radial-gradient(60%_60%_at_50%_0%,black,transparent)]" aria-hidden="true"></div>
+          <div class="absolute -top-32 left-1/2 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-brand/25 blur-3xl" aria-hidden="true"></div>
+          <div class="relative">
+            <h2 class="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Почніть бачити свій бізнес у цифрах</h2>
+            <p class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-slate-300">Залиште email — і ми надішлемо посилання на демо-акаунт із тестовими даними. Жодних зобовʼязань.</p>
+            <div id="form-wrap" class="mx-auto mt-8 max-w-md">
+              <form id="demo-form" class="flex flex-col gap-3 sm:flex-row" novalidate>
+                <label class="sr-only" for="email-input">Ваша електронна пошта</label>
+                <input id="email-input" name="email" type="email" autocomplete="email" placeholder="you@company.ua" class="w-full flex-1 rounded-xl border-0 bg-white px-4 py-3.5 font-medium text-ink placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand" />
+                <button type="submit" class="btn btn-primary shrink-0">Отримати демо</button>
+              </form>
+              <p id="form-error" class="mt-3 hidden text-sm font-semibold text-red-300" role="alert">Введіть коректну адресу, наприклад name@company.ua</p>
+              <p class="mt-4 text-xs text-slate-400">Безкоштовно · Без банківської карти · Скасування будь-коли</p>
+            </div>
+            <div id="form-success" class="mx-auto mt-8 hidden max-w-md rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-6 py-5 text-left" role="status">
+              <div class="flex items-start gap-3">
+                <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-emerald-400/20 text-emerald-300"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div>
+                  <p class="font-bold text-white">Готово! Лист уже летить на <span id="success-email" class="text-emerald-300"></span></p>
+                  <p class="mt-1 text-sm text-slate-300">Перевірте «Вхідні» за кілька хвилин — посилання на демо діє 7 днів.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 10. Footer -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr]">
+        <div>
+          <a href="#" class="flex items-center gap-2.5" aria-label="Pulse — на початок сторінки"><span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span class="text-xl font-extrabold tracking-tight">Pulse</span></a>
+          <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-500">Аналітика продажів, що вміщується в одному екрані. Створено для малого бізнесу в Україні.</p>
+        </div>
+        <nav aria-label="Продукт">
+          <p class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Продукт</p>
+          <ul class="mt-4 space-y-2.5 text-sm font-semibold text-slate-600">
+            <li><a href="#features" class="transition hover:text-brand">Можливості</a></li>
+            <li><a href="#how" class="transition hover:text-brand">Як працює</a></li>
+            <li><a href="#pricing" class="transition hover:text-brand">Тарифи</a></li>
+            <li><a href="#faq" class="transition hover:text-brand">FAQ</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Компанія">
+          <p class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Компанія</p>
+          <ul class="mt-4 space-y-2.5 text-sm font-semibold text-slate-600">
+            <li><a href="#" class="transition hover:text-brand">Про нас</a></li>
+            <li><a href="#" class="transition hover:text-brand">Блог</a></li>
+            <li><a href="#" class="transition hover:text-brand">Вакансії</a></li>
+            <li><a href="#" class="transition hover:text-brand">Політика конфіденційності</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Контакти</p>
+          <ul class="mt-4 space-y-3 text-sm font-semibold text-slate-600">
+            <li class="flex items-center gap-2.5"><svg class="h-4 w-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+380441234567" class="transition hover:text-brand">+380 (44) 123-45-67</a></li>
+            <li class="flex items-center gap-2.5"><svg class="h-4 w-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:hello@pulse.ua" class="transition hover:text-brand">hello@pulse.ua</a></li>
+            <li class="flex items-center gap-2.5"><svg class="h-4 w-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>м. Київ, вул. Прикладна, 1</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-6 text-sm text-slate-500 sm:flex-row">
+        <p>© 2026 Pulse. Усі права захищено.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <span class="rounded-full bg-brand/10 px-3.5 py-1.5 text-xs font-bold text-brand">Демо-проєкт для портфоліо</span>
+          <a href="../../index.html#projects" class="font-bold text-slate-600 transition hover:text-brand">← До портфоліо</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
