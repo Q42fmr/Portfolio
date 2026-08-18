@@ -77,7 +77,11 @@ const cart = ref(restoreCart());
 watch(
   cart,
   (value) => {
-    localStorage.setItem(CART_KEY, JSON.stringify(value));
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(value));
+    } catch {
+      // сховище недоступне (політики браузера) — кошик працює без persist
+    }
   },
   { deep: true }
 );
