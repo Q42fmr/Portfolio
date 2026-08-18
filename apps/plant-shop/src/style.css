@@ -1,0 +1,265 @@
+/* ============ Verde — дизайн-токени та базові стилі ============ */
+:root {
+  --brand: #16a34a;
+  --brand-600: #15803d;
+  --brand-700: #166534;
+  --deep: #14532d;
+  --ink: #24301f;
+  --muted: #71795f;
+  --cream: #fdfbf7;
+  --cream-2: #f8f4e9;
+  --card: #fffdf8;
+  --line: #e8e1cf;
+  --line-strong: #d9d1ba;
+  --danger: #bf3b2b;
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --radius: 16px;
+  --shadow-sm: 0 2px 10px -4px rgba(31, 56, 32, 0.12);
+  --shadow-md: 0 16px 38px -18px rgba(31, 56, 32, 0.3);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input,
+select,
+output {
+  font: inherit;
+  color: inherit;
+}
+
+svg {
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ============ Кнопки ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--brand);
+  color: #fff;
+  border: 1px solid var(--brand);
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 15px;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s var(--ease-out),
+    box-shadow 0.18s ease;
+}
+
+.btn:hover {
+  background: var(--brand-600);
+  border-color: var(--brand-600);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--brand-700);
+  border-color: var(--line-strong);
+}
+
+.btn-ghost:hover {
+  background: rgba(22, 163, 74, 0.07);
+  color: var(--brand-600);
+  border-color: var(--brand);
+  box-shadow: none;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 17px;
+  border-radius: 14px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-added {
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+.btn-added:hover {
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+/* ============ Спільні дрібниці ============ */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+}
+
+.section-title {
+  font-size: clamp(26px, 4vw, 34px);
+  color: var(--deep);
+  letter-spacing: -0.3px;
+}
+
+/* ============ Переходи (Vue transitions) ============ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.22s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.slide-leave-active {
+  transition: transform 0.2s ease-in;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(105%);
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.22s ease;
+}
+
+.modal-enter-active .modal,
+.modal-leave-active .modal {
+  transition:
+    transform 0.26s var(--ease-out),
+    opacity 0.22s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-from .modal,
+.modal-leave-to .modal {
+  transform: translateY(16px) scale(0.97);
+}
+
+.pop-enter-active {
+  animation: badge-pop 0.32s var(--ease-out);
+}
+
+.pop-leave-active {
+  display: none;
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0.4);
+  }
+  70% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
