@@ -48,3 +48,44 @@ test("visibleClipIds filters by category, 'all' returns everything", () => {
   assert.deepEqual(R.visibleClipIds(clips, "qa"), ["b"]);
   assert.deepEqual(R.visibleClipIds(clips, "all"), ["a", "b"]);
 });
+
+test("clipMarkup renders links and images only when present", () => {
+  const cats = { demo: { id: "demo", label: { ua: "Demo", en: "Demo" } } };
+  const base = {
+    id: "x", kind: "project", category: "demo", from: "2026-08", to: "2026-08", nda: false,
+    title: { ua: "Назва", en: "Title" }, tagline: { ua: "т", en: "t" }, what: { ua: "щ", en: "w" }, result: { ua: "р", en: "r" },
+    tags: ["HTML"], siteUrl: "portfolio/x/", githubUrl: null, images: true
+  };
+  const html = R.clipMarkup(base, 0, 15, "ua", ".", cats);
+  assert.match(html, /id="clip-x"/);
+  assert.match(html, /href="\.\/portfolio\/x\/"/);
+  assert.match(html, /x-desktop\.jpg/);
+  assert.doesNotMatch(html, /GitHub/);
+  const noImg = R.clipMarkup({ ...base, images: false, siteUrl: null, githubUrl: "https://g" }, 0, 15, "en", "..", cats);
+  assert.doesNotMatch(noImg, /collage/);
+  assert.match(noImg, /href="https:\/\/g"/);
+});
+
+test("clipMarkup keeps external siteUrl absolute and prefixes relative ones", () => {
+  const cats = { web: { id: "web", label: { ua: "Web", en: "Web" } } };
+  const clip = {
+    id: "v", kind: "project", category: "web", from: "2026-10", to: "2026-10", nda: false,
+    title: { ua: "V" }, tagline: { ua: "" }, what: { ua: "" }, result: { ua: "" }, tags: [],
+    siteUrl: "https://ext/", githubUrl: null, images: false
+  };
+  assert.match(R.clipMarkup(clip, 1, 2, "ua", "..", cats), /href="https:\/\/ext\/"/);
+});
+
+test("clipMarkup escapes HTML in text fields", () => {
+  const cats = { web: { id: "web", label: { ua: "Web", en: "Web" } } };
+  const clip = {
+    id: "e", kind: "project", category: "web", from: "2026-10", to: "2026-10", nda: false,
+    title: { ua: "<b>x</b>" }, tagline: { ua: "" }, what: { ua: "a & b" }, result: { ua: "" }, tags: ["<i>"],
+    siteUrl: null, githubUrl: null, images: false
+  };
+  const html = R.clipMarkup(clip, 0, 1, "ua", ".", cats);
+  assert.doesNotMatch(html, /<b>x<\/b>/);
+  assert.match(html, /&lt;b&gt;x&lt;\/b&gt;/);
+  assert.match(html, /a &amp; b/);
+  assert.match(html, /&lt;i&gt;/);
+});
