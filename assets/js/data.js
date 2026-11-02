@@ -171,8 +171,8 @@ window.PORTFOLIO = {
         en: "Playwright regressions and Python across dozens of pages"
       },
       what: {
-        ua: "Чеклісти ручного QA (крос-браузер, мобайл, форми); авто-тести на Playwright для регресій після правок; Python-скрипти для масового редагування й перевірки сторінок; Lighthouse-аудити.",
-        en: "Manual QA checklists (cross-browser, mobile, forms); Playwright auto-tests for regressions after edits; Python scripts for bulk editing and checking pages; Lighthouse audits."
+        ua: "Чеклісти ручного QA (крос-браузер, мобайл, форми); авто-тести на Playwright для регресій після правок; Python-скрипти для масового редагування й перевірки сторінок; Lighthouse-аудити. Виросло у внутрішню платформу qa_lab (окремий кліп).",
+        en: "Manual QA checklists (cross-browser, mobile, forms); Playwright auto-tests for regressions after edits; Python scripts for bulk editing and checking pages; Lighthouse audits. Grew into the internal qa_lab platform (separate clip)."
       },
       result: {
         ua: "Менше ручної рутини й регресій; QA як частина процесу, а не етап наприкінці.",
@@ -207,6 +207,32 @@ window.PORTFOLIO = {
       tags: ["Vue", "Vite", "Cloudflare Functions", "Anthropic API", "LocalStorage"],
       siteUrl: "portfolio/Assistant/",
       githubUrl: "https://github.com/Q42fmr/Assistant",
+      images: true
+    },
+    {
+      id: "qa-lab",
+      kind: "project",
+      category: "qa",
+      position: null,
+      from: "2026-07",
+      to: "2026-10",
+      nda: false,
+      title: { ua: "qa_lab · QA і автофікс для сотень сайтів", en: "qa_lab · QA and auto-fix for hundreds of sites" },
+      tagline: {
+        ua: "62 перевірки, 51 автофікс, один коміт на гілку",
+        en: "62 checks, 51 autofixes, one commit per branch"
+      },
+      what: {
+        ua: "Платформа для парку невеликих сайтів, кожен у власній гілці GitLab: 62 автоматичні перевірки (биті лінки й картинки, форми в нікуди, кукі-банери, юридичні сторінки, контакти, плейсхолдери, мова сторінки), 51 автофікс із прев'ю дифу і одним комітом на гілку через GitLab API з гейтом; headless Chrome через CDP у двох в'юпортах (контраст, overflow, обрізаний текст, «мертві» кнопки кліком), Lighthouse, локальні PHP/Node-деплої; черга авто-QA з вебхуків ClickUp із «@author fixed» і чеклістом; ШІ-міст (правила + Claude) мапить скаргу на перевірки; генератор лого/фавіконок, пошук стокових фото, мультикористувацький режим зі Slack OIDC і Telegram-дайджестами. FastAPI + vanilla JS SPA з i18n (UA/EN/RU), 193 ендпоінти, 2 389 тестів, Docker Swarm + Traefik, GitLab CI.",
+        en: "A platform for a fleet of small sites, each in its own GitLab branch: 62 automated checks (broken links and images, forms going nowhere, cookie banners, legal pages, contact blocks, placeholders, page language), 51 autofixes with a diff preview and one commit per branch through the GitLab API behind a commit gate; headless Chrome over CDP in two viewports (contrast, overflow, clipped text, dead buttons found by clicking), Lighthouse, local PHP/Node preview deploys; a webhook-driven ClickUp auto-QA queue with “@author fixed” and checklist ticks; an AI bridge (rules + Claude) mapping complaints to checks; a logo/favicon generator, stock-photo search, multi-user mode with Slack OIDC and Telegram digests. FastAPI + a vanilla JS SPA with i18n (UA/EN/RU), 193 endpoints, 2,389 tests, Docker Swarm + Traefik, GitLab CI."
+      },
+      result: {
+        ua: "Рутинне QA і правки сотень сайтів зведено до «натиснути й перевірити диф»; публічна санітизована копія внутрішнього інструменту з офлайн-демо.",
+        en: "Routine QA and edits across hundreds of sites reduced to “click and review the diff”; a public, sanitised copy of the internal tool with an offline demo."
+      },
+      tags: ["Python", "FastAPI", "Headless Chrome (CDP)", "GitLab API", "ClickUp API", "Anthropic API", "Docker", "JavaScript"],
+      siteUrl: null,
+      githubUrl: "https://github.com/Q42fmr/qa_lab",
       images: true
     },
     {
@@ -536,3 +562,4 @@ window.PORTFOLIO = {
     }
   ]
 };
+
