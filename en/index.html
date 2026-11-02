@@ -1,291 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Junior Frontend Developer</title>
-    <meta
-      name="description"
-      content="Junior frontend developer portfolio with experience, skills, projects and resume."
-    />
-    <meta property="og:title" content="Portfolio | Junior Frontend Developer" />
-    <meta
-      property="og:description"
-      content="Professional portfolio and resume website."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='48'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E"
-    />
-    <script>
-      (function () {
-        var stored = null;
-        try {
-          stored = localStorage.getItem("theme");
-        } catch (e) {}
-        document.documentElement.classList.toggle("dark", stored !== "light");
-      })();
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              brand: "#2563eb",
-              accent: "#14b8a6"
-            }
-          }
-        }
-      };
-    </script>
-    <link rel="stylesheet" href="../assets/css/style.css" />
-  </head>
-  <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased">
-    <header class="sticky top-0 z-20 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-950/95 backdrop-blur">
-      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6" aria-label="Main navigation">
-        <a href="#hero" class="text-lg font-semibold tracking-tight">Alexandr Portfolio</a>
-        <button
-          id="theme-toggle"
-          type="button"
-          class="inline-flex h-9 w-9 items-center justify-center rounded border border-slate-300 text-slate-600 transition hover:border-brand hover:text-brand dark:border-slate-700 dark:text-slate-300"
-          aria-label="Toggle theme"
-          aria-pressed="true"
-        >
-          <svg class="block h-4 w-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-          </svg>
-          <svg class="hidden h-4 w-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
-          </svg>
-        </button>
-        <button
-          id="menu-toggle"
-          class="rounded border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm md:hidden"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          Menu
-        </button>
-        <ul class="hidden items-center gap-6 text-sm md:flex">
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#skills">Skills</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li><a class="rounded border border-slate-300 dark:border-slate-700 px-3 py-1.5 hover:border-brand hover:text-brand" href="../index.html">UA</a></li>
-        </ul>
-      </nav>
-      <ul id="mobile-menu" class="hidden border-t border-slate-200 dark:border-slate-800 px-4 py-4 text-sm md:hidden">
-        <li><a class="nav-link block py-2" href="#about">About</a></li>
-        <li><a class="nav-link block py-2" href="#skills">Skills</a></li>
-        <li><a class="nav-link block py-2" href="#projects">Projects</a></li>
-        <li><a class="nav-link block py-2" href="#resume">Resume</a></li>
-        <li><a class="nav-link block py-2" href="#contact">Contact</a></li>
-        <li><a class="nav-link block py-2" href="../index.html">Ukrainian version</a></li>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oleksandr Beshun — Frontend Developer</title>
+  <meta name="description" content="Frontend Developer (Junior → Middle) from Chernihiv, Ukraine: a year at a web studio under NDA, sites from scratch, redesigns, Playwright auto-QA, AI-assisted workflow. Projects, stack, CV.">
+  <link rel="canonical" href="https://q42fmr.shop/en/">
+  <link rel="alternate" hreflang="uk" href="https://q42fmr.shop/">
+  <link rel="alternate" hreflang="en" href="https://q42fmr.shop/en/">
+  <link rel="alternate" hreflang="x-default" href="https://q42fmr.shop/">
+  <meta name="theme-color" content="#121316">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Oleksandr Beshun — Frontend Developer">
+  <meta property="og:description" content="A cinematic resume: a year under NDA, 11 projects, Playwright, Vue, Claude Code.">
+  <meta property="og:url" content="https://q42fmr.shop/en/">
+  <meta property="og:image" content="https://q42fmr.shop/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Oleksandr Beshun","alternateName":"Олександр Бешун","jobTitle":"Frontend Developer","url":"https://q42fmr.shop/en/","email":"mailto:Q42frm@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Chernihiv","addressCountry":"UA"},"sameAs":["https://github.com/Q42fmr","https://t.me/alex_daymar"]}
+  </script>
+</head>
+<body data-scene="title">
+  <a id="skip" class="skip" href="#now">Skip the intro</a>
+
+  <header class="topbar">
+    <a id="topbar-name" class="topbar__name" href="#title"><span class="logo" aria-hidden="true"></span>Oleksandr Beshun</a>
+    <p id="scene-indicator" class="topbar__scene mono" aria-live="polite">SC 01/05 — TITLE</p>
+    <nav class="topbar__actions" aria-label="Quick actions">
+      <a id="topbar-cv" class="btn btn--ghost" href="../assets/files/cv-en.pdf" download>CV · PDF ↓</a>
+      <a id="topbar-contact" class="btn btn--primary" href="#contact">Contact ↗</a>
+      <a id="lang-switch" class="btn btn--ghost mono" href="../" hreflang="uk" lang="uk">UA</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="scene scene--title" id="title" data-scene="title" data-scene-name="TITLE" aria-labelledby="hero-name">
+      <p class="scene__label mono">SC.01 — Title</p>
+      <figure class="portrait" id="portrait">
+        <img src="../assets/img/portrait.jpg" alt="Oleksandr Beshun" width="480" height="480" onerror="this.parentElement.classList.add('portrait--missing')">
+        <span class="shape shape--tri" aria-hidden="true"></span>
+        <span class="shape shape--sq" aria-hidden="true"></span>
+        <span class="portrait__mono" aria-hidden="true">OB</span>
+      </figure>
+      <h1 class="hero-name" id="hero-name"><span class="hero-name__line"><span>Oleksandr</span></span><span class="hero-name__line"><span>Beshun<span class="dot">.</span></span></span></h1>
+      <ul class="chips" aria-label="Role">
+        <li class="chip chip--lime">Frontend Developer</li>
+        <li class="chip chip--ink">Junior → Middle</li>
+        <li class="chip">Chernihiv · Remote</li>
       </ul>
-    </header>
-
-    <main class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-      <section id="hero" class="grid gap-8 md:grid-cols-2 md:items-center">
-        <div>
-          <p class="mb-3 inline-flex rounded-full border border-brand/50 bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
-            Open to Junior roles
-          </p>
-          <h1 class="text-4xl font-bold leading-tight md:text-5xl">Junior Frontend Developer</h1>
-          <p class="mt-5 max-w-xl text-slate-600 dark:text-slate-300">
-            Experience in building interfaces, dashboards and analytical tools. Working with HTML, CSS, JavaScript,
-            Tailwind, with additional background in business analytics and process automation.
-          </p>
-          <div class="mt-7 flex flex-wrap gap-3">
-            <a href="#projects" class="rounded bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-blue-500">View projects</a>
-            <a href="../assets/files/cv.pdf" class="rounded border border-slate-300 dark:border-slate-600 px-5 py-3 text-sm font-semibold hover:border-accent hover:text-accent">Download CV</a>
-          </div>
-        </div>
-        <div class="hero-card rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/70 p-6">
-          <h2 class="text-lg font-semibold">Profile Highlights</h2>
-          <ul class="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
-            <li>Frontend: HTML5, CSS/SCSS, Tailwind, JavaScript.</li>
-            <li>Analytics: SQL, Power BI, market and sales reports.</li>
-            <li>Tools: Asana, Notion, Bitrix, Jira, Miro.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="about" class="section-block">
-        <h2 class="section-title">About</h2>
-        <p class="max-w-4xl text-slate-600 dark:text-slate-300">
-          I am a specialist with experience in marketing, analytics and web development. Since 2019, I worked on launching
-          and improving marketing and analytics initiatives, and then focused on frontend: responsive pages, internal
-          dashboards, forms and UI components for business tasks. I combine analytical thinking with practical interface
-          implementation.
-        </p>
-      </section>
-
-      <section id="skills" class="section-block">
-        <h2 class="section-title">Skills</h2>
-        <div class="space-y-6">
-          <div>
-            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Technical</h3>
-            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              <span class="skill-badge">Python (Pandas, Aiogram, BS4, Selenium)</span>
-              <span class="skill-badge">SQL, MongoDB</span>
-              <span class="skill-badge">Power BI (basic)</span>
-              <span class="skill-badge">1C</span>
-              <span class="skill-badge">HTML5</span>
-              <span class="skill-badge">CSS, SCSS, Tailwind</span>
-              <span class="skill-badge">Native JavaScript</span>
-            </div>
-          </div>
-          <div>
-            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Other</h3>
-            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              <span class="skill-badge">Asana, Notion, Bitrix, Jira</span>
-              <span class="skill-badge">Slack, ClickUp</span>
-              <span class="skill-badge">Miro</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section-block">
-        <div class="mb-5 flex items-center justify-between gap-3">
-          <h2 class="section-title mb-0">Projects</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Collage + details + live demo</p>
-        </div>
-        <p class="mb-4 text-sm text-slate-500 dark:text-slate-400">
-          Most commercial tasks were done in corporate GitLab, so public GitHub contains only part of the project history.
-        </p>
-        <div id="projects-grid" class="grid gap-5 md:grid-cols-2"></div>
-      </section>
-
-      <section id="resume" class="section-block">
-        <h2 class="section-title">Resume</h2>
-        <div class="grid gap-6 lg:grid-cols-2">
-          <article class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-5">
-            <h3 class="text-lg font-semibold">Experience</h3>
-            <ul class="mt-4 space-y-6 text-sm text-slate-600 dark:text-slate-300">
-              <li>
-                <p class="font-semibold text-slate-900 dark:text-slate-100">Marketer</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">10.2019 - 07.2021 | SMM Curatorship, Chernihiv</p>
-                <p class="mt-2">Consulting companies, auditing sales calls, creating scripts and supporting promoted campaigns toward profitability.</p>
-              </li>
-              <li>
-                <p class="font-semibold text-slate-900 dark:text-slate-100">Analyst</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">09.2021 - 05.2025 | Collar, Chernihiv</p>
-                <p class="mt-2">Prepared market analytics reports for America, Europe and Ukraine and introduced data-driven product recommendations.</p>
-                <ul class="mt-2 list-disc space-y-1 pl-5">
-                  <li>Built responsive interfaces and dashboards for internal reporting tools.</li>
-                  <li>Designed and changed frontend components for data visualization platforms.</li>
-                  <li>Improved existing company website forms, design and bug fixes.</li>
-                  <li>Automated data processing and business routines using Python scripts.</li>
-                </ul>
-              </li>
-            </ul>
-          </article>
-          <article class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-5">
-            <h3 class="text-lg font-semibold">Education</h3>
-            <ul class="mt-4 space-y-4 text-sm text-slate-600 dark:text-slate-300">
-              <li>
-                <p class="font-semibold text-slate-900 dark:text-slate-100">2010 - 2014 | CTTK</p>
-                <p>Technical school (Computer specialty).</p>
-              </li>
-              <li>
-                <p class="font-semibold text-slate-900 dark:text-slate-100">2014 - 2017 | Chernihiv Institute of Business and Law</p>
-                <p>Technological engineer. Basic programming knowledge.</p>
-              </li>
-              <li>
-                <p class="font-semibold text-slate-900 dark:text-slate-100">2024 - 2025 | Genius Space</p>
-                <p>Profession Business Analyst in IT.</p>
-              </li>
-              <li>
-                <p class="font-semibold text-slate-900 dark:text-slate-100">2025 | ItGrid</p>
-                <p>Front-end courses.</p>
-              </li>
-            </ul>
-            <h3 class="mt-6 text-lg font-semibold">Languages</h3>
-            <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-              <li>English (B1)</li>
-              <li>Ukrainian</li>
-              <li>Russian</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="section-block">
-        <h2 class="section-title">Contact</h2>
-        <div class="grid gap-6 lg:grid-cols-2">
-          <div class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-            <p>Phone: <a class="text-brand hover:text-blue-400" href="tel:+380633758707">063-37-58-707</a></p>
-            <p>Email: <a class="text-brand hover:text-blue-400" href="mailto:Q42frm@gmail.com">Q42frm@gmail.com</a></p>
-            <p>City: Chernihiv</p>
-          </div>
-          <form
-            id="contact-form"
-            class="space-y-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-5"
-            novalidate
-            data-mailto="Q42frm@gmail.com"
-            data-msg-required="Please fill in all form fields."
-            data-msg-invalid="Please enter a valid email."
-            data-msg-success="Thank you! Your email client will open now."
-            data-subject="Portfolio website request"
-            data-label-name="Name"
-            data-label-message="Message"
-          >
-            <label class="block text-sm">
-              <span class="mb-1 block text-slate-600 dark:text-slate-300">Name</span>
-              <input class="form-field" type="text" name="name" placeholder="Your name" />
-            </label>
-            <label class="block text-sm">
-              <span class="mb-1 block text-slate-600 dark:text-slate-300">Email</span>
-              <input class="form-field" type="email" name="email" placeholder="name@example.com" />
-            </label>
-            <label class="block text-sm">
-              <span class="mb-1 block text-slate-600 dark:text-slate-300">Message</span>
-              <textarea class="form-field min-h-28" name="message" placeholder="Briefly describe your request"></textarea>
-            </label>
-            <p id="form-feedback" class="min-h-5 text-xs text-rose-600 dark:text-rose-300" aria-live="polite"></p>
-            <button type="submit" class="rounded bg-accent px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-teal-300">
-              Send
-            </button>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <div id="project-modal" class="project-modal hidden" aria-hidden="true">
-      <div class="project-modal-backdrop" data-close-modal="true"></div>
-      <div class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-        <button id="project-modal-close" class="project-modal-close" aria-label="Close">✕</button>
-        <h3 id="project-modal-title" class="text-2xl font-bold"></h3>
-        <p id="project-modal-description" class="mt-3 text-slate-600 dark:text-slate-300"></p>
-        <div class="mt-5">
-          <p class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Technologies</p>
-          <p id="project-modal-stack" class="mt-2 text-sm text-slate-700 dark:text-slate-200"></p>
-        </div>
-        <div class="mt-5">
-          <p class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Implementation</p>
-          <p id="project-modal-process" class="mt-2 text-sm text-slate-600 dark:text-slate-300"></p>
-        </div>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a id="project-modal-open" class="rounded bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500" target="_blank" rel="noreferrer">Open site</a>
-          <a id="project-modal-github" class="rounded border border-slate-300 dark:border-slate-700 px-4 py-2 text-sm font-semibold hover:border-accent hover:text-accent" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
+      <p id="hero-status" class="status"><span class="status__dot" aria-hidden="true"></span>Open to work · Junior/Middle Frontend · remote or Chernihiv</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="../assets/files/cv-en.pdf" download>CV · PDF ↓</a>
+        <a class="btn btn--ghost" href="#contact">Contact ↗</a>
       </div>
-    </div>
+      <p class="hint mono">◀◀ Autoplay or scroll</p>
+    </section>
 
-    <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
-      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 text-sm text-slate-500 dark:text-slate-400 md:px-6">
-        <p>© <span id="year"></span> Alexandr Portfolio</p>
-        <a href="#hero" class="hover:text-slate-900 dark:hover:text-slate-200">Back to top</a>
+    <section class="scene scene--now" id="now" data-scene="now" data-scene-name="NOW" aria-labelledby="now-title">
+      <p class="scene__label mono">SC.02 — Now · 09.2025 — 10.2026 · 1 year</p>
+      <h2 class="h-display" id="now-title">Junior Frontend Developer <span class="chip chip--ink chip--inline">at a studio under NDA</span></h2>
+      <p class="lead" id="now-summary"></p>
+      <div class="marquee" id="now-marquee" aria-hidden="true"><div class="marquee__track"></div></div>
+      <dl class="counters">
+        <div class="counter"><dt>Year of experience</dt><dd id="counter-years" data-target="1">0</dd></div>
+        <div class="counter"><dt>Projects</dt><dd id="counter-projects" data-target="0">0</dd></div>
+        <div class="counter"><dt>Languages</dt><dd id="counter-langs" data-target="3">0</dd></div>
+      </dl>
+      <ul class="chips" id="now-chips" aria-label="Daily stack"></ul>
+    </section>
+
+    <section class="scene scene--work" id="work" data-scene="work" data-scene-name="WORK" aria-labelledby="work-title">
+      <div class="work__head">
+        <p class="scene__label mono" id="work-title">SC.03 — Selected work, 2021 → now</p>
+        <p class="mono" id="work-counter" aria-live="polite">Clip 01 / 15</p>
       </div>
-    </footer>
+      <div class="filters" id="work-filters" role="group" aria-label="Filter by category"></div>
+      <div class="work__body">
+        <div class="clips" id="clips"></div>
+        <aside class="gantt" id="gantt" aria-label="Work timeline"></aside>
+      </div>
+    </section>
 
-    <script src="../assets/js/main.js" defer></script>
-  </body>
+    <section class="scene scene--stack" id="stack" data-scene="stack" data-scene-name="STACK" aria-labelledby="stack-title">
+      <p class="scene__label mono" id="stack-title">SC.04 — Stack &amp; languages</p>
+      <div class="marquee marquee--a" id="stack-marquee-a" aria-hidden="true"><div class="marquee__track"></div></div>
+      <div class="marquee marquee--b" id="stack-marquee-b" aria-hidden="true"><div class="marquee__track"></div></div>
+      <div class="stack-grid" id="stack-groups"></div>
+      <section class="languages" aria-labelledby="languages-title">
+        <h3 class="mono" id="languages-title">Languages · CEFR</h3>
+        <ul id="languages"></ul>
+      </section>
+    </section>
+
+    <section class="scene scene--contact" id="contact" data-scene="contact" data-scene-name="CONTACT" aria-labelledby="contact-title">
+      <p class="scene__label mono">SC.05 — End credits</p>
+      <h2 class="h-display" id="contact-title">Let's build something<span class="dot">.</span></h2>
+      <p class="contact-email"><a id="contact-email" href="mailto:Q42frm@gmail.com">Q42frm@gmail.com</a><button id="copy-email" class="btn btn--ghost mono" type="button" data-label="Copy" data-done="Copied ✓">Copy</button></p>
+      <ul class="contact-links" id="contact-links"></ul>
+      <a class="btn btn--primary" href="../assets/files/cv-en.pdf" download>Download CV · PDF ↓</a>
+      <dl class="facts">
+        <div><dt class="mono">Based in</dt><dd>Chernihiv · remote</dd></div>
+        <div><dt class="mono">My local time</dt><dd id="local-time">--:--</dd></div>
+        <div><dt class="mono">Status</dt><dd><span class="status__dot" aria-hidden="true"></span>Open to work · Junior/Middle Frontend</dd></div>
+      </dl>
+      <button id="replay" class="btn btn--ghost mono" type="button">▶ Replay from the start</button>
+      <footer class="footer">
+        <p>© <span id="year"></span> Oleksandr Beshun</p>
+        <p class="mono">Built with HTML, CSS, JS, GSAP &amp; Lenis</p>
+        <span class="logo" aria-hidden="true"></span>
+      </footer>
+    </section>
+
+    <section id="cv-print" class="cv-print" aria-hidden="true"></section>
+  </main>
+
+  <div class="player" id="player">
+    <button id="player-toggle" class="player__toggle" type="button" aria-pressed="false" aria-label="Autoplay">▶</button>
+    <span id="player-time" class="player__time mono">00:00:00</span>
+    <ol id="player-markers" class="player__markers">
+      <li><a href="#title" data-scene="title" class="is-active">Title</a></li>
+      <li><a href="#now" data-scene="now">Now</a></li>
+      <li><a href="#work" data-scene="work">Work</a></li>
+      <li><a href="#stack" data-scene="stack">Stack</a></li>
+      <li><a href="#contact" data-scene="contact">Contact</a></li>
+    </ol>
+    <span id="player-progress" class="player__progress" aria-hidden="true"></span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/js/data.js" defer></script>
+  <script src="../assets/js/render.js" defer></script>
+  <script src="../assets/js/motion.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</body>
 </html>
