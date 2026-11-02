@@ -117,8 +117,10 @@ function initMenu() {
     btn.setAttribute("aria-expanded", String(open));
     btn.setAttribute("aria-label", open ? "Закрити меню" : "Відкрити меню");
     menu.classList.toggle("hidden", !open);
-    btn.querySelector(".icon-burger").classList.toggle("hidden", open);
-    btn.querySelector(".icon-close").classList.toggle("hidden", !open);
+    const iconBurger = btn.querySelector(".icon-burger");
+    if (iconBurger) iconBurger.classList.toggle("hidden", open);
+    const iconClose = btn.querySelector(".icon-close");
+    if (iconClose) iconClose.classList.toggle("hidden", !open);
   };
 
   btn.addEventListener("click", () => setOpen(btn.getAttribute("aria-expanded") !== "true"));

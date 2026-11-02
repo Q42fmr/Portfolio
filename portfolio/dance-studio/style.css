@@ -542,3 +542,20 @@ select.field-input option {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: #fff;
+}
