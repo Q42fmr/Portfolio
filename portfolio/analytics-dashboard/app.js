@@ -404,7 +404,7 @@
     el.kpiRevenueDelta.innerHTML = deltaBadge(k.revenue, kPrev.revenue);
     el.kpiOrdersDelta.innerHTML = deltaBadge(k.orders, kPrev.orders);
     el.kpiAvgDelta.innerHTML = deltaBadge(k.avg, kPrev.avg);
-    el.kpiConversionDelta.innerHTML = deltaBadge(k.conversion, kPrev.conversion);
+    el.kpiConversionDelta.innerHTML = deltaBadge(k.conversion, kPrev.conversion, true);
 
     // Заголовок і чип
     el.rangeText.textContent = rangeLabel(period);
@@ -628,6 +628,4 @@
   initCharts();
   bindEvents();
   updateAll();
-
-  // кінець
 })();

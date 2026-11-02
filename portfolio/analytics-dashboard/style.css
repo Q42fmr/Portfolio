@@ -276,10 +276,6 @@ body.nav-open {
   background: rgba(52, 211, 153, 0.12);
   color: #6ee7b7;
 }
-.tint-rose {
-  background: rgba(251, 113, 133, 0.12);
-  color: #fda4af;
-}
 
 .delta {
   display: inline-flex;
