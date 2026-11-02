@@ -6,6 +6,7 @@
   --lime: #d7ff3c;
   --violet: #5b3df5;
   --muted: #8a8b93;
+  --muted-paper: #5f6068;
   --c-web: #5b3df5;
   --c-ai: #0d9488;
   --c-qa: #e5484d;
@@ -238,6 +239,7 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
 .marquee__track > span { padding-right: 2rem; }
 .marquee--b .marquee__track { animation-direction: reverse; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+body.has-gsap .marquee--a .marquee__track, body.has-gsap .marquee--b .marquee__track { animation: none; }
 
 /* ----- Work ----- */
 .work__head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: baseline; }
@@ -280,6 +282,7 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   background: var(--paper);
   border-top: 2px solid var(--graphite);
   padding: 0.5rem 0 0.4rem;
+  padding-top: calc(0.5rem + 1.2em);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.03em;
@@ -288,8 +291,8 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   z-index: 2;
 }
 .gantt__grid { display: grid; grid-template-columns: minmax(120px, 22%) 1fr; gap: 0.1rem 1rem; align-items: center; line-height: 1.2; }
-.gantt__head { text-transform: uppercase; color: var(--muted); }
-.gantt__months { display: grid; grid-template-columns: repeat(64, 1fr); position: relative; }
+.gantt__head { text-transform: uppercase; color: var(--muted-paper); }
+.gantt__months { display: grid; grid-template-columns: repeat(var(--months, 64), 1fr); position: relative; }
 .gantt__year { grid-column: span 12; border-left: 1px solid color-mix(in srgb, currentColor 30%, transparent); padding-left: 0.25rem; }
 .gantt__year:first-child { grid-column: span 4; }
 .gantt__row { display: contents; }
@@ -297,7 +300,7 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--muted);
+  color: var(--muted-paper);
   cursor: pointer;
   background: none;
   border: 0;
@@ -307,7 +310,7 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   text-transform: uppercase;
 }
 .gantt__row.is-active .gantt__label { color: var(--graphite); font-weight: 600; }
-.gantt__track { display: grid; grid-template-columns: repeat(64, 1fr); height: 9px; position: relative; }
+.gantt__track { display: grid; grid-template-columns: repeat(var(--months, 64), 1fr); height: 9px; position: relative; }
 .gantt__bar {
   grid-column: var(--col) / span var(--span);
   background: var(--cat);
@@ -315,15 +318,18 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   border: 0;
   padding: 0;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 1;
   height: 100%;
 }
 .gantt__row.is-active .gantt__bar { opacity: 1; outline: 2px solid var(--graphite); outline-offset: 1px; }
 .gantt__bar--position {
-  background: repeating-linear-gradient(135deg, var(--graphite) 0 4px, transparent 4px 8px);
+  background: color-mix(in srgb, var(--graphite) 50%, transparent);
   height: 6px;
   align-self: center;
   cursor: default;
+}
+.gantt__bar--nda {
+  background: repeating-linear-gradient(135deg, var(--graphite) 0 4px, transparent 4px 8px);
 }
 .gantt__cursor { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--violet); left: var(--x, 0%); pointer-events: none; transition: left 0.4s ease; }
 .gantt__cursor span {
@@ -338,14 +344,14 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   font-weight: 600;
 }
 .gantt__legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0 0; list-style: none; padding: 0; }
-.gantt__legend button { background: none; border: 0; padding: 0; font: inherit; color: var(--muted); cursor: pointer; text-transform: uppercase; }
+.gantt__legend button { background: none; border: 0; padding: 0; font: inherit; color: var(--muted-paper); cursor: pointer; text-transform: uppercase; }
 .gantt__legend button::before { content: ""; display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.4em; background: var(--cat); vertical-align: -1px; }
 
 @media (max-width: 1023px) {
   .gantt { order: -1; bottom: auto; top: var(--topbar-h); max-height: 160px; }
-  .gantt__grid { grid-template-columns: 1fr; gap: 0.15rem; }
+  .gantt__grid { grid-template-columns: 1fr; gap: 0; }
   .gantt__label, .gantt__head--label { display: none; }
-  .gantt__track { height: 8px; }
+  .gantt__track { height: 6px; }
   .gantt__legend { display: none; }
   .gantt__year:first-child { color: transparent; }
   .clip { scroll-margin-top: calc(var(--topbar-h) + 160px + 1rem); }
@@ -371,8 +377,9 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
 .contact-email a:hover { color: var(--lime); }
 .contact-links { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; padding: 0; margin: 0 0 2rem; }
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-.facts dt { opacity: 0.7; }
+.facts dt { opacity: 0.9; }
 .facts dd { margin: 0.25rem 0 0; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+.scene--contact .scene__label { opacity: 0.9; }
 .footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 .footer p { margin: 0; }
 
@@ -404,8 +411,9 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   .topbar__actions .btn { padding: 0.45rem 0.6rem; }
   .topbar__name { font-size: 0.7rem; }
   .stack-grid { grid-template-columns: 1fr; }
+  .player__time { display: none; }
   .player__markers a { font-size: 0.65rem; }
-  .player__markers { gap: 0.9rem; }
+  .player__markers { gap: 0.75rem; }
   .portrait { margin: 0 auto; }
 }
 @media (min-width: 768px) and (max-width: 1023px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -434,6 +442,6 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   .cv-print .cv-head p { margin: 2pt 0 0; }
   .cv-print .cv-row { display: flex; justify-content: space-between; gap: 12pt; }
   .cv-print .cv-row .mono { white-space: nowrap; flex-shrink: 0; }
-  .cv-print a { color: #000; text-decoration: none; }
+
   @page { size: A4; margin: 14mm; }
 }

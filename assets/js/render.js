@@ -111,17 +111,23 @@
     if (!el) return;
     const startYear = Number(GANTT.start.slice(0, 4));
     const endYear = Number(GANTT.end.slice(0, 4));
+    const startMonth = Number(GANTT.start.slice(5, 7));
+    const firstYearSpan = 12 - startMonth + 1;
     const years = [];
-    for (let y = startYear; y <= endYear; y++) years.push(`<span class="gantt__year">${y}</span>`);
+    for (let y = startYear; y <= endYear; y++) {
+      const style = y === startYear ? ` style="grid-column: span ${firstYearSpan}"` : "";
+      years.push(`<span class="gantt__year"${style}>${y}</span>`);
+    }
     const goTo = L(lang, "Перейти до кліпу", "Go to clip");
 
     const positionRows = data.positions
       .map((p) => {
         const s = ganttSpan(p, nowYm);
+        const barClass = p.id === "nda" ? "gantt__bar gantt__bar--position gantt__bar--nda" : "gantt__bar gantt__bar--position";
         return `
-        <div class="gantt__row gantt__row--position">
+        <div class="gantt__row gantt__row--position" role="listitem">
           <span class="gantt__label gantt__label--position" title="${esc(t(p.title, lang))}">${esc(t(p.title, lang))}</span>
-          <div class="gantt__track"><span class="gantt__bar gantt__bar--position" style="--col:${s.col};--span:${s.span}" title="${esc(t(p.title, lang))}"></span></div>
+          <div class="gantt__track"><span class="${barClass}" style="--col:${s.col};--span:${s.span}" title="${esc(t(p.title, lang))}"></span></div>
         </div>`;
       })
       .join("");
@@ -131,7 +137,7 @@
         const s = ganttSpan(clip, nowYm);
         const title = esc(t(clip.title, lang));
         return `
-        <div class="gantt__row" data-clip="${clip.id}" data-category="${clip.category}">
+        <div class="gantt__row" data-clip="${clip.id}" data-category="${clip.category}" role="listitem">
           <button type="button" class="gantt__label" data-clip="${clip.id}" title="${title}">${pad2(i + 1)} ${title}</button>
           <div class="gantt__track"><button type="button" class="gantt__bar" data-clip="${clip.id}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}"></button></div>
         </div>`;
@@ -139,11 +145,11 @@
       .join("");
 
     const legend = data.categories
-      .map((c) => `<li><button type="button" data-category="${c.id}" style="--cat:var(--c-${c.id})">${esc(t(c.label, lang))}</button></li>`)
+      .map((c) => `<li><button type="button" data-category="${c.id}" aria-pressed="false" style="--cat:var(--c-${c.id})">${esc(t(c.label, lang))}</button></li>`)
       .join("");
 
     el.innerHTML = `
-      <div class="gantt__grid">
+      <div class="gantt__grid" role="list" style="--months:${GANTT.months}">
         <span class="gantt__head gantt__head--label">${L(lang, "Позиція / кліп", "Position / clip")}</span>
         <div class="gantt__months gantt__head">${years.join("")}<span class="gantt__cursor" id="gantt-cursor" style="--x:0%"><span id="gantt-cursor-date"></span></span></div>
         ${positionRows}
@@ -183,7 +189,7 @@
     el.innerHTML = data.languages
       .map((l) => {
         const segs = Array.from({ length: 6 }, (_, i) => `<span class="${i < l.score ? "is-on" : ""}"></span>`).join("");
-        return `<li><span>${esc(t(l.label, lang))}</span><span class="lang-scale" aria-hidden="true">${segs}</span><span class="mono" aria-label="${L(lang, "Рівень", "Level")} ${l.level}">${l.level}</span></li>`;
+        return `<li><span>${esc(t(l.label, lang))}</span><span class="lang-scale" aria-hidden="true">${segs}</span><span class="mono">${l.level}</span></li>`;
       })
       .join("");
   }
@@ -244,7 +250,7 @@
       <ul>${collarClip ? `<li>${esc(t(collarClip.what, lang))} <span class="mono">${collarClip.tags.map(esc).join(" · ")}</span></li>` : ""}</ul>
       ${data.otherExperience.map((o) => `<div class="cv-row"><h3>${esc(t(o.title, lang))}</h3><span class="mono">${esc(o.period)}</span></div><p>${esc(t(o.detail, lang))}</p>`).join("")}
       <h2>${L(lang, "Проєкти", "Projects")}</h2>
-      <ul>${projects.map((c) => `<li><strong>${esc(t(c.title, lang))}</strong> — ${esc(t(c.tagline, lang))} <span class="mono">${esc(periodLabel(c, lang))} · ${c.tags.map(esc).join(" · ")}${links(c).length ? " · " + links(c).map(esc).join(" · ") : ""}</span></li>`).join("")}</ul>
+      <ul>${projects.map((c) => { const u = links(c); return `<li><strong>${esc(t(c.title, lang))}</strong> — ${esc(t(c.tagline, lang))} <span class="mono">${esc(periodLabel(c, lang))} · ${c.tags.map(esc).join(" · ")}${u.length ? " · " + u.map(esc).join(" · ") : ""}</span></li>`; }).join("")}</ul>
       <h2>${L(lang, "Навички", "Skills")}</h2>
       ${data.stack.map((g) => `<p><strong>${esc(t(g.label, lang))}:</strong> ${g.items.map((x) => esc(t(x, lang))).join(" · ")}</p>`).join("")}
       <h2>${L(lang, "Освіта", "Education")}</h2>
@@ -264,9 +270,12 @@
   function applyFilter(category, lang) {
     state.category = category;
     document.querySelectorAll("#work-filters button[data-category]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.category === category)));
+    document.querySelectorAll(".gantt__legend button[data-category]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.category === category)));
     document.querySelectorAll(".clip[data-category], .gantt__row[data-category]").forEach((el) => {
       el.classList.toggle("is-hidden", category !== "all" && el.dataset.category !== category);
     });
+    const counter = byId("work-counter");
+    if (counter) counter.setAttribute("aria-live", "polite");
     const visible = visibleClipIds(state.data.clips, category);
     if (!visible.includes(state.activeId) && visible.length) setActiveClip(visible[0]);
     else updateCounter(lang);

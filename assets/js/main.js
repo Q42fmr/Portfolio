@@ -10,7 +10,7 @@
   const nowYm = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
 
   R.renderAll({ data, lang, prefix, nowYm });
-  const motion = window.initMotion({ reduced, lang });
+  const motion = window.initMotion({ reduced });
 
   document.getElementById("work-filters").addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-category]");

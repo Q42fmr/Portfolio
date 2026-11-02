@@ -89,3 +89,29 @@ test("clipMarkup escapes HTML in text fields", () => {
   assert.match(html, /a &amp; b/);
   assert.match(html, /&lt;i&gt;/);
 });
+
+test("clipMarkup renders the NDA chip for nda:true", () => {
+  const cats = { web: { id: "web", label: { ua: "Web", en: "Web" } } };
+  const clip = {
+    id: "n", kind: "job", category: "web", from: "2025-09", to: "2026-10", nda: true,
+    title: { ua: "T" }, tagline: { ua: "" }, what: { ua: "" }, result: { ua: "" }, tags: [],
+    siteUrl: null, githubUrl: null, images: false
+  };
+  const ua = R.clipMarkup(clip, 0, 1, "ua", ".", cats);
+  assert.match(ua, /під NDA/);
+  const en = R.clipMarkup(clip, 0, 1, "en", ".", cats);
+  assert.match(en, /under NDA/);
+  const noNda = R.clipMarkup({ ...clip, nda: false }, 0, 1, "ua", ".", cats);
+  assert.doesNotMatch(noNda, /під NDA/);
+});
+
+test("clipMarkup renders «тепер»/\"now\" when to:null", () => {
+  const cats = { web: { id: "web", label: { ua: "Web", en: "Web" } } };
+  const clip = {
+    id: "o", kind: "job", category: "web", from: "2025-09", to: null, nda: false,
+    title: { ua: "T" }, tagline: { ua: "" }, what: { ua: "" }, result: { ua: "" }, tags: [],
+    siteUrl: null, githubUrl: null, images: false
+  };
+  assert.match(R.clipMarkup(clip, 0, 1, "ua", ".", cats), /тепер/);
+  assert.match(R.clipMarkup(clip, 0, 1, "en", ".", cats), /now/);
+});

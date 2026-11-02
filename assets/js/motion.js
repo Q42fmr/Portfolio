@@ -3,6 +3,7 @@
 
   const FILM_SECONDS = 90;
   const AUTOPLAY_PX_PER_S = 120;
+  const END_EPSILON = 2;
 
   window.initMotion = function initMotion({ reduced }) {
     const R = window.PortfolioRender;
@@ -21,6 +22,7 @@
     if (hasGsap) {
       const gsap = window.gsap;
       gsap.registerPlugin(window.ScrollTrigger);
+      body.classList.add("has-gsap");
       if (lenis) {
         lenis.on("scroll", window.ScrollTrigger.update);
         gsap.ticker.add((t) => lenis.raf(t * 1000));
@@ -38,13 +40,13 @@
         lenis.scrollTo(target, {
           duration: opts.duration ?? 1.2,
           easing: opts.linear ? (x) => x : undefined,
-          lock: !!opts.lock,
           onComplete: opts.onComplete
         });
         return;
       }
-      const y = typeof target === "number" ? target : document.querySelector(target).getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: y, behavior: reduced ? "auto" : "smooth" });
+      const el = typeof target === "number" ? null : document.querySelector(target);
+      if (el) el.scrollIntoView({ block: "start", behavior: reduced ? "auto" : "smooth" });
+      else window.scrollTo({ top: target, behavior: reduced ? "auto" : "smooth" });
       if (opts.onComplete) opts.onComplete();
     }
 
@@ -102,7 +104,7 @@
       });
 
       document.querySelectorAll(".marquee--a .marquee__track, .marquee--b .marquee__track").forEach((track, i) => {
-        gsap.to(track, { xPercent: i === 0 ? -25 : 25, ease: "none", scrollTrigger: { trigger: "#stack", start: "top bottom", end: "bottom top", scrub: 1 } });
+        gsap.fromTo(track, { xPercent: i === 0 ? 0 : -50 }, { xPercent: i === 0 ? -50 : 0, ease: "none", scrollTrigger: { trigger: "#stack", start: "top bottom", end: "bottom top", scrub: 1 } });
       });
 
       gsap.from("#contact .h-display", { y: 40, opacity: 0, duration: 0.8, scrollTrigger: { trigger: "#contact", start: "top 70%" } });
@@ -113,23 +115,29 @@
     // ---------- autoplay ----------
     let playing = false;
 
-    function pause() {
+    const playLabel = toggle ? toggle.getAttribute("aria-label") : "";
+
+    function pause(atEnd) {
       if (!playing) return;
       playing = false;
       if (lenis) { lenis.stop(); lenis.start(); }
-      if (toggle) { toggle.textContent = "▶"; toggle.setAttribute("aria-pressed", "false"); }
+      if (toggle) {
+        toggle.textContent = atEnd ? "↺" : "▶";
+        toggle.setAttribute("aria-label", atEnd ? (toggle.dataset.replayLabel || playLabel) : playLabel);
+        toggle.setAttribute("aria-pressed", "false");
+      }
     }
 
     function play() {
       if (reduced || playing) return;
-      const remaining = maxScroll() - window.scrollY;
-      if (remaining <= 2) {
-        scrollTo(0, { duration: 1, onComplete: play });
-        return;
+      if (maxScroll() - window.scrollY <= END_EPSILON) {
+        if (lenis) { scrollTo(0, { duration: 1, onComplete: play }); return; }
+        window.scrollTo({ top: 0 });
       }
+      const remaining = maxScroll() - window.scrollY;
       playing = true;
-      if (toggle) { toggle.textContent = "⏸"; toggle.setAttribute("aria-pressed", "true"); }
-      scrollTo(maxScroll(), { duration: Math.max(1, remaining / AUTOPLAY_PX_PER_S), linear: true, onComplete: pause });
+      if (toggle) { toggle.textContent = "⏸"; toggle.setAttribute("aria-label", playLabel); toggle.setAttribute("aria-pressed", "true"); }
+      scrollTo(maxScroll(), { duration: Math.max(1, remaining / AUTOPLAY_PX_PER_S), linear: true, onComplete: () => pause(true) });
     }
 
     ["wheel", "touchstart", "pointerdown", "keydown"].forEach((ev) => {

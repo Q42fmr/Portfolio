@@ -1,7 +1,6 @@
 window.PORTFOLIO = {
   profile: {
     name: { ua: "Олександр Бешун", en: "Oleksandr Beshun" },
-    nameLines: { ua: ["Олександр", "Бешун"], en: ["Oleksandr", "Beshun"] },
     role: { ua: "Frontend Developer", en: "Frontend Developer" },
     level: { ua: "Junior → Middle", en: "Junior → Middle" },
     location: { ua: "Чернігів · Remote", en: "Chernihiv · Remote" },
@@ -16,13 +15,8 @@ window.PORTFOLIO = {
     linkedin: "",
     github: "https://github.com/Q42fmr",
     site: "https://q42fmr.shop",
-    cv: { ua: "assets/files/cv.pdf", en: "assets/files/cv-en.pdf" },
     timeZone: "Europe/Kyiv",
     nowLabel: { ua: "09.2025 — 10.2026 · 1 рік", en: "09.2025 — 10.2026 · 1 year" },
-    nowTitle: {
-      ua: "Junior Frontend Developer у студії під NDA",
-      en: "Junior Frontend Developer at a studio under NDA"
-    },
     summary: {
       ua: "Рік у продуктовій веб-студії під NDA: збирав сайти та лендінги з нуля за макетами, вносив правки й редизайни в чужий код, лагодив верстку, форми та скрипти. Тримав якість: ручне QA за чеклістами і авто-QA на Playwright для регресій, Python-скрипти для масових правок десятків сторінок. Щодня — Claude Code, Cursor та агентні воркфлоу: спека → план → реалізація → перевірка.",
       en: "A year at a product web studio under NDA: built sites and landing pages from scratch to the mockup, shipped edits and redesigns in other people's code, fixed layouts, forms and scripts. Kept quality up: manual QA by checklists plus Playwright auto-QA for regressions, and Python scripts for bulk edits across dozens of pages. Daily tools: Claude Code, Cursor and agentic workflows — spec → plan → implement → verify."
