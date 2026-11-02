@@ -64,7 +64,7 @@ function initAnchors() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       const hash = link.getAttribute("href");
-      if (hash === "#") {
+      if (hash === "#" || hash === "#top") {
         event.preventDefault();
         smoothScrollTo(0);
         return;
