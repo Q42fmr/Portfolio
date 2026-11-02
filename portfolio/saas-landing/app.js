@@ -77,6 +77,7 @@ function initAnchors() {
       history.pushState(null, "", hash);
       target.setAttribute("tabindex", "-1");
       target.focus({ preventScroll: true });
+      target.addEventListener("blur", () => target.removeAttribute("tabindex"), { once: true });
     });
   });
 }
@@ -163,7 +164,7 @@ function initForm() {
   const wrap = document.getElementById("form-wrap");
   const success = document.getElementById("form-success");
   const successEmail = document.getElementById("success-email");
-  if (!form || !input) return;
+  if (!form || !input || !error || !wrap || !success || !successEmail) return;
 
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 

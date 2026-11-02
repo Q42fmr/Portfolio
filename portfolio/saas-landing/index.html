@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pulse — аналітика продажів для малого бізнесу</title>
   <meta name="description" content="Pulse — сервіс аналітики продажів для малого бізнесу: звіти в реальному часі, прогнози, дашборди без коду, експорт у Excel і сповіщення в Telegram. Почніть безкоштовно." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M22 12h-4l-3 9L9 3l-3 9H2' fill='none' stroke='%236366f1' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Pulse — аналітика продажів для малого бізнесу">
+  <meta property="og:description" content="Pulse — сервіс аналітики продажів для малого бізнесу: звіти в реальному часі, прогнози, дашборди без коду, експорт у Excel і сповіщення в Telegram. Почніть безкоштовно.">
+  <meta property="og:image" content="https://q42fmr.shop/assets/img/projects/saas-landing-desktop.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -34,9 +41,9 @@
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white">Перейти до вмісту</a>
 
   <!-- 1. Navbar -->
-  <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur">
+  <header id="top" class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur">
     <nav class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Головна навігація">
-      <a href="#" class="flex items-center gap-2.5" aria-label="Pulse — на початок сторінки"><span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span class="text-xl font-extrabold tracking-tight">Pulse</span></a>
+      <a href="#top" class="flex items-center gap-2.5" aria-label="Pulse — на початок сторінки"><span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span class="text-xl font-extrabold tracking-tight">Pulse</span></a>
       <div class="hidden items-center gap-8 lg:flex">
         <a href="#features" class="text-sm font-semibold text-slate-600 transition hover:text-ink">Можливості</a>
         <a href="#how" class="text-sm font-semibold text-slate-600 transition hover:text-ink">Як працює</a>
@@ -474,7 +481,7 @@
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr]">
         <div>
-          <a href="#" class="flex items-center gap-2.5" aria-label="Pulse — на початок сторінки"><span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span class="text-xl font-extrabold tracking-tight">Pulse</span></a>
+          <a href="#top" class="flex items-center gap-2.5" aria-label="Pulse — на початок сторінки"><span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span class="text-xl font-extrabold tracking-tight">Pulse</span></a>
           <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-500">Аналітика продажів, що вміщується в одному екрані. Створено для малого бізнесу в Україні.</p>
         </div>
         <nav aria-label="Продукт">
@@ -489,10 +496,10 @@
         <nav aria-label="Компанія">
           <p class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Компанія</p>
           <ul class="mt-4 space-y-2.5 text-sm font-semibold text-slate-600">
-            <li><a href="#" class="transition hover:text-brand">Про нас</a></li>
-            <li><a href="#" class="transition hover:text-brand">Блог</a></li>
-            <li><a href="#" class="transition hover:text-brand">Вакансії</a></li>
-            <li><a href="#" class="transition hover:text-brand">Політика конфіденційності</a></li>
+            <li><span class="text-slate-500 transition hover:text-brand">Про нас</span></li>
+            <li><span class="text-slate-500 transition hover:text-brand">Блог</span></li>
+            <li><span class="text-slate-500 transition hover:text-brand">Вакансії</span></li>
+            <li><span class="text-slate-500 transition hover:text-brand">Політика конфіденційності</span></li>
           </ul>
         </nav>
         <div>
