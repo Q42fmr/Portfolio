@@ -289,9 +289,9 @@
 
   function initForm() {
     const form = $('#contact-form');
-    if (!form) return;
-
     const status = $('#form-status');
+    if (!form || !status) return;
+
     const dateEl = $('#f-date');
     if (dateEl) {
       const today = new Date();
