@@ -149,6 +149,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
 </script>
 
 <template>
+  <a href="#main" class="skip-link">Перейти до контенту</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#top" aria-label="Verde — на початок сторінки">
@@ -194,7 +195,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ================= HERO ================= -->
     <section class="hero" id="top">
       <div class="container hero-inner">
