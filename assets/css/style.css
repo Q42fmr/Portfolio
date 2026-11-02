@@ -347,6 +347,8 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   .gantt__label, .gantt__head--label { display: none; }
   .gantt__track { height: 8px; }
   .gantt__legend { display: none; }
+  .gantt__year:first-child { color: transparent; }
+  .clip { scroll-margin-top: calc(var(--topbar-h) + 160px + 1rem); }
 }
 
 /* ----- Stack ----- */
