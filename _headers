@@ -1,0 +1,9 @@
+# Cloudflare Pages headers (no build step → no hashed filenames).
+# CSS/JS must revalidate on every load so a deploy is visible immediately;
+# the browser still gets cheap 304s via ETag.
+/assets/css/*
+  Cache-Control: no-cache
+/assets/js/*
+  Cache-Control: no-cache
+/portfolio/*
+  Cache-Control: no-cache
