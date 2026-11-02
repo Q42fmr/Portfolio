@@ -100,6 +100,8 @@ function initBookingForm() {
   var summary = document.getElementById("booking-summary");
   var again = document.getElementById("booking-again");
 
+  if (!dateInput) return;
+
   // Мінімальна дата — сьогодні (для нативного календаря)
   dateInput.min = todayISO();
 
@@ -177,6 +179,7 @@ function initBookingForm() {
 
     form.hidden = true;
     success.hidden = false;
+    success.focus();
   });
 
   if (again) {
