@@ -433,6 +433,7 @@ body[data-scene="contact"] { --bg: var(--violet); --fg: var(--paper); --accent: 
   .cv-print .cv-head { display: flex; justify-content: space-between; gap: 12pt; align-items: flex-start; }
   .cv-print .cv-head p { margin: 2pt 0 0; }
   .cv-print .cv-row { display: flex; justify-content: space-between; gap: 12pt; }
+  .cv-print .cv-row .mono { white-space: nowrap; flex-shrink: 0; }
   .cv-print a { color: #000; text-decoration: none; }
   @page { size: A4; margin: 14mm; }
 }
