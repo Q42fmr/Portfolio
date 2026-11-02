@@ -40,6 +40,7 @@
   function generateData() {
     const rng = mulberry32(20260819);
     const txs = [];
+    const sessionsByDaysAgo = {};
     let seq = 10000;
     for (let ago = HISTORY_DAYS - 1; ago >= 0; ago--) {
       const day = new Date(TODAY);
@@ -72,8 +73,9 @@
           status,
         });
       }
+      sessionsByDaysAgo[ago] = Math.round(count / (0.025 + rng() * 0.02));
     }
-    return txs;
+    return { txs, sessionsByDaysAgo };
   }
 
   /* ────────────────── Форматування ────────────────── */
@@ -99,7 +101,7 @@
   /* ────────────────── Стан ────────────────── */
   const state = { period: 30, sortKey: "date", sortDir: "desc", query: "", page: 1 };
   const DEFAULT_DIR = { date: "desc", amount: "desc" }; // решта колонок — asc
-  const ALL = generateData();
+  const { txs: ALL, sessionsByDaysAgo } = generateData();
   const charts = {};
   let labelDates = []; // дати точок лінійного графіка (для тултіпів)
 
@@ -108,7 +110,7 @@
     kpiRevenue: $("kpiRevenue"), kpiRevenueDelta: $("kpiRevenueDelta"),
     kpiOrders: $("kpiOrders"), kpiOrdersDelta: $("kpiOrdersDelta"),
     kpiAvg: $("kpiAvg"), kpiAvgDelta: $("kpiAvgDelta"),
-    kpiReturns: $("kpiReturns"), kpiReturnsDelta: $("kpiReturnsDelta"),
+    kpiConversion: $("kpiConversion"), kpiConversionDelta: $("kpiConversionDelta"),
     rangeText: $("rangeText"), rangeCount: $("rangeCount"), periodChip: $("periodChip"),
     periodSwitch: $("periodSwitch"), channelLegend: $("channelLegend"),
     txHead: $("txHead"), txBody: $("txBody"), tableMeta: $("tableMeta"),
@@ -128,19 +130,21 @@
     return { cur, prev };
   }
 
-  function kpisOf(list) {
+  function sumSessions(minAgo, maxAgoExclusive) {
+    let total = 0;
+    for (let ago = minAgo; ago < maxAgoExclusive; ago++) total += sessionsByDaysAgo[ago] || 0;
+    return total;
+  }
+
+  function kpisOf(list, sessionsSum) {
     let revenue = 0;
-    let returns = 0;
-    for (const t of list) {
-      revenue += t.amount;
-      if (t.status === "Повернення") returns++;
-    }
+    for (const t of list) revenue += t.amount;
     const orders = list.length;
     return {
       revenue,
       orders,
       avg: orders ? revenue / orders : 0,
-      returnRate: orders ? (returns / orders) * 100 : 0,
+      conversion: sessionsSum ? (orders / sessionsSum) * 100 : 0,
     };
   }
 
@@ -387,18 +391,20 @@
   function updateAll() {
     const period = state.period;
     const { cur, prev } = slicePeriod(period);
-    const k = kpisOf(cur);
-    const kPrev = kpisOf(prev);
+    const sessionsCur = sumSessions(0, period);
+    const sessionsPrev = sumSessions(period, period * 2);
+    const k = kpisOf(cur, sessionsCur);
+    const kPrev = kpisOf(prev, sessionsPrev);
 
     // KPI
     el.kpiRevenue.textContent = fmtUAH.format(k.revenue);
     el.kpiOrders.textContent = fmtInt.format(k.orders);
     el.kpiAvg.textContent = fmtUAH.format(Math.round(k.avg));
-    el.kpiReturns.textContent = `${fmtPct1.format(k.returnRate)}%`;
+    el.kpiConversion.textContent = `${fmtPct1.format(k.conversion)}%`;
     el.kpiRevenueDelta.innerHTML = deltaBadge(k.revenue, kPrev.revenue);
     el.kpiOrdersDelta.innerHTML = deltaBadge(k.orders, kPrev.orders);
     el.kpiAvgDelta.innerHTML = deltaBadge(k.avg, kPrev.avg);
-    el.kpiReturnsDelta.innerHTML = deltaBadge(k.returnRate, kPrev.returnRate, true);
+    el.kpiConversionDelta.innerHTML = deltaBadge(k.conversion, kPrev.conversion);
 
     // Заголовок і чип
     el.rangeText.textContent = rangeLabel(period);
@@ -623,6 +629,5 @@
   bindEvents();
   updateAll();
 
-  // Невеликий службовий хук для перевірок демо
-  window.__insight = { charts, state };
+  // кінець
 })();
