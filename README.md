@@ -27,3 +27,5 @@ Everything textual lives in `assets/js/data.js` (`window.PORTFOLIO`): profile, p
 
 Work in `stage` → check the Cloudflare preview → merge to `main` → production.
 After content changes regenerate screenshots and CV PDFs (see Tasks 9–10 in `docs/superpowers/plans/2026-11-02-portfolio-v2-cinematic-resume.md`).
+
+Cache busting: there are no hashed filenames, and the Cloudflare zone's Browser Cache TTL (4 h) overrides the `no-cache` rules in `_headers`. Whenever CSS/JS changes, bump the `?v=` query on the `<link>`/`<script>` tags (`index.html`, `en/index.html`, `portfolio/*/index.html`) — e.g. `?v=20261102b` → `?v=20261103`. Alternatively set Caching → Configuration → Browser Cache TTL to “Respect Existing Headers” in the Cloudflare dashboard, after which `_headers` makes this bump unnecessary.
