@@ -70,7 +70,7 @@
         <p class="clip__meta mono">
           <span>${esc(periodLabel(clip, lang))}</span>
           <span class="clip__cat" style="--cat:var(--c-${clip.category})">${esc(t(cat.label, lang))}</span>
-          ${clip.nda ? `<span class="chip chip--ink">${L(lang, "під NDA", "under NDA")}</span>` : ""}
+          ${clip.nda ? `<span class="chip chip--ink">${L(lang, "під NDA", "under NDA")}</span>` : ""}${clip.kind === "work" ? `<span class="chip">${L(lang, "клієнтський сайт · запуск", "client site · launch")}</span>` : ""}
           <span class="clip__index">${L(lang, "Кліп", "Clip")} ${n}/${total}</span>
         </p>
         <h3 class="clip__title">${title}</h3>
@@ -262,14 +262,14 @@
     const contacts = [p.email, p.phoneDisplay, p.site, p.telegram, p.linkedin, p.github].filter(Boolean).map((v) => v.replace(/^https?:\/\//, ""));
     const posById = Object.fromEntries(data.positions.map((x) => [x.id, x]));
     const jobsFor = (pid) => data.clips.filter((c) => c.position === pid && c.kind === "job");
-    const projectsFor = (pid) => data.clips.filter((c) => c.position === pid && c.kind === "project");
+    const workFor = (pid) => data.clips.filter((c) => c.position === pid && c.kind === "work");
     const li = (c) => `<li><strong>${esc(t(c.title, lang))}.</strong> ${esc(t(c.what, lang))} <span class="mono">${c.tags.map(esc).join(" · ")}</span></li>`;
     const grouped = (pid) => {
-      const list = projectsFor(pid);
+      const list = workFor(pid);
       if (!list.length) return "";
-      return `<li><strong>${L(lang, "Запущені сайти", "Sites shipped")} (${list.length}).</strong> ${list.map((c) => esc(t(c.title, lang))).join(" · ")}</li>`;
+      return `<li><strong>${L(lang, "Приклади сайтів, доведених до запуску", "Examples of sites taken to launch")} (${list.length}).</strong> ${list.map((c) => esc(t(c.title, lang))).join(" · ")}</li>`;
     };
-    const projects = data.clips.filter((c) => c.kind === "project" && !c.position).slice().reverse();
+    const projects = data.clips.filter((c) => c.kind === "project").slice().reverse();
     const links = (c) => [c.siteUrl ? href(c.siteUrl, prefix) : "", c.githubUrl || ""].filter(Boolean).map((u) => (/^https?:/.test(u) ? u.replace(/^https?:\/\//, "") : `${p.site.replace(/^https?:\/\//, "")}/${u.replace(/^\.{1,2}\//, "")}`));
     const nda = posById.nda;
     const collar = posById.collar;

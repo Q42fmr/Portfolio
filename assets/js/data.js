@@ -165,18 +165,18 @@ window.PORTFOLIO = {
       from: "2025-09",
       to: "2026-10",
       nda: true,
-      title: { ua: "Сайти та лендінги з нуля", en: "Sites and landing pages from scratch" },
+      title: { ua: "Сайти та лендінги: від брифу до запуску", en: "Sites and landing pages: from brief to launch" },
       tagline: {
-        ua: "Верстка за макетами до продакшн-готового сайту",
-        en: "From mockup to a production-ready site"
+        ua: "Багатосторінкові white pages для ринків CH, CA, JP, AE, IT — de/en/ja/ar/it, зокрема RTL",
+        en: "Multi-page white pages for CH, CA, JP, AE and IT markets — de/en/ja/ar/it, including RTL"
       },
       what: {
-        ua: "Багатосторінкові сайти (5–10 сторінок) для замовників студії — CH, CA, JP, AE, IT; мови de/en/ja/ar/it, зокрема RTL: семантична верстка на Tailwind або власному CSS, адаптив, форми з валідацією, cookie-банери, Leaflet-мапи, слайдери, FAQ, юридичні сторінки, інтеграція трекінгу; робота в корпоративному GitLab. За жовтень–грудень 2025 — 289 сайтів з нуля; вісім найхарактерніших — окремими кліпами нижче.",
-        en: "Multi-page sites (5–10 pages) for the studio's clients — CH, CA, JP, AE, IT; de/en/ja/ar/it incl. RTL: semantic markup on Tailwind or custom CSS, responsive layouts, validated forms, cookie banners, Leaflet maps, sliders, FAQs, legal pages, tracking integration; work in a corporate GitLab. October–December 2025 — 289 sites from scratch; the eight most distinctive are separate clips below."
+        ua: "Сайти на 5–10 сторінок на Tailwind або власному CSS: адаптив, форми з валідацією, cookie-банери, Leaflet-мапи, слайдери, FAQ, юридичні сторінки. Моя частина конвеєра — доведення до запуску: домен, бренд і контакти по всіх сторінках, sitemap/robots, нормалізація посилань, підбір фото, трекінг-кіт (GA4/Bing/FB) і форма з редиректом, перевірка верстки у двох в'юпортах; усе через корпоративний GitLab.",
+        en: "5–10-page sites on Tailwind or custom CSS: responsive layouts, validated forms, cookie banners, Leaflet maps, sliders, FAQs, legal pages. My part of the pipeline — taking them to launch: domain, brand and contacts across all pages, sitemap/robots, link normalisation, photo selection, the tracking kit (GA4/Bing/FB) and the form redirect, layout checks in two viewports; all through a corporate GitLab."
       },
       result: {
-        ua: "Стабільний конвеєр «бриф → сайт» з передбачуваними строками: до 10 сайтів на день у пікові тижні; деталі замовників під NDA.",
-        en: "A steady brief-to-site pipeline with predictable timelines: up to 10 sites a day in peak weeks; client details under NDA."
+        ua: "Стабільний цикл «бриф → запуск» з передбачуваними строками; вісім характерних сайтів — окремими кліпами нижче, один — живою копією.",
+        en: "A steady brief-to-launch cycle with predictable timelines; eight characteristic sites are separate clips below, one as a live copy."
       },
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Leaflet", "Git/GitLab"],
       siteUrl: null,
@@ -197,8 +197,8 @@ window.PORTFOLIO = {
         en: "Working in other people's code without breaking it"
       },
       what: {
-        ua: "Нові блоки й функціонал у існуючих сайтах, редизайни секцій, виправлення верстки, форм і скриптів; JS для нової поведінки елементів. За рік — правки у 5 000+ гілках репозиторію, з них ~1 500 масових оновлень на 8–10 файлів за раз (домени, контакти, юридичні блоки, трекінг) через власні скрипти.",
-        en: "New blocks and features in existing sites, section redesigns, fixes to layouts, forms and scripts; JavaScript for new element behaviour. Over the year — edits in 5,000+ repository branches, ~1,500 of them bulk updates of 8–10 files at once (domains, contacts, legal blocks, tracking) via my own scripts."
+        ua: "Нові блоки й функціонал у існуючих сайтах, редизайни секцій, виправлення верстки, форм і скриптів; JS для нової поведінки елементів. За рік — 6 300+ комітів у 5 000+ гілках репозиторію: ~1 500 масових оновлень на 8–10 файлів за раз (домени, контакти, юридичні блоки, трекінг) через власні скрипти; серія з 6 фінансових дайджестів перенесена з PHP-шаблонів у статичні сторінки; імпорт 14 копій сайтів до 3 500 файлів кожна.",
+        en: "New blocks and features in existing sites, section redesigns, fixes to layouts, forms and scripts; JavaScript for new element behaviour. Over the year — 6,300+ commits in 5,000+ repository branches: ~1,500 bulk updates of 8–10 files at once (domains, contacts, legal blocks, tracking) via my own scripts; a series of 6 finance digests moved from PHP templates to static pages; 14 site copies of up to 3,500 files each imported."
       },
       result: {
         ua: "Швидка орієнтація в незнайомому коді; дисципліна «виправити, не зламати» — і скрипти там, де руки не встигають.",
@@ -237,7 +237,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-artemis",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-11",
@@ -253,8 +253,8 @@ window.PORTFOLIO = {
         en: "9 pages in Japanese: a hero with a gallery photo, services, benefits, testimonials, company and legal pages; a Leaflet location map, a validated enquiry form, a cookie banner; typography tuned for CJK text."
       },
       result: {
-        ua: "Сайт зібрано й запущено за один день; перший досвід верстки під японську мову.",
-        en: "Built and shipped in a single day; my first layout work for Japanese text."
+        ua: "Мій етап: перейменування бренду по всіх 9 сторінках і мета-тегах, домен у sitemap/robots, фінальна перевірка CJK-типографіки у двох в'юпортах — у день завантаження сайту.",
+        en: "My stage: brand rename across all 9 pages and meta tags, the domain in sitemap/robots, a final check of the CJK typography in two viewports — on the day the site was uploaded."
       },
       tags: ["HTML", "Tailwind", "JavaScript", "Leaflet", "i18n/CJK"],
       siteUrl: null,
@@ -263,7 +263,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-dashdoor",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-11",
@@ -275,21 +275,21 @@ window.PORTFOLIO = {
         en: "A 10-page site with a property search widget and a hero slider"
       },
       what: {
-        ua: "Власний CSS без фреймворку: hero-слайдер із формою пошуку (локація, тип, ціна, спальні), каталог об'єктів, переваги, FAQ-акордеон, контактна форма з валідацією, cookie-банер; 13 зображень, адаптив до 360px.",
+        ua: "Кастомний CSS без фреймворку: hero-слайдер із формою пошуку (локація, тип, ціна, спальні), каталог об'єктів, переваги, FAQ-акордеон, контактна форма з валідацією, cookie-банер; 13 зображень, адаптив до 360px.",
         en: "Custom CSS, no framework: a hero slider with a search form (location, type, price, bedrooms), a property catalogue, benefits, an FAQ accordion, a validated contact form, a cookie banner; 13 images, responsive down to 360px."
       },
       result: {
-        ua: "Один із серії канадських сайтів нерухомості, зібраних за тиждень — кожен з власним макетом і стилем.",
-        en: "One of a series of Canadian real-estate sites built in a week — each with its own layout and style."
+        ua: "Мій етап: контакти й домен по всіх сторінках і юридичних текстах, нормалізація посилань, редирект форми. Для портфоліо — статична копія без трекінгу: PNG → WebP (20 МБ → 1,5 МБ), відновлений hero-слайдер, виправлений конфлікт імен у скрипті.",
+        en: "My stage: contacts and domain across all pages and legal texts, link normalisation, the form redirect. For the portfolio — a tracking-free static copy: PNG → WebP (20 MB → 1.5 MB), the hero slider restored, a name clash in the script fixed."
       },
       tags: ["HTML", "CSS", "JavaScript"],
-      siteUrl: null,
+      siteUrl: "portfolio/wp/dashdoor/",
       githubUrl: null,
       images: true
     },
     {
       id: "wp-homespot",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-11",
@@ -301,7 +301,7 @@ window.PORTFOLIO = {
         en: "A light split hero, a floating quick-search panel and 17 photos"
       },
       what: {
-        ua: "10 сторінок на власному CSS: двоколонковий hero з фото, плаваюча панель «Quick Property Search», сітка об'єктів, слайдер відгуків, FAQ, cookie-банер, юридичні сторінки.",
+        ua: "10 сторінок на кастомному CSS: двоколонковий hero з фото, плаваюча панель «Quick Property Search», сітка об'єктів, слайдер відгуків, FAQ, cookie-банер, юридичні сторінки.",
         en: "10 pages on custom CSS: a two-column hero with a photo, a floating “Quick Property Search” panel, a property grid, a testimonial slider, an FAQ, a cookie banner, legal pages."
       },
       result: {
@@ -315,7 +315,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-keyfind",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-11",
@@ -341,7 +341,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-familylawpro",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-11",
@@ -353,7 +353,7 @@ window.PORTFOLIO = {
         en: "Serif typography and a dark green palette for a law firm"
       },
       what: {
-        ua: "7 сторінок на власному CSS: hero з фото й двома CTA, послуги, процес, тарифи, відгуки-слайдер, FAQ, форма консультації з валідацією, cookie-банер; окрема шрифтова пара для «класичного» тону.",
+        ua: "7 сторінок на кастомному CSS: hero з фото й двома CTA, послуги, процес, тарифи, відгуки-слайдер, FAQ, форма консультації з валідацією, cookie-банер; окрема шрифтова пара для «класичного» тону.",
         en: "7 pages on custom CSS: a hero with a photo and two CTAs, services, process, pricing, a testimonial slider, an FAQ, a validated consultation form, a cookie banner; a dedicated serif/sans pair for a classic tone."
       },
       result: {
@@ -393,7 +393,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-eiskristall",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-12",
@@ -419,7 +419,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-fumoantico",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-12",
@@ -431,7 +431,7 @@ window.PORTFOLIO = {
         en: "An Italian-language site for traditional smoking tours — a warm dark style"
       },
       what: {
-        ua: "9 сторінок на Tailwind з найбільшим обсягом власного CSS/JS у серії: hero на темному фото, меню турів, переваги, відгуки, Leaflet-мапа, бронювання з валідацією, cookie-банер; кастомні кольори й градієнти поверх Tailwind-конфігу.",
+        ua: "9 сторінок на Tailwind з найбільшим обсягом кастомного CSS/JS у серії: hero на темному фото, меню турів, переваги, відгуки, Leaflet-мапа, бронювання з валідацією, cookie-банер; кастомні кольори й градієнти поверх Tailwind-конфігу.",
         en: "9 pages on Tailwind with the most custom CSS/JS in the series: a hero on a dark photo, tour menu, benefits, testimonials, a Leaflet map, validated booking, a cookie banner; custom colours and gradients on top of the Tailwind config."
       },
       result: {
@@ -445,7 +445,7 @@ window.PORTFOLIO = {
     },
     {
       id: "wp-precision",
-      kind: "project",
+      kind: "work",
       category: "web",
       position: "nda",
       from: "2025-12",

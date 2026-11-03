@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DashDoor - Premier Real Estate Rentals in Canada. Find your perfect apartment, house, or commercial space with our professional rental services.">
+    <meta name="keywords" content="real estate rental, apartment rental, house rental, commercial rental, Canada rentals, property rental">
+    <title>DashDoor - Premium Real Estate Rentals in Canada</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- ========== Header ========== -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="./" class="logo">DashDoor</a>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== Hero Section with Unique Interactive Design ========== -->
+    <section class="hero-section">
+        <div class="hero-slider-wrapper">
+            <div class="hero-slide active" style="background-image: url('assets/property-1.webp')">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="hero-slide" style="background-image: url('assets/property-2.webp')">
+                <div class="slide-overlay"></div>
+            </div>
+            <div class="hero-slide" style="background-image: url('assets/property-3.webp')">
+                <div class="slide-overlay"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text-content">
+                    <h1 class="hero-title">Find Your Perfect Space</h1>
+                    <p class="hero-subtitle">Discover premium rental properties across Canada. From cozy apartments to luxurious homes and commercial spaces.</p>
+                    
+                    <div class="hero-search-box">
+                        <div class="search-tabs">
+                            <button class="search-tab active" data-tab="rent">Rent</button>
+                            <button class="search-tab" data-tab="commercial">Commercial</button>
+                        </div>
+                        
+                        <div class="search-form-container">
+                            <form class="property-search-form" id="searchForm">
+                                <div class="search-row">
+                                    <div class="search-field">
+                                        <label>Location</label>
+                                        <input type="text" placeholder="Enter city or area" id="location">
+                                    </div>
+                                    <div class="search-field">
+                                        <label>Property Type</label>
+                                        <select id="propertyType">
+                                            <option value="">Any Type</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="house">House</option>
+                                            <option value="condo">Condo</option>
+                                            <option value="townhouse">Townhouse</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-field">
+                                        <label>Price Range</label>
+                                        <select id="priceRange">
+                                            <option value="">Any Price</option>
+                                            <option value="0-1000">Under $1,000</option>
+                                            <option value="1000-2000">$1,000 - $2,000</option>
+                                            <option value="2000-3000">$2,000 - $3,000</option>
+                                            <option value="3000-5000">$3,000 - $5,000</option>
+                                            <option value="5000+">$5,000+</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-field">
+                                        <label>Bedrooms</label>
+                                        <select id="bedrooms">
+                                            <option value="">Any</option>
+                                            <option value="1">1 Bedroom</option>
+                                            <option value="2">2 Bedrooms</option>
+                                            <option value="3">3 Bedrooms</option>
+                                            <option value="4+">4+ Bedrooms</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="search-btn">Search Properties</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="hero-features">
+                        <div class="hero-feature-item">
+                            <span class="feature-icon">🔑</span>
+                            <span>5,000+ Properties</span>
+                        </div>
+                        <div class="hero-feature-item">
+                            <span class="feature-icon">📱</span>
+                            <span>24/7 Support</span>
+                        </div>
+                        <div class="hero-feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Verified Listings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-slider-controls">
+            <button class="slider-arrow prev" onclick="changeSlide(-1)">❮</button>
+            <button class="slider-arrow next" onclick="changeSlide(1)">❯</button>
+        </div>
+
+        <div class="slider-dots-hero">
+            <span class="dot-hero active" onclick="goToSlide(1)"></span>
+            <span class="dot-hero" onclick="goToSlide(2)"></span>
+            <span class="dot-hero" onclick="goToSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- ========== Why Choose Us Section ========== -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose DashDoor for Your Rental Needs?</h2>
+            <p class="section-subtitle">We make finding the perfect rental property simple, fast, and stress-free</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Extensive Property Database</h3>
+                    <p>Browse through thousands of verified rental properties across major Canadian cities. Our comprehensive database ensures you find exactly what you're looking for.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Expert Guidance</h3>
+                    <p>Our experienced team of real estate professionals is here to help you every step of the way. From property selection to lease signing, we've got you covered.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Transparent Process</h3>
+                    <p>No hidden fees, no surprises. We believe in complete transparency with upfront pricing and clear terms. Know exactly what you're paying for.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Quick Turnaround</h3>
+                    <p>Need a place fast? Our streamlined application process and instant verification tools help you secure your rental property quickly and efficiently.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Modern Technology</h3>
+                    <p>Experience virtual tours, online applications, and digital document signing. Our tech-forward approach saves you time and simplifies the rental journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Ongoing Support</h3>
+                    <p>Our relationship doesn't end at move-in. We provide continued support throughout your tenancy, ensuring your rental experience remains smooth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Featured Properties Section ========== -->
+    <section class="properties-section">
+        <div class="container">
+            <h2 class="section-title">Featured Rental Properties</h2>
+            <p class="section-subtitle">Hand-picked properties in prime locations across Canada</p>
+            
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="assets/property-1.webp" alt="Luxury Downtown Apartment">
+                        <div class="property-badge">Featured</div>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-location">
+                            <span>📍 Toronto, ON</span>
+                        </div>
+                        <h3>Luxury Downtown Apartment</h3>
+                        <p>Stunning 2-bedroom apartment in the heart of downtown Toronto. Modern amenities, breathtaking city views.</p>
+                        <div class="property-details">
+                            <span>🛏️ 2 Bedrooms</span>
+                            <span>🚿 2 Bathrooms</span>
+                            <span>📐 1,200 sq ft</span>
+                        </div>
+                        <div class="property-footer">
+                            <div class="property-price">$2,800/month</div>
+                            <a href="contactus.html" class="property-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="assets/property-2.webp" alt="Cozy Suburban House">
+                        <div class="property-badge hot">Hot Deal</div>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-location">
+                            <span>📍 Vancouver, BC</span>
+                        </div>
+                        <h3>Cozy Suburban House</h3>
+                        <p>Beautiful 3-bedroom family home with spacious backyard. Perfect for families seeking tranquility and comfort.</p>
+                        <div class="property-details">
+                            <span>🛏️ 3 Bedrooms</span>
+                            <span>🚿 2.5 Bathrooms</span>
+                            <span>📐 1,800 sq ft</span>
+                        </div>
+                        <div class="property-footer">
+                            <div class="property-price">$3,200/month</div>
+                            <a href="contactus.html" class="property-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="assets/property-3.webp" alt="Modern Condo">
+                        <div class="property-badge">New</div>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-location">
+                            <span>📍 Montreal, QC</span>
+                        </div>
+                        <h3>Modern Studio Condo</h3>
+                        <p>Trendy studio apartment perfect for young professionals. Fully furnished with all modern conveniences.</p>
+                        <div class="property-details">
+                            <span>🛏️ Studio</span>
+                            <span>🚿 1 Bathroom</span>
+                            <span>📐 600 sq ft</span>
+                        </div>
+                        <div class="property-footer">
+                            <div class="property-price">$1,400/month</div>
+                            <a href="contactus.html" class="property-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Rental Process Section with Accordion ========== -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Simple Rental Process</h2>
+            <p class="section-subtitle">Five easy steps to secure your dream rental</p>
+            
+            <div class="process-accordion-container">
+                <div class="process-accordion-item">
+                    <div class="process-accordion-header">
+                        <span class="process-number">1</span>
+                        <h3>Search & Browse Properties</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="process-accordion-content">
+                        <p>Use our powerful search filters to find properties matching your criteria. Browse detailed listings with high-quality photos, virtual tours, and comprehensive property information. Save your favorites and compare them side by side.</p>
+                        <ul>
+                            <li>Advanced search with multiple filters</li>
+                            <li>Virtual property tours</li>
+                            <li>Detailed property descriptions</li>
+                            <li>Neighborhood insights and information</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-accordion-item">
+                    <div class="process-accordion-header">
+                        <span class="process-number">2</span>
+                        <h3>Schedule Viewing</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="process-accordion-content">
+                        <p>Once you've identified properties of interest, schedule in-person or virtual viewings at your convenience. Our team coordinates with property managers to find times that work for everyone.</p>
+                        <ul>
+                            <li>Flexible scheduling system</li>
+                            <li>In-person and virtual viewing options</li>
+                            <li>Same-day viewing availability</li>
+                            <li>Accompanied by experienced agents</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-accordion-item">
+                    <div class="process-accordion-header">
+                        <span class="process-number">3</span>
+                        <h3>Submit Application</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="process-accordion-content">
+                        <p>Complete the application process online in just minutes. Upload required documents, submit background checks, and provide references. Our platform securely stores your information for future applications.</p>
+                        <ul>
+                            <li>Digital application submission</li>
+                            <li>Automatic background verification</li>
+                            <li>Credit check integration</li>
+                            <li>Secure document storage</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-accordion-item">
+                    <div class="process-accordion-header">
+                        <span class="process-number">4</span>
+                        <h3>Review & Sign Lease</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="process-accordion-content">
+                        <p>Review your lease agreement carefully with our team. We ensure all terms are clear and fair. Sign documents electronically from anywhere, at any time. Legal support available if needed.</p>
+                        <ul>
+                            <li>Transparent lease terms</li>
+                            <li>Electronic signature capability</li>
+                            <li>Legal review assistance</li>
+                            <li>Clear deposit and payment terms</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="process-accordion-item">
+                    <div class="process-accordion-header">
+                        <span class="process-number">5</span>
+                        <h3>Move In & Enjoy</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="process-accordion-content">
+                        <p>Congratulations on your new home! Our team assists with move-in coordination, utility setup, and any immediate concerns. We remain available throughout your tenancy for ongoing support.</p>
+                        <ul>
+                            <li>Move-in inspection assistance</li>
+                            <li>Utility connection support</li>
+                            <li>24/7 maintenance hotline</li>
+                            <li>Dedicated tenant support portal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Service Areas Section ========== -->
+    <section class="areas-section">
+        <div class="container">
+            <h2 class="section-title">We Serve Across Canada</h2>
+            <p class="section-subtitle">Find rental properties in major Canadian cities and regions</p>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-image">
+                        <img src="assets/1.webp" alt="Toronto Rentals">
+                    </div>
+                    <h3>Toronto</h3>
+                    <p>1,200+ properties available in Canada's largest city. From luxury condos to affordable apartments.</p>
+                    <a href="service.html" class="area-link">Explore Toronto →</a>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-image">
+                        <img src="assets/2.webp" alt="Vancouver Rentals">
+                    </div>
+                    <h3>Vancouver</h3>
+                    <p>Premium West Coast living with 800+ rental options. Ocean views and mountain scenery await.</p>
+                    <a href="service.html" class="area-link">Explore Vancouver →</a>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-image">
+                        <img src="assets/3.webp" alt="Montreal Rentals">
+                    </div>
+                    <h3>Montreal</h3>
+                    <p>European charm meets modern living. 900+ unique properties in Quebec's cultural capital.</p>
+                    <a href="service.html" class="area-link">Explore Montreal →</a>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-image">
+                        <img src="assets/4.webp" alt="Calgary Rentals">
+                    </div>
+                    <h3>Calgary</h3>
+                    <p>Spacious properties in Alberta's economic hub. 600+ rentals with mountain access and urban amenities.</p>
+                    <a href="service.html" class="area-link">Explore Calgary →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Testimonials Section with Slider ========== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real experiences from real tenants across Canada</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-item active">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"DashDoor made finding my apartment in Toronto incredibly smooth. The team was professional, responsive, and truly cared about finding me the right place. I couldn't be happier with the service!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <p class="author-name">Sarah Mitchell</p>
+                                <p class="author-location">Toronto, ON</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"As a recent transplant from the US, I was nervous about navigating the Canadian rental market. DashDoor's team guided me through every step and found me a perfect place in Vancouver within two weeks."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <p class="author-name">James Robertson</p>
+                                <p class="author-location">Vancouver, BC</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"The virtual tour feature was a game-changer! I was able to view multiple properties from my current location and narrow down my choices before traveling to Montreal. Saved so much time and effort."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <p class="author-name">Marie Dubois</p>
+                                <p class="author-location">Montreal, QC</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-dots">
+                <span class="dot-testimonial active" onclick="currentTestimonial(1)"></span>
+                <span class="dot-testimonial" onclick="currentTestimonial(2)"></span>
+                <span class="dot-testimonial" onclick="currentTestimonial(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Stats Section ========== -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">DashDoor by the Numbers</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Our success is measured by your satisfaction</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5000">0+</span>
+                    <span class="stat-label">Active Listings</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number" data-target="12000">0+</span>
+                    <span class="stat-label">Happy Tenants</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25">0+</span>
+                    <span class="stat-label">Cities Served</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0+</span>
+                    <span class="stat-label">Client Satisfaction %</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ Section ========== -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about renting with DashDoor</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>What fees should I expect when renting through DashDoor?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Our application fee is $50 CAD, which covers background and credit checks. Security deposits typically range from half to one month's rent, depending on the property and your credit history. There are no hidden fees - we clearly outline all costs before you apply.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>How long does the application process take?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Most applications are processed within 24-48 hours. Applications submitted during business hours with all required documents typically receive faster processing. We'll notify you immediately once approval is granted.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>Do I need to visit properties in person?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Not necessarily! Many properties offer virtual tours, which you can take from the comfort of your home. However, in-person visits are recommended when possible, especially for properties in your area. We offer both options to accommodate all situations.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>What happens if I have issues with my rental property after moving in?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Our 24/7 support team is here to help with any issues. Whether it's maintenance requests, lease questions, or emergencies, contact us anytime. We work closely with property managers to ensure prompt resolution of all concerns.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>Can I rent if I'm moving from outside Canada?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Absolutely! We assist many international renters. You'll need valid identification, proof of income or employment offer, and possibly additional documentation depending on your specific situation. Our team can guide you through these requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>How do I know if a property is still available?</h3>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>All listings on our site are updated in real-time. Properties marked as "Available" are currently unoccupied and ready for immediate viewing. If a property receives an application, we update its status immediately to avoid disappointment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA Section ========== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Perfect Rental?</h2>
+                <p>Join thousands of satisfied tenants who found their ideal home through DashDoor</p>
+                <div class="cta-buttons">
+                    <a href="contactus.html" class="btn btn-primary">Get Started Today</a>
+                    <a href="service.html" class="btn btn-secondary">View Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About DashDoor</h3>
+                    <p>DashDoor is Canada's trusted real estate rental platform, connecting tenants with verified properties across the country. We're committed to making the rental process simple, transparent, and stress-free for everyone.</p>
+                    <p style="margin-top: 1rem;">© <span class="current-year">2025</span> DashDoor. All rights reserved.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal Information</h3>
+                    <ul>
+                        <li><a href="Privacy-Policy.html">Privacy Policy</a></li>
+                        <li><a href="Terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="Terms-and-conditions.html">Terms and Conditions</a></li>
+                        <li><a href="Cookie-Policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>📍 2847 Bay Street, Suite 400</p>
+                    <p>Toronto, ON M5J 2T8, Canada</p>
+                    <p>📞 +1 (647) 892-6153</p>
+                    <p>📧 domain@dashdois.biz</p>
+                    <p>🕒 Mon-Fri: 9:00 AM - 6:00 PM EST</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== Cookie Popup ========== -->
+    <div class="cookie-popup">
+        <p>We use cookies to enhance your browsing experience and analyze site traffic. By continuing to use our site, you agree to our <a href="Cookie-Policy.html">Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-accept">Accept</button>
+            <button class="cookie-btn cookie-decline">Decline</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <a class="pf-badge" href="../../../index.html#clip-wp-dashdoor" title="Копія сайту з портфоліо Олександра Бешуна · Bypass, 11.2025">← portfolio · copy of a client white page (Bypass, 11.2025)</a>
+    <style>.pf-badge{position:fixed;left:12px;bottom:12px;z-index:9999;font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.04em;text-transform:uppercase;background:#121316;color:#d7ff3c;padding:8px 10px;border-radius:4px;text-decoration:none;opacity:.85}.pf-badge:hover{opacity:1}</style>
+</body>
+</html>
+
