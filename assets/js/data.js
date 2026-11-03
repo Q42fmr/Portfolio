@@ -181,8 +181,8 @@ window.PORTFOLIO = {
         en: "Custom CSS, no framework: a hero slider with a search form (location, type, price, bedrooms), a property catalogue, benefits, an FAQ accordion, a validated contact form, a cookie banner; 13 images, responsive down to 360px."
       },
       result: {
-        ua: "Мій етап: контакти й домен по всіх сторінках і юридичних текстах, нормалізація посилань, редирект форми. Для портфоліо — статична копія без трекінгу: PNG → WebP (20 МБ → 1,5 МБ), відновлений hero-слайдер, виправлений конфлікт імен у скрипті.",
-        en: "My stage: contacts and domain across all pages and legal texts, link normalisation, the form redirect. For the portfolio — a tracking-free static copy: PNG → WebP (20 MB → 1.5 MB), the hero slider restored, a name clash in the script fixed."
+        ua: "Що робив: контакти й домен по всіх сторінках і юридичних текстах, нормалізація посилань, редирект форми. Для портфоліо — статична копія без трекінгу: PNG → WebP (20 МБ → 1,5 МБ), відновлений hero-слайдер, виправлений конфлікт імен у скрипті.",
+        en: "What I did: contacts and domain across all pages and legal texts, link normalisation, the form redirect. For the portfolio — a tracking-free static copy: PNG → WebP (20 MB → 1.5 MB), the hero slider restored, a name clash in the script fixed."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: "portfolio/wp/dashdoor/",
@@ -207,8 +207,8 @@ window.PORTFOLIO = {
         en: "10 pages on custom CSS: a two-column hero with a photo, a floating “Quick Property Search” panel, a property grid, a testimonial slider, an FAQ, a cookie banner, legal pages."
       },
       result: {
-        ua: "Мій етап: домен і контакти по сторінках, нормалізація посилань у шапці/футері, перевірка split-hero на мобільному.",
-        en: "My stage: domain and contacts across pages, link normalisation in header/footer, a mobile check of the split hero."
+        ua: "Що робив: домен і контакти по сторінках, нормалізація посилань у шапці/футері, перевірка split-hero на мобільному.",
+        en: "What I did: domain and contacts across pages, link normalisation in header/footer, a mobile check of the split hero."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
@@ -233,8 +233,8 @@ window.PORTFOLIO = {
         en: "The largest site in the series: 18 sections across 10 pages, a four-filter search panel in the hero, property cards, process steps, testimonials, an FAQ, a contact form; custom CSS and a dependency-free script."
       },
       result: {
-        ua: "Мій етап: домен і контакти на 9 файлах, правки після рев'ю support-команди, перевірка 18 секцій на 390px.",
-        en: "My stage: domain and contacts in 9 files, fixes after the support team's review, a 390px check of all 18 sections."
+        ua: "Що робив: домен і контакти на 9 файлах, правки після рев'ю замовника, перевірка 18 секцій на 390px.",
+        en: "What I did: domain and contacts in 9 files, fixes after the client's review, a 390px check of all 18 sections."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
@@ -259,8 +259,8 @@ window.PORTFOLIO = {
         en: "7 pages on custom CSS: a hero with a photo and two CTAs, services, process, pricing, a testimonial slider, an FAQ, a validated consultation form, a cookie banner; a dedicated serif/sans pair for a classic tone."
       },
       result: {
-        ua: "Мій етап: контакти й домен у 6 файлах, фінальна правка головної, перевірка серифної типографіки в обох в'юпортах.",
-        en: "My stage: contacts and domain in 6 files, a final fix on the home page, a check of the serif typography in both viewports."
+        ua: "Що робив: контакти й домен у 6 файлах, фінальна правка головної, перевірка серифної типографіки в обох в'юпортах.",
+        en: "What I did: contacts and domain in 6 files, a final fix on the home page, a check of the serif typography in both viewports."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
@@ -311,8 +311,8 @@ window.PORTFOLIO = {
         en: "5–10-page sites on Tailwind or custom CSS: responsive layouts, validated forms, cookie banners, Leaflet maps, sliders, FAQs, legal pages. My part of the pipeline — taking them to launch: domain, brand and contacts across all pages, sitemap/robots, link normalisation, photo selection, the tracking kit (GA4/Bing/FB) and the form redirect, layout checks in two viewports; all through a corporate GitLab."
       },
       result: {
-        ua: "Стабільний цикл «бриф → запуск» з передбачуваними строками; вісім характерних сайтів — окремими кліпами нижче, один — живою копією.",
-        en: "A steady brief-to-launch cycle with predictable timelines; eight characteristic sites are separate clips below, one as a live copy."
+        ua: "Стабільний цикл «бриф → запуск» з передбачуваними строками; чотири характерних сайти — окремими кліпами нижче.",
+        en: "A steady brief-to-launch cycle with predictable timelines; four characteristic sites are separate clips below."
       },
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Leaflet", "Git/GitLab"],
       siteUrl: null,
