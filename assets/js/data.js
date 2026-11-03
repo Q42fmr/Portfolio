@@ -16,7 +16,7 @@ window.PORTFOLIO = {
     github: "https://github.com/Q42fmr",
     site: "https://q42fmr.shop",
     timeZone: "Europe/Kyiv",
-    nowLabel: { ua: "09.2025 — 10.2026 · 1 рік", en: "09.2025 — 10.2026 · 1 year" },
+    nowLabel: { ua: "09.2025 — 11.2026 · 1 рік 3 міс", en: "09.2025 — 11.2026 · 1 yr 3 mos" },
     summary: {
       ua: "Рік у продуктовій веб-студії Bypass: збирав сайти та лендінги з нуля за макетами, вносив правки й редизайни в чужий код, лагодив верстку, форми та скрипти. Тримав якість: ручне QA за чеклістами і авто-QA на Playwright для регресій, Python-скрипти для масових правок десятків сторінок. Щодня — Claude Code, Cursor та агентні воркфлоу: спека → план → реалізація → перевірка.",
       en: "A year at Bypass, a product web studio: built sites and landing pages from scratch to the mockup, shipped edits and redesigns in other people's code, fixed layouts, forms and scripts. Kept quality up: manual QA by checklists plus Playwright auto-QA for regressions, and Python scripts for bulk edits across dozens of pages. Daily tools: Claude Code, Cursor and agentic workflows — spec → plan → implement → verify."
@@ -32,13 +32,19 @@ window.PORTFOLIO = {
     {
       id: "collar",
       from: "2021-09",
-      to: "2025-05",
-      title: { ua: "Analyst · Collar, Чернігів", en: "Analyst · Collar, Chernihiv" }
+      to: "2024-09",
+      title: { ua: "Data Analyst · Collar, Чернігів", en: "Data Analyst · Collar, Chernihiv" }
+    },
+    {
+      id: "freelance",
+      from: "2024-10",
+      to: "2025-08",
+      title: { ua: "Freelance Front-end Developer", en: "Freelance Front-end Developer" }
     },
     {
       id: "nda",
       from: "2025-09",
-      to: "2026-10",
+      to: "2026-11",
       title: { ua: "Junior Frontend Developer · Bypass", en: "Junior Frontend Developer · Bypass" }
     }
   ],
@@ -59,9 +65,9 @@ window.PORTFOLIO = {
       category: "data",
       position: "collar",
       from: "2021-09",
-      to: "2025-05",
+      to: "2024-09",
       nda: false,
-      title: { ua: "Collar · Analyst", en: "Collar · Analyst" },
+      title: { ua: "Collar · Data Analyst", en: "Collar · Data Analyst" },
       tagline: {
         ua: "Аналітика ринків і перші інтерфейси для даних",
         en: "Market analytics and my first interfaces for data"
@@ -85,7 +91,7 @@ window.PORTFOLIO = {
       category: "data",
       position: null,
       from: "2022-01",
-      to: "2025-05",
+      to: "2024-09",
       nda: false,
       title: { ua: "Парсери та автоматизація даних на Python", en: "Python parsers and data automation" },
       tagline: {
@@ -111,7 +117,7 @@ window.PORTFOLIO = {
       category: "web",
       position: "collar",
       from: "2024-06",
-      to: "2025-05",
+      to: "2024-09",
       nda: false,
       title: { ua: "Collar · адміністрування сайтів", en: "Collar · website administration" },
       tagline: {
@@ -132,6 +138,136 @@ window.PORTFOLIO = {
       images: false
     },
     {
+      id: "freelance-sites",
+      kind: "job",
+      category: "web",
+      position: "freelance",
+      from: "2024-10",
+      to: "2025-08",
+      nda: false,
+      title: { ua: "Фріланс · сайти для клієнтів", en: "Freelance · client sites" },
+      tagline: {
+        ua: "Лендінги та невеликі сайти за макетами й брифами",
+        en: "Landing pages and small sites from mockups and briefs"
+      },
+      what: {
+        ua: "Перші замовлення як фронтенд-фрілансер: лендінги й невеликі багатосторінкові сайти за макетами — верстка, адаптив, форми, базовий JavaScript; правки й підтримка існуючих сайтів клієнтів. Приклади — у наступних кліпах.",
+        en: "First jobs as a freelance front-end developer: landing pages and small multi-page sites built to mockups — markup, responsive layouts, forms, basic JavaScript; edits and upkeep of clients' existing sites. Examples in the clips that follow."
+      },
+      result: {
+        ua: "Перехід з аналітики у фронтенд на реальних замовленнях; основа для роботи в студії.",
+        en: "The move from analytics to front end on real orders; the base for the studio role."
+      },
+      tags: ["HTML", "CSS", "JavaScript", "Responsive"],
+      siteUrl: null,
+      githubUrl: null,
+      images: false
+    },
+    {
+      id: "wp-dashdoor",
+      kind: "work",
+      category: "web",
+      position: "freelance",
+      from: "2024-11",
+      to: "2024-11",
+      nda: true,
+      title: { ua: "DashDoor · оренда нерухомості (CA)", en: "DashDoor · property rentals (CA)" },
+      tagline: {
+        ua: "10-сторінковий сайт з пошуком об'єктів і слайдером у hero",
+        en: "A 10-page site with a property search widget and a hero slider"
+      },
+      what: {
+        ua: "Кастомний CSS без фреймворку: hero-слайдер із формою пошуку (локація, тип, ціна, спальні), каталог об'єктів, переваги, FAQ-акордеон, контактна форма з валідацією, cookie-банер; 13 зображень, адаптив до 360px.",
+        en: "Custom CSS, no framework: a hero slider with a search form (location, type, price, bedrooms), a property catalogue, benefits, an FAQ accordion, a validated contact form, a cookie banner; 13 images, responsive down to 360px."
+      },
+      result: {
+        ua: "Мій етап: контакти й домен по всіх сторінках і юридичних текстах, нормалізація посилань, редирект форми. Для портфоліо — статична копія без трекінгу: PNG → WebP (20 МБ → 1,5 МБ), відновлений hero-слайдер, виправлений конфлікт імен у скрипті.",
+        en: "My stage: contacts and domain across all pages and legal texts, link normalisation, the form redirect. For the portfolio — a tracking-free static copy: PNG → WebP (20 MB → 1.5 MB), the hero slider restored, a name clash in the script fixed."
+      },
+      tags: ["HTML", "CSS", "JavaScript"],
+      siteUrl: "portfolio/wp/dashdoor/",
+      githubUrl: null,
+      images: true
+    },
+    {
+      id: "wp-homespot",
+      kind: "work",
+      category: "web",
+      position: "freelance",
+      from: "2025-02",
+      to: "2025-02",
+      nda: true,
+      title: { ua: "Homespot · оренда житла (CA)", en: "Homespot · home rentals (CA)" },
+      tagline: {
+        ua: "Світлий split-hero, плаваючий швидкий пошук і 17 фото",
+        en: "A light split hero, a floating quick-search panel and 17 photos"
+      },
+      what: {
+        ua: "10 сторінок на кастомному CSS: двоколонковий hero з фото, плаваюча панель «Quick Property Search», сітка об'єктів, слайдер відгуків, FAQ, cookie-банер, юридичні сторінки.",
+        en: "10 pages on custom CSS: a two-column hero with a photo, a floating “Quick Property Search” panel, a property grid, a testimonial slider, an FAQ, a cookie banner, legal pages."
+      },
+      result: {
+        ua: "Та сама ніша, інший візуальний характер — вправа в різних композиціях hero.",
+        en: "Same niche, a different visual character — an exercise in varied hero compositions."
+      },
+      tags: ["HTML", "CSS", "JavaScript"],
+      siteUrl: null,
+      githubUrl: null,
+      images: true
+    },
+    {
+      id: "wp-keyfind",
+      kind: "work",
+      category: "web",
+      position: "freelance",
+      from: "2025-04",
+      to: "2025-04",
+      nda: true,
+      title: { ua: "KeyFind · оренда нерухомості (CA)", en: "KeyFind · property rentals (CA)" },
+      tagline: {
+        ua: "Темний навігаційний стиль, 18 секцій і фільтр-панель у hero",
+        en: "A dark navy style, 18 sections and a filter panel in the hero"
+      },
+      what: {
+        ua: "Найбільший сайт серії: 18 секцій на 10 сторінках, панель пошуку з чотирма фільтрами в hero, картки об'єктів, кроки процесу, відгуки, FAQ, контактна форма; власний CSS і скрипт без залежностей.",
+        en: "The largest site in the series: 18 sections across 10 pages, a four-filter search panel in the hero, property cards, process steps, testimonials, an FAQ, a contact form; custom CSS and a dependency-free script."
+      },
+      result: {
+        ua: "Довга сторінка, яка тримає ритм: однакові відступи, типографіка й компоненти від hero до футера.",
+        en: "A long page that keeps its rhythm: consistent spacing, typography and components from hero to footer."
+      },
+      tags: ["HTML", "CSS", "JavaScript"],
+      siteUrl: null,
+      githubUrl: null,
+      images: true
+    },
+    {
+      id: "wp-familylawpro",
+      kind: "work",
+      category: "web",
+      position: "freelance",
+      from: "2025-07",
+      to: "2025-07",
+      nda: true,
+      title: { ua: "Family Law Pro · юридичні послуги (CA)", en: "Family Law Pro · legal services (CA)" },
+      tagline: {
+        ua: "Серифна типографіка і темно-зелена палітра для юридичної фірми",
+        en: "Serif typography and a dark green palette for a law firm"
+      },
+      what: {
+        ua: "7 сторінок на кастомному CSS: hero з фото й двома CTA, послуги, процес, тарифи, відгуки-слайдер, FAQ, форма консультації з валідацією, cookie-банер; окрема шрифтова пара для «класичного» тону.",
+        en: "7 pages on custom CSS: a hero with a photo and two CTAs, services, process, pricing, a testimonial slider, an FAQ, a validated consultation form, a cookie banner; a dedicated serif/sans pair for a classic tone."
+      },
+      result: {
+        ua: "Контрастна до «нерухомості» подача тієї ж структури — тон задає типографіка, а не лейаут.",
+        en: "The same structure with a tone opposite to the real-estate sites — typography, not layout, sets the mood."
+      },
+      tags: ["HTML", "CSS", "JavaScript"],
+      siteUrl: null,
+      githubUrl: null,
+      images: true
+    },
+    {
       id: "course-frontend",
       kind: "job",
       category: "web",
@@ -141,16 +277,16 @@ window.PORTFOLIO = {
       nda: false,
       title: { ua: "Курси Front-end · ItGrid", en: "Front-end course · ItGrid" },
       tagline: {
-        ua: "Місяць інтенсиву з HTML/CSS перед першою фронтенд-позицією",
-        en: "A one-month HTML/CSS intensive before my first front-end role"
+        ua: "Місяць інтенсиву з HTML/CSS перед студійною позицією",
+        en: "A one-month HTML/CSS intensive before the studio role"
       },
       what: {
         ua: "HTML5, CSS3 (Flexbox, Grid), адаптивна верстка за макетами Figma, основи JavaScript і Git; навчальні проєкти — лендінги за макетами.",
         en: "HTML5, CSS3 (Flexbox, Grid), responsive layouts from Figma mockups, JavaScript and Git basics; course projects — landing pages built to mockups."
       },
       result: {
-        ua: "Перехід з аналітики у фронтенд: наступного місяця — Junior Frontend Developer у студії Bypass.",
-        en: "The switch from analytics to front end: the next month — Junior Frontend Developer at the Bypass studio."
+        ua: "Систематизація після року фрілансу: наступного місяця — Junior Frontend Developer у студії Bypass.",
+        en: "Consolidation after a year of freelancing: the next month — Junior Frontend Developer at the Bypass studio."
       },
       tags: ["HTML5", "CSS3", "Figma", "JavaScript", "Git"],
       siteUrl: null,
@@ -163,7 +299,7 @@ window.PORTFOLIO = {
       category: "web",
       position: "nda",
       from: "2025-09",
-      to: "2026-10",
+      to: "2026-11",
       nda: true,
       title: { ua: "Сайти та лендінги: від брифу до запуску", en: "Sites and landing pages: from brief to launch" },
       tagline: {
@@ -189,7 +325,7 @@ window.PORTFOLIO = {
       category: "web",
       position: "nda",
       from: "2025-09",
-      to: "2026-10",
+      to: "2026-11",
       nda: true,
       title: { ua: "Редизайни, правки, фікси", en: "Redesigns, edits, fixes" },
       tagline: {
@@ -215,7 +351,7 @@ window.PORTFOLIO = {
       category: "qa",
       position: "nda",
       from: "2025-09",
-      to: "2026-10",
+      to: "2026-11",
       nda: true,
       title: { ua: "Auto-QA і скрипти для масових правок", en: "Auto-QA and bulk-edit scripts" },
       tagline: {
@@ -257,110 +393,6 @@ window.PORTFOLIO = {
         en: "My stage: brand rename across all 9 pages and meta tags, the domain in sitemap/robots, a final check of the CJK typography in two viewports — on the day the site was uploaded."
       },
       tags: ["HTML", "Tailwind", "JavaScript", "Leaflet", "i18n/CJK"],
-      siteUrl: null,
-      githubUrl: null,
-      images: true
-    },
-    {
-      id: "wp-dashdoor",
-      kind: "work",
-      category: "web",
-      position: "nda",
-      from: "2025-11",
-      to: "2025-11",
-      nda: true,
-      title: { ua: "DashDoor · оренда нерухомості (CA)", en: "DashDoor · property rentals (CA)" },
-      tagline: {
-        ua: "10-сторінковий сайт з пошуком об'єктів і слайдером у hero",
-        en: "A 10-page site with a property search widget and a hero slider"
-      },
-      what: {
-        ua: "Кастомний CSS без фреймворку: hero-слайдер із формою пошуку (локація, тип, ціна, спальні), каталог об'єктів, переваги, FAQ-акордеон, контактна форма з валідацією, cookie-банер; 13 зображень, адаптив до 360px.",
-        en: "Custom CSS, no framework: a hero slider with a search form (location, type, price, bedrooms), a property catalogue, benefits, an FAQ accordion, a validated contact form, a cookie banner; 13 images, responsive down to 360px."
-      },
-      result: {
-        ua: "Мій етап: контакти й домен по всіх сторінках і юридичних текстах, нормалізація посилань, редирект форми. Для портфоліо — статична копія без трекінгу: PNG → WebP (20 МБ → 1,5 МБ), відновлений hero-слайдер, виправлений конфлікт імен у скрипті.",
-        en: "My stage: contacts and domain across all pages and legal texts, link normalisation, the form redirect. For the portfolio — a tracking-free static copy: PNG → WebP (20 MB → 1.5 MB), the hero slider restored, a name clash in the script fixed."
-      },
-      tags: ["HTML", "CSS", "JavaScript"],
-      siteUrl: "portfolio/wp/dashdoor/",
-      githubUrl: null,
-      images: true
-    },
-    {
-      id: "wp-homespot",
-      kind: "work",
-      category: "web",
-      position: "nda",
-      from: "2025-11",
-      to: "2025-11",
-      nda: true,
-      title: { ua: "Homespot · оренда житла (CA)", en: "Homespot · home rentals (CA)" },
-      tagline: {
-        ua: "Світлий split-hero, плаваючий швидкий пошук і 17 фото",
-        en: "A light split hero, a floating quick-search panel and 17 photos"
-      },
-      what: {
-        ua: "10 сторінок на кастомному CSS: двоколонковий hero з фото, плаваюча панель «Quick Property Search», сітка об'єктів, слайдер відгуків, FAQ, cookie-банер, юридичні сторінки.",
-        en: "10 pages on custom CSS: a two-column hero with a photo, a floating “Quick Property Search” panel, a property grid, a testimonial slider, an FAQ, a cookie banner, legal pages."
-      },
-      result: {
-        ua: "Та сама ніша, інший візуальний характер — вправа в різних композиціях hero.",
-        en: "Same niche, a different visual character — an exercise in varied hero compositions."
-      },
-      tags: ["HTML", "CSS", "JavaScript"],
-      siteUrl: null,
-      githubUrl: null,
-      images: true
-    },
-    {
-      id: "wp-keyfind",
-      kind: "work",
-      category: "web",
-      position: "nda",
-      from: "2025-11",
-      to: "2025-11",
-      nda: true,
-      title: { ua: "KeyFind · оренда нерухомості (CA)", en: "KeyFind · property rentals (CA)" },
-      tagline: {
-        ua: "Темний навігаційний стиль, 18 секцій і фільтр-панель у hero",
-        en: "A dark navy style, 18 sections and a filter panel in the hero"
-      },
-      what: {
-        ua: "Найбільший сайт серії: 18 секцій на 10 сторінках, панель пошуку з чотирма фільтрами в hero, картки об'єктів, кроки процесу, відгуки, FAQ, контактна форма; власний CSS і скрипт без залежностей.",
-        en: "The largest site in the series: 18 sections across 10 pages, a four-filter search panel in the hero, property cards, process steps, testimonials, an FAQ, a contact form; custom CSS and a dependency-free script."
-      },
-      result: {
-        ua: "Довга сторінка, яка тримає ритм: однакові відступи, типографіка й компоненти від hero до футера.",
-        en: "A long page that keeps its rhythm: consistent spacing, typography and components from hero to footer."
-      },
-      tags: ["HTML", "CSS", "JavaScript"],
-      siteUrl: null,
-      githubUrl: null,
-      images: true
-    },
-    {
-      id: "wp-familylawpro",
-      kind: "work",
-      category: "web",
-      position: "nda",
-      from: "2025-11",
-      to: "2025-11",
-      nda: true,
-      title: { ua: "Family Law Pro · юридичні послуги (CA)", en: "Family Law Pro · legal services (CA)" },
-      tagline: {
-        ua: "Серифна типографіка і темно-зелена палітра для юридичної фірми",
-        en: "Serif typography and a dark green palette for a law firm"
-      },
-      what: {
-        ua: "7 сторінок на кастомному CSS: hero з фото й двома CTA, послуги, процес, тарифи, відгуки-слайдер, FAQ, форма консультації з валідацією, cookie-банер; окрема шрифтова пара для «класичного» тону.",
-        en: "7 pages on custom CSS: a hero with a photo and two CTAs, services, process, pricing, a testimonial slider, an FAQ, a validated consultation form, a cookie banner; a dedicated serif/sans pair for a classic tone."
-      },
-      result: {
-        ua: "Контрастна до «нерухомості» подача тієї ж структури — тон задає типографіка, а не лейаут.",
-        en: "The same structure with a tone opposite to the real-estate sites — typography, not layout, sets the mood."
-      },
-      tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
       githubUrl: null,
       images: true

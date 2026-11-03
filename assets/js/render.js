@@ -271,8 +271,8 @@
     };
     const projects = data.clips.filter((c) => c.kind === "project").slice().reverse();
     const links = (c) => [c.siteUrl ? href(c.siteUrl, prefix) : "", c.githubUrl || ""].filter(Boolean).map((u) => (/^https?:/.test(u) ? u.replace(/^https?:\/\//, "") : `${p.site.replace(/^https?:\/\//, "")}/${u.replace(/^\.{1,2}\//, "")}`));
-    const nda = posById.nda;
-    const collar = posById.collar;
+    const positions = data.positions.slice().reverse();
+    const positionLabel = (pos) => (pos.id === "nda" ? esc(t(p.nowLabel, lang)) : `${fmtYm(pos.from)} — ${fmtYm(pos.to)}`);
 
     el.innerHTML = `
       <header class="cv-head">
@@ -286,10 +286,8 @@
       <h2>${L(lang, "Коротко", "Summary")}</h2>
       <p>${esc(t(p.summary, lang))}</p>
       <h2>${L(lang, "Досвід", "Experience")}</h2>
-      <div class="cv-row"><h3>${esc(t(nda.title, lang))}</h3><span class="mono">${esc(t(p.nowLabel, lang))}</span></div>
-      <ul>${jobsFor("nda").map(li).join("")}${grouped("nda")}</ul>
-      <div class="cv-row"><h3>${esc(t(collar.title, lang))}</h3><span class="mono">${fmtYm(collar.from)} — ${fmtYm(collar.to)}</span></div>
-      <ul>${jobsFor("collar").map((c) => `<li>${esc(t(c.what, lang))} <span class="mono">${c.tags.map(esc).join(" · ")}</span></li>`).join("")}${grouped("collar")}</ul>
+      ${positions.map((pos) => `<div class="cv-row"><h3>${esc(t(pos.title, lang))}</h3><span class="mono">${positionLabel(pos)}</span></div>
+      <ul>${jobsFor(pos.id).map(li).join("")}${grouped(pos.id)}</ul>`).join("")}
       ${data.otherExperience.map((o) => `<div class="cv-row"><h3>${esc(t(o.title, lang))}</h3><span class="mono">${esc(o.period)}</span></div><p>${esc(t(o.detail, lang))}</p>`).join("")}
       <h2>${L(lang, "Проєкти", "Projects")}</h2>
       <ul>${projects.map((c) => { const u = links(c); return `<li><strong>${esc(t(c.title, lang))}</strong> — ${esc(t(c.tagline, lang))} <span class="mono">${esc(periodLabel(c, lang))} · ${c.tags.map(esc).join(" · ")}${u.length ? " · " + u.map(esc).join(" · ") : ""}</span></li>`; }).join("")}</ul>
