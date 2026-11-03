@@ -106,9 +106,23 @@
     el.innerHTML = data.clips.map((clip, i) => clipMarkup(clip, i, data.clips.length, lang, prefix, cats)).join("");
   }
 
+  // Greedy interval packing: returns a lane index per item (items in chronological order).
+  function packLanes(items, nowYm) {
+    const laneEnds = [];
+    return items.map((it) => {
+      const s = ganttSpan(it, nowYm);
+      const start = s.col;
+      const end = s.col + s.span - 1;
+      let lane = laneEnds.findIndex((e) => e < start);
+      if (lane === -1) { lane = laneEnds.length; laneEnds.push(end); } else laneEnds[lane] = end;
+      return lane;
+    });
+  }
+
   function renderGantt(data, lang, nowYm) {
     const el = byId("gantt");
     if (!el) return;
+    const variant = document.body.dataset.gantt || "";
     const startYear = Number(GANTT.start.slice(0, 4));
     const endYear = Number(GANTT.end.slice(0, 4));
     const startMonth = Number(GANTT.start.slice(5, 7));
@@ -119,17 +133,44 @@
       years.push(`<span class="gantt__year"${style}>${y}</span>`);
     }
     const goTo = L(lang, "Перейти до кліпу", "Go to clip");
+    const header = `<div class="gantt__months gantt__head">${years.join("")}<span class="gantt__cursor" id="gantt-cursor" style="--x:0%"><span id="gantt-cursor-date"></span></span></div>`;
+    const legend = `<ul class="gantt__legend">${data.categories
+      .map((c) => `<li><button type="button" data-category="${c.id}" aria-pressed="false" style="--cat:var(--c-${c.id})">${esc(t(c.label, lang))}</button></li>`)
+      .join("")}</ul>`;
+    const caption = variant ? `<div class="gantt__caption-row"><span class="gantt__caption" id="gantt-caption" aria-live="polite"></span>${legend}</div>` : "";
+
+    const positionBar = (p) => {
+      const s = ganttSpan(p, nowYm);
+      const cls = p.id === "nda" ? "gantt__bar gantt__bar--position gantt__bar--nda" : "gantt__bar gantt__bar--position";
+      return `<span class="${cls}" style="--col:${s.col};--span:${s.span}" title="${esc(t(p.title, lang))}"></span>`;
+    };
+
+    if (variant === "b") {
+      const lanes = packLanes(data.clips, nowYm);
+      const laneCount = Math.max(0, ...lanes) + 1;
+      const bars = Array.from({ length: laneCount }, () => []);
+      data.clips.forEach((clip, i) => {
+        const s = ganttSpan(clip, nowYm);
+        const title = esc(t(clip.title, lang));
+        const wide = s.span >= 4 ? " gantt__bar--wide" : "";
+        bars[lanes[i]].push(`<button type="button" class="gantt__bar gantt__bar--lane${wide}" data-clip="${clip.id}" data-category="${clip.category}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}" title="${pad2(i + 1)} ${title}"><span>${pad2(i + 1)} ${title}</span></button>`);
+      });
+      el.innerHTML = `
+      <div class="gantt__grid gantt__grid--lanes" role="list" style="--months:${GANTT.months}">
+        ${header}
+        <div class="gantt__lane gantt__lane--position" role="listitem"><div class="gantt__track">${data.positions.map(positionBar).join("")}</div></div>
+        ${bars.map((b) => `<div class="gantt__lane" role="listitem"><div class="gantt__track">${b.join("")}</div></div>`).join("")}
+      </div>
+      ${caption}`;
+      return;
+    }
 
     const positionRows = data.positions
-      .map((p) => {
-        const s = ganttSpan(p, nowYm);
-        const barClass = p.id === "nda" ? "gantt__bar gantt__bar--position gantt__bar--nda" : "gantt__bar gantt__bar--position";
-        return `
+      .map((p) => `
         <div class="gantt__row gantt__row--position" role="listitem">
           <span class="gantt__label gantt__label--position" title="${esc(t(p.title, lang))}">${esc(t(p.title, lang))}</span>
-          <div class="gantt__track"><span class="${barClass}" style="--col:${s.col};--span:${s.span}" title="${esc(t(p.title, lang))}"></span></div>
-        </div>`;
-      })
+          <div class="gantt__track">${positionBar(p)}</div>
+        </div>`)
       .join("");
 
     const clipRows = data.clips
@@ -139,23 +180,19 @@
         return `
         <div class="gantt__row" data-clip="${clip.id}" data-category="${clip.category}" role="listitem">
           <button type="button" class="gantt__label" data-clip="${clip.id}" title="${title}">${pad2(i + 1)} ${title}</button>
-          <div class="gantt__track"><button type="button" class="gantt__bar" data-clip="${clip.id}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}"></button></div>
+          <div class="gantt__track"><button type="button" class="gantt__bar" data-clip="${clip.id}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}" title="${pad2(i + 1)} ${title}"></button></div>
         </div>`;
       })
-      .join("");
-
-    const legend = data.categories
-      .map((c) => `<li><button type="button" data-category="${c.id}" aria-pressed="false" style="--cat:var(--c-${c.id})">${esc(t(c.label, lang))}</button></li>`)
       .join("");
 
     el.innerHTML = `
       <div class="gantt__grid" role="list" style="--months:${GANTT.months}">
         <span class="gantt__head gantt__head--label">${L(lang, "Позиція / кліп", "Position / clip")}</span>
-        <div class="gantt__months gantt__head">${years.join("")}<span class="gantt__cursor" id="gantt-cursor" style="--x:0%"><span id="gantt-cursor-date"></span></span></div>
+        ${header}
         ${positionRows}
         ${clipRows}
       </div>
-      <ul class="gantt__legend">${legend}</ul>`;
+      ${variant ? caption : legend}`;
   }
 
   function renderMarquees(data, lang) {
@@ -222,15 +259,20 @@
     const el = byId("cv-print");
     if (!el) return;
     const p = data.profile;
-    const contacts = [p.email, p.phoneDisplay, p.site.replace(/^https?:\/\//, ""), p.telegram ? p.telegram.replace(/^https?:\/\//, "") : "", p.github.replace(/^https?:\/\//, "")].filter(Boolean);
+    const contacts = [p.email, p.phoneDisplay, p.site, p.telegram, p.linkedin, p.github].filter(Boolean).map((v) => v.replace(/^https?:\/\//, ""));
     const posById = Object.fromEntries(data.positions.map((x) => [x.id, x]));
-    const clipsFor = (pid) => data.clips.filter((c) => c.position === pid);
+    const jobsFor = (pid) => data.clips.filter((c) => c.position === pid && c.kind === "job");
+    const projectsFor = (pid) => data.clips.filter((c) => c.position === pid && c.kind === "project");
     const li = (c) => `<li><strong>${esc(t(c.title, lang))}.</strong> ${esc(t(c.what, lang))} <span class="mono">${c.tags.map(esc).join(" · ")}</span></li>`;
-    const projects = data.clips.filter((c) => c.kind === "project").slice().reverse();
+    const grouped = (pid) => {
+      const list = projectsFor(pid);
+      if (!list.length) return "";
+      return `<li><strong>${L(lang, "Запущені сайти", "Sites shipped")} (${list.length}).</strong> ${list.map((c) => esc(t(c.title, lang))).join(" · ")}</li>`;
+    };
+    const projects = data.clips.filter((c) => c.kind === "project" && !c.position).slice().reverse();
     const links = (c) => [c.siteUrl ? href(c.siteUrl, prefix) : "", c.githubUrl || ""].filter(Boolean).map((u) => (/^https?:/.test(u) ? u.replace(/^https?:\/\//, "") : `${p.site.replace(/^https?:\/\//, "")}/${u.replace(/^\.{1,2}\//, "")}`));
     const nda = posById.nda;
     const collar = posById.collar;
-    const collarClip = clipsFor("collar")[0];
 
     el.innerHTML = `
       <header class="cv-head">
@@ -245,9 +287,9 @@
       <p>${esc(t(p.summary, lang))}</p>
       <h2>${L(lang, "Досвід", "Experience")}</h2>
       <div class="cv-row"><h3>${esc(t(nda.title, lang))}</h3><span class="mono">${esc(t(p.nowLabel, lang))}</span></div>
-      <ul>${clipsFor("nda").map(li).join("")}</ul>
+      <ul>${jobsFor("nda").map(li).join("")}${grouped("nda")}</ul>
       <div class="cv-row"><h3>${esc(t(collar.title, lang))}</h3><span class="mono">${fmtYm(collar.from)} — ${fmtYm(collar.to)}</span></div>
-      <ul>${collarClip ? `<li>${esc(t(collarClip.what, lang))} <span class="mono">${collarClip.tags.map(esc).join(" · ")}</span></li>` : ""}</ul>
+      <ul>${jobsFor("collar").map((c) => `<li>${esc(t(c.what, lang))} <span class="mono">${c.tags.map(esc).join(" · ")}</span></li>`).join("")}${grouped("collar")}</ul>
       ${data.otherExperience.map((o) => `<div class="cv-row"><h3>${esc(t(o.title, lang))}</h3><span class="mono">${esc(o.period)}</span></div><p>${esc(t(o.detail, lang))}</p>`).join("")}
       <h2>${L(lang, "Проєкти", "Projects")}</h2>
       <ul>${projects.map((c) => { const u = links(c); return `<li><strong>${esc(t(c.title, lang))}</strong> — ${esc(t(c.tagline, lang))} <span class="mono">${esc(periodLabel(c, lang))} · ${c.tags.map(esc).join(" · ")}${u.length ? " · " + u.map(esc).join(" · ") : ""}</span></li>`; }).join("")}</ul>
@@ -271,7 +313,7 @@
     state.category = category;
     document.querySelectorAll("#work-filters button[data-category]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.category === category)));
     document.querySelectorAll(".gantt__legend button[data-category]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.category === category)));
-    document.querySelectorAll(".clip[data-category], .gantt__row[data-category]").forEach((el) => {
+    document.querySelectorAll(".clip[data-category], .gantt [data-clip][data-category]").forEach((el) => {
       el.classList.toggle("is-hidden", category !== "all" && el.dataset.category !== category);
     });
     const counter = byId("work-counter");
@@ -285,11 +327,13 @@
   function setActiveClip(id) {
     if (!state.data || state.activeId === id) return;
     state.activeId = id;
-    document.querySelectorAll(".clip.is-active, .gantt__row.is-active").forEach((el) => el.classList.remove("is-active"));
+    document.querySelectorAll(".clip.is-active, .gantt .is-active").forEach((el) => el.classList.remove("is-active"));
     const clipEl = byId(`clip-${id}`);
     if (clipEl) clipEl.classList.add("is-active");
-    const row = document.querySelector(`.gantt__row[data-clip="${id}"]`);
-    if (row) row.classList.add("is-active");
+    document.querySelectorAll(`.gantt [data-clip="${id}"]`).forEach((el) => el.classList.add("is-active"));
+    const caption = byId("gantt-caption");
+    const idx = state.data.clips.findIndex((c) => c.id === id);
+    if (caption && idx !== -1) caption.textContent = `${pad2(idx + 1)} · ${t(state.data.clips[idx].title, state.lang)} · ${periodLabel(state.data.clips[idx], state.lang)}`;
     const clip = state.data.clips.find((c) => c.id === id);
     const cursor = byId("gantt-cursor");
     if (clip && cursor) {
@@ -318,6 +362,6 @@
 
   window.PortfolioRender = {
     GANTT, t, monthIndex, ganttSpan, formatTimecode, countProjects, visibleClipIds,
-    clipMarkup, renderAll, applyFilter, setActiveClip
+    clipMarkup, packLanes, renderAll, applyFilter, setActiveClip
   };
 })(window);

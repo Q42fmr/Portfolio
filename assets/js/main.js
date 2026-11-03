@@ -8,6 +8,9 @@
   const R = window.PortfolioRender;
   const now = new Date();
   const nowYm = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+  // Review switch for the timeline panel: ?gantt=a (compact rows) | ?gantt=b (packed lanes). Removed once a variant is chosen.
+  const ganttVariant = new URLSearchParams(location.search).get("gantt");
+  if (ganttVariant === "a" || ganttVariant === "b") document.body.dataset.gantt = ganttVariant;
 
   R.renderAll({ data, lang, prefix, nowYm });
   const motion = window.initMotion({ reduced });

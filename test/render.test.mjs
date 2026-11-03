@@ -115,3 +115,14 @@ test("clipMarkup renders «тепер»/\"now\" when to:null", () => {
   assert.match(R.clipMarkup(clip, 0, 1, "ua", ".", cats), /тепер/);
   assert.match(R.clipMarkup(clip, 0, 1, "en", ".", cats), /now/);
 });
+
+test("packLanes reuses a lane only after the previous bar ended", () => {
+  const items = [
+    { from: "2021-09", to: "2025-05" }, // lane 0
+    { from: "2022-01", to: "2025-05" }, // overlaps → lane 1
+    { from: "2025-08", to: "2025-08" }, // after both → lane 0
+    { from: "2025-09", to: "2026-10" }, // lane 0 freed in 2025-08 → lane 0
+    { from: "2025-11", to: "2025-11" }  // lane 0 busy until 2026-10 → lane 1
+  ];
+  assert.deepEqual([...R.packLanes(items, "2026-11")], [0, 1, 0, 0, 1]);
+});
