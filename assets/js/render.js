@@ -106,23 +106,9 @@
     el.innerHTML = data.clips.map((clip, i) => clipMarkup(clip, i, data.clips.length, lang, prefix, cats)).join("");
   }
 
-  // Greedy interval packing: returns a lane index per item (items in chronological order).
-  function packLanes(items, nowYm) {
-    const laneEnds = [];
-    return items.map((it) => {
-      const s = ganttSpan(it, nowYm);
-      const start = s.col;
-      const end = s.col + s.span - 1;
-      let lane = laneEnds.findIndex((e) => e < start);
-      if (lane === -1) { lane = laneEnds.length; laneEnds.push(end); } else laneEnds[lane] = end;
-      return lane;
-    });
-  }
-
   function renderGantt(data, lang, nowYm) {
     const el = byId("gantt");
     if (!el) return;
-    const variant = document.body.dataset.gantt || "";
     const startYear = Number(GANTT.start.slice(0, 4));
     const endYear = Number(GANTT.end.slice(0, 4));
     const startMonth = Number(GANTT.start.slice(5, 7));
@@ -133,66 +119,34 @@
       years.push(`<span class="gantt__year"${style}>${y}</span>`);
     }
     const goTo = L(lang, "Перейти до кліпу", "Go to clip");
-    const header = `<div class="gantt__months gantt__head">${years.join("")}<span class="gantt__cursor" id="gantt-cursor" style="--x:0%"><span id="gantt-cursor-date"></span></span></div>`;
+    const header = `<div class="gantt__months gantt__head">${years.join("")}<span class="gantt__cursor" id="gantt-cursor" style="--x:0%"></span></div>`;
     const legend = `<ul class="gantt__legend">${data.categories
       .map((c) => `<li><button type="button" data-category="${c.id}" aria-pressed="false" style="--cat:var(--c-${c.id})">${esc(t(c.label, lang))}</button></li>`)
       .join("")}</ul>`;
-    const caption = variant ? `<div class="gantt__caption-row"><span class="gantt__caption" id="gantt-caption" aria-live="polite"></span>${legend}</div>` : "";
-
-    const positionBar = (p) => {
-      const s = ganttSpan(p, nowYm);
-      const cls = p.id === "nda" ? "gantt__bar gantt__bar--position gantt__bar--nda" : "gantt__bar gantt__bar--position";
-      return `<span class="${cls}" style="--col:${s.col};--span:${s.span}" title="${esc(t(p.title, lang))}"></span>`;
-    };
-
-    if (variant === "b") {
-      const lanes = packLanes(data.clips, nowYm);
-      const laneCount = Math.max(0, ...lanes) + 1;
-      const bars = Array.from({ length: laneCount }, () => []);
-      data.clips.forEach((clip, i) => {
-        const s = ganttSpan(clip, nowYm);
-        const title = esc(t(clip.title, lang));
-        const wide = s.span >= 4 ? " gantt__bar--wide" : "";
-        bars[lanes[i]].push(`<button type="button" class="gantt__bar gantt__bar--lane${wide}" data-clip="${clip.id}" data-category="${clip.category}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}" title="${pad2(i + 1)} ${title}"><span>${pad2(i + 1)} ${title}</span></button>`);
-      });
-      el.innerHTML = `
-      <div class="gantt__grid gantt__grid--lanes" role="list" style="--months:${GANTT.months}">
-        ${header}
-        <div class="gantt__lane gantt__lane--position" role="listitem"><div class="gantt__track">${data.positions.map(positionBar).join("")}</div></div>
-        ${bars.map((b) => `<div class="gantt__lane" role="listitem"><div class="gantt__track">${b.join("")}</div></div>`).join("")}
-      </div>
-      ${caption}`;
-      return;
-    }
 
     const positionRows = data.positions
-      .map((p) => `
-        <div class="gantt__row gantt__row--position" role="listitem">
-          <span class="gantt__label gantt__label--position" title="${esc(t(p.title, lang))}">${esc(t(p.title, lang))}</span>
-          <div class="gantt__track">${positionBar(p)}</div>
-        </div>`)
+      .map((p) => {
+        const s = ganttSpan(p, nowYm);
+        const cls = p.id === "nda" ? "gantt__bar gantt__bar--position gantt__bar--nda" : "gantt__bar gantt__bar--position";
+        return `<div class="gantt__row gantt__row--position" role="listitem"><div class="gantt__track"><span class="${cls}" style="--col:${s.col};--span:${s.span}" title="${esc(t(p.title, lang))}"></span></div></div>`;
+      })
       .join("");
 
     const clipRows = data.clips
       .map((clip, i) => {
         const s = ganttSpan(clip, nowYm);
         const title = esc(t(clip.title, lang));
-        return `
-        <div class="gantt__row" data-clip="${clip.id}" data-category="${clip.category}" role="listitem">
-          <button type="button" class="gantt__label" data-clip="${clip.id}" title="${title}">${pad2(i + 1)} ${title}</button>
-          <div class="gantt__track"><button type="button" class="gantt__bar" data-clip="${clip.id}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}" title="${pad2(i + 1)} ${title}"></button></div>
-        </div>`;
+        return `<div class="gantt__row" data-clip="${clip.id}" data-category="${clip.category}" role="listitem"><div class="gantt__track"><button type="button" class="gantt__bar" data-clip="${clip.id}" style="--col:${s.col};--span:${s.span};--cat:var(--c-${clip.category})" aria-label="${goTo} ${title}" title="${pad2(i + 1)} ${title}"></button></div></div>`;
       })
       .join("");
 
     el.innerHTML = `
       <div class="gantt__grid" role="list" style="--months:${GANTT.months}">
-        <span class="gantt__head gantt__head--label">${L(lang, "Позиція / кліп", "Position / clip")}</span>
         ${header}
         ${positionRows}
         ${clipRows}
       </div>
-      ${variant ? caption : legend}`;
+      <div class="gantt__caption-row"><span class="gantt__caption" id="gantt-caption" aria-live="polite"></span>${legend}</div>`;
   }
 
   function renderMarquees(data, lang) {
@@ -337,8 +291,6 @@
     if (clip && cursor) {
       const s = ganttSpan(clip, state.nowYm);
       cursor.style.setProperty("--x", `${(((s.col - 1) / GANTT.months) * 100).toFixed(2)}%`);
-      const date = byId("gantt-cursor-date");
-      if (date) date.textContent = fmtYm(clip.from);
     }
     updateCounter(state.lang);
   }
@@ -360,6 +312,6 @@
 
   window.PortfolioRender = {
     GANTT, t, monthIndex, ganttSpan, formatTimecode, countProjects, visibleClipIds,
-    clipMarkup, packLanes, renderAll, applyFilter, setActiveClip
+    clipMarkup, renderAll, applyFilter, setActiveClip
   };
 })(window);

@@ -274,57 +274,40 @@ body.has-gsap .marquee--a .marquee__track, body.has-gsap .marquee--b .marquee__t
 .collage__mobile { position: absolute; right: 0; bottom: 0; width: 26%; aspect-ratio: 390 / 844; overflow: hidden; border-radius: 12px; box-shadow: 0 20px 40px -20px rgb(0 0 0 / 0.5); background: var(--ink); }
 .collage img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
-/* Gantt: sticky at the bottom of the viewport on desktop, top on mobile */
+/* Gantt: sticky at the bottom of the viewport on desktop, top on mobile. Compact rows, no label column;
+   the active clip is named in the caption row under the chart. */
 .gantt {
   position: sticky;
   bottom: var(--player-h);
   order: 1;
   background: var(--paper);
   border-top: 2px solid var(--graphite);
-  padding: 0.5rem 0 0.4rem;
-  padding-top: calc(0.5rem + 1.2em);
+  padding: 0.4rem 0 0.4rem;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.03em;
-  max-height: 36vh;
-  overflow: hidden;
   z-index: 2;
 }
-.gantt__grid { display: grid; grid-template-columns: minmax(120px, 22%) 1fr; gap: 0.1rem 1rem; align-items: center; line-height: 1.2; }
+.gantt__grid { display: grid; grid-template-columns: 1fr; gap: 1px 0; line-height: 1.2; }
 .gantt__head { text-transform: uppercase; color: var(--muted-paper); }
-.gantt__months { display: grid; grid-template-columns: repeat(var(--months, 64), 1fr); position: relative; }
+.gantt__months { display: grid; grid-template-columns: repeat(var(--months, 64), 1fr); position: relative; margin-bottom: 3px; }
 .gantt__year { grid-column: span 12; border-left: 1px solid color-mix(in srgb, currentColor 30%, transparent); padding-left: 0.25rem; }
 .gantt__year:first-child { grid-column: span 4; }
 .gantt__row { display: contents; }
-.gantt__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: var(--muted-paper);
-  cursor: pointer;
-  background: none;
-  border: 0;
-  font: inherit;
-  text-align: left;
-  padding: 0;
-  text-transform: uppercase;
-}
-.gantt__row.is-active .gantt__label { color: var(--graphite); font-weight: 600; }
-.gantt__track { display: grid; grid-template-columns: repeat(var(--months, 64), 1fr); height: 9px; position: relative; }
+.gantt__track { display: grid; grid-template-columns: repeat(var(--months, 64), 1fr); height: 5px; position: relative; }
 .gantt__bar {
   grid-column: var(--col) / span var(--span);
   background: var(--cat);
-  min-width: 10px;
+  min-width: 6px;
   border: 0;
   padding: 0;
   cursor: pointer;
-  opacity: 1;
   height: 100%;
 }
-.gantt__row.is-active .gantt__bar { opacity: 1; outline: 2px solid var(--graphite); outline-offset: 1px; }
+.gantt__row.is-active .gantt__bar { outline: 1px solid var(--graphite); outline-offset: 1px; }
 .gantt__bar--position {
   background: color-mix(in srgb, var(--graphite) 50%, transparent);
-  height: 6px;
+  height: 4px;
   align-self: center;
   cursor: default;
 }
@@ -332,72 +315,21 @@ body.has-gsap .marquee--a .marquee__track, body.has-gsap .marquee--b .marquee__t
   background: repeating-linear-gradient(135deg, var(--graphite) 0 4px, transparent 4px 8px);
 }
 .gantt__cursor { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--violet); left: var(--x, 0%); pointer-events: none; transition: left 0.4s ease; }
-.gantt__cursor span {
-  position: absolute;
-  top: -1.5em;
-  left: 0;
-  transform: translateX(-50%);
-  background: var(--lime);
-  color: var(--graphite);
-  padding: 0 0.3em;
-  white-space: nowrap;
-  font-weight: 600;
-}
-.gantt__legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0.5rem 0 0; list-style: none; padding: 0; }
+.gantt__caption-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 0.35rem; }
+.gantt__caption { color: var(--graphite); font-weight: 600; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gantt__legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 0; flex-shrink: 0; list-style: none; padding: 0; }
 .gantt__legend button { background: none; border: 0; padding: 0; font: inherit; color: var(--muted-paper); cursor: pointer; text-transform: uppercase; }
 .gantt__legend button::before { content: ""; display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.4em; background: var(--cat); vertical-align: -1px; }
 
-/* Shared by both review variants: one-line caption with the active clip + inline legend */
-.gantt__caption-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 0.35rem; }
-.gantt__caption { color: var(--graphite); font-weight: 600; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.gantt__caption-row .gantt__legend { margin: 0; flex-shrink: 0; }
-body[data-gantt] .gantt__cursor span { display: none; }
-body[data-gantt] .gantt { padding-top: 0.4rem; max-height: none; }
-
-/* Variant A — compact rows: no label column, 5px bars */
-body[data-gantt="a"] .gantt__grid { grid-template-columns: 1fr; gap: 1px 0; }
-body[data-gantt="a"] .gantt__label, body[data-gantt="a"] .gantt__head--label { display: none; }
-body[data-gantt="a"] .gantt__months { margin-bottom: 3px; }
-body[data-gantt="a"] .gantt__track { height: 5px; }
-body[data-gantt="a"] .gantt__bar { min-width: 6px; }
-body[data-gantt="a"] .gantt__bar--position { height: 4px; }
-body[data-gantt="a"] .gantt__row.is-active .gantt__bar { outline-width: 1px; outline-offset: 1px; }
-
-/* Variant B — packed lanes: overlapping clips share the fewest lanes, labels inside wide bars */
-.gantt__grid--lanes { grid-template-columns: 1fr; gap: 2px 0; }
-.gantt__lane .gantt__track { height: 11px; }
-.gantt__lane--position .gantt__track { height: 6px; margin: 2px 0 3px; }
-.gantt__bar--lane {
-  box-shadow: inset -1px 0 0 var(--paper);
-  overflow: hidden;
-  text-align: left;
-  color: var(--paper);
-  font: 600 8px / 11px var(--font-mono);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0 3px;
-}
-.gantt__bar--lane span { display: none; white-space: nowrap; }
-.gantt__bar--wide span { display: inline; }
-.gantt__bar--lane.is-active { outline: 2px solid var(--graphite); outline-offset: 0; z-index: 1; }
-body[data-gantt="b"] .gantt__months { margin-bottom: 2px; }
-
 @media (max-width: 1023px) {
-  .gantt { order: -1; bottom: auto; top: var(--topbar-h); max-height: 160px; }
-  .gantt__grid { grid-template-columns: 1fr; gap: 0; }
-  .gantt__label, .gantt__head--label { display: none; }
-  .gantt__track { height: 4px; }
+  .gantt { order: -1; bottom: auto; top: var(--topbar-h); max-height: 160px; overflow: hidden; padding-top: 0.3rem; }
+  .gantt__grid { gap: 0; }
+  .gantt__track { height: 3px; }
+  .gantt__bar--position { height: 3px; }
   .gantt__legend { display: none; }
   .gantt__year:first-child { color: transparent; }
-  .clip { scroll-margin-top: calc(var(--topbar-h) + 160px + 1rem); }
-  body[data-gantt] .gantt { max-height: 160px; padding-top: 0.3rem; }
-  body[data-gantt="a"] .gantt__grid { gap: 1px 0; }
-  body[data-gantt="a"] .gantt__track { height: 3px; }
-  body[data-gantt="a"] .gantt__bar--position { height: 3px; }
-  .gantt__lane .gantt__track { height: 8px; }
-  .gantt__grid--lanes { gap: 1px 0; }
-  .gantt__bar--lane span { display: none; }
   .gantt__caption { font-size: 9px; }
+  .clip { scroll-margin-top: calc(var(--topbar-h) + 160px + 1rem); }
 }
 
 /* ----- Stack ----- */
