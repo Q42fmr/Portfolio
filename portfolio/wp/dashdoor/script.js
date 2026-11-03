@@ -1,19 +1,19 @@
 // ========== Cookie Popup Management ==========
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Проверяем, было ли уже сделано согласие на cookies
+    // перевіряємо, чи вже є згода на cookies
     const cookieConsent = localStorage.getItem('cookieConsent');
     const cookiePopup = document.querySelector('.cookie-popup');
     
-    // Если pop-up существует и согласие не было дано, показываем pop-up
+    // якщо банер є і згоди ще не було — показуємо
     if (cookiePopup && !cookieConsent) {
-        // Добавляем небольшую задержку для плавного появления
+        // невелика затримка для плавної появи
         setTimeout(() => {
             cookiePopup.classList.add('show');
         }, 1000);
     }
     
-    // Обработка кнопки "Принять"
+    // кнопка «Прийняти»
     const acceptBtn = document.querySelector('.cookie-accept');
     if (acceptBtn) {
         acceptBtn.addEventListener('click', function() {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Обработка кнопки "Отклонить"
+    // кнопка «Відхилити»
     const declineBtn = document.querySelector('.cookie-decline');
     if (declineBtn) {
         declineBtn.addEventListener('click', function() {
@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchTabs = document.querySelectorAll('.search-tab');
     searchTabs.forEach(tab => {
         tab.addEventListener('click', function() {
-            // Удаляем активный класс со всех вкладок
+            // знімаємо активний клас з усіх вкладок
             searchTabs.forEach(t => t.classList.remove('active'));
-            // Добавляем активный класс к выбранной вкладке
+            // активуємо обрану вкладку
             this.classList.add('active');
         });
     });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (searchForm) {
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Здесь можно добавить логику поиска
+            // прокручуємо до списку об'єктів
             document.querySelector('.properties-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
@@ -105,7 +105,7 @@ function updateSlider() {
     });
 }
 
-// Автоматическая смена слайдов
+// автоматична зміна слайдів
 document.addEventListener('DOMContentLoaded', function() {
     if (slides.length > 0) {
         setInterval(() => {
@@ -136,7 +136,7 @@ window.currentTestimonial = function(index) {
     showTestimonial(currentTestimonial);
 };
 
-// Автоматическая смена отзывов
+// автоматична зміна відгуків
 document.addEventListener('DOMContentLoaded', function() {
     if (testimonials.length > 0) {
         setInterval(() => {
@@ -154,13 +154,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = item.querySelector('.process-accordion-header');
         if (header) {
             header.addEventListener('click', function() {
-                // Закрываем все остальные элементы
+                // закриваємо решту елементів
                 accordionItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
                     }
                 });
-                // Переключаем текущий элемент
+                // перемикаємо поточний
                 item.classList.toggle('active');
             });
         }
@@ -175,13 +175,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = item.querySelector('.faq-header');
         if (header) {
             header.addEventListener('click', function() {
-                // Закрываем все остальные элементы FAQ
+                // закриваємо решту пунктів FAQ
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
                     }
                 });
-                // Переключаем текущий элемент
+                // перемикаємо поточний
                 item.classList.toggle('active');
             });
         }
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             };
             
-            // Запускаем анимацию при прокрутке к секции
+            // запускаємо анімацію, коли секція у в'юпорті
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !stat.classList.contains('animated')) {

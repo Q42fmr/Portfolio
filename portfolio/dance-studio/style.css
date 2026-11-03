@@ -402,11 +402,14 @@ body {
 }
 
 .plan-feature::before {
-  content: "✦";
+  content: "";
   flex: none;
-  font-size: 0.65rem;
-  color: var(--brand);
-  transform: translateY(-1px);
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.3rem;
+  border-radius: 1px;
+  background: var(--brand);
+  transform: rotate(45deg);
 }
 
 /* ---------- Форма ---------- */

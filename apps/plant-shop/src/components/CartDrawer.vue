@@ -22,7 +22,7 @@ const validators = {
   name: (v) => v.trim().length >= 2 || "Введіть імʼя — щонайменше 2 символи",
   phone: (v) =>
     /^\+?[\d\s()-]{10,}$/.test(v.trim()) ||
-    "Введіть коректний телефон, напр. +380 (44) 123-45-67",
+    "Введіть коректний телефон, напр. +380 (44) 574-80-16",
   email: (v) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ||
     "Введіть коректний email, напр. maria@ukr.net",
@@ -96,7 +96,7 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
         </button>
       </header>
 
-      <!-- ЕКРАН 1: список товарів -->
+      <!-- екран кошика -->
       <template v-if="view === 'cart'">
         <div class="drawer-body">
           <ul v-if="items.length" class="cart-list">
@@ -158,7 +158,7 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
         </footer>
       </template>
 
-      <!-- ЕКРАН 2: форма замовлення -->
+      <!-- екран форми -->
       <template v-else-if="view === 'form'">
         <form class="drawer-body checkout-form" novalidate @submit.prevent="submitOrder">
           <div class="field">
@@ -185,7 +185,7 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
               type="tel"
               class="field-input"
               :class="{ invalid: errors.phone }"
-              placeholder="+380 (44) 123-45-67"
+              placeholder="+380 (44) 574-80-16"
               autocomplete="tel"
               :aria-invalid="Boolean(errors.phone)"
               @blur="validateField('phone')"
@@ -218,7 +218,7 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
               type="text"
               class="field-input"
               :class="{ invalid: errors.address }"
-              placeholder="м. Київ, вул. Прикладна, 1, кв. 2"
+              placeholder="м. Київ, вул. Ярославів Вал, 21, кв. 2"
               autocomplete="street-address"
               :aria-invalid="Boolean(errors.address)"
               @blur="validateField('address')"
@@ -237,7 +237,7 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
         </footer>
       </template>
 
-      <!-- ЕКРАН 3: успіх -->
+      <!-- екран успіху -->
       <div v-else class="drawer-body success">
         <div class="success-icon">
           <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

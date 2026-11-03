@@ -33,7 +33,7 @@
 
   <header class="topbar">
     <a id="topbar-name" class="topbar__name" href="#title"><span class="logo" aria-hidden="true"></span>Oleksandr Beshun</a>
-    <p id="scene-indicator" class="topbar__scene mono" aria-live="polite">SC 01/05 — TITLE</p>
+    <p id="scene-indicator" class="topbar__scene mono" aria-live="polite" data-prefix="Scene">Scene 1/5 — TITLE</p>
     <nav class="topbar__actions" aria-label="Quick actions">
       <a id="topbar-cv" class="btn btn--ghost" href="../assets/files/cv-en.pdf" download>CV · PDF ↓</a>
       <a id="topbar-contact" class="btn btn--primary" href="#contact">Contact ↗</a>
@@ -43,7 +43,7 @@
 
   <main>
     <section class="scene scene--title" id="title" data-scene="title" data-scene-name="TITLE" aria-labelledby="hero-name">
-      <p class="scene__label mono">SC.01 — Title</p>
+      <p class="scene__label mono">Scene 1 · Title</p>
       <figure class="portrait" id="portrait">
         <img src="../assets/img/portrait.jpg" alt="Oleksandr Beshun" width="480" height="480" onerror="this.parentElement.classList.add('portrait--missing')">
         <span class="shape shape--tri" aria-hidden="true"></span>
@@ -61,11 +61,11 @@
         <a class="btn btn--primary" href="../assets/files/cv-en.pdf" download>CV · PDF ↓</a>
         <a class="btn btn--ghost" href="#contact">Contact ↗</a>
       </div>
-      <p class="hint mono">◀◀ Autoplay or scroll</p>
+      <p class="hint mono">▶ Press play below — or just scroll</p>
     </section>
 
     <section class="scene scene--now" id="now" data-scene="now" data-scene-name="NOW" aria-labelledby="now-title">
-      <p class="scene__label mono">SC.02 — Now · 09.2025 — 11.2026 · 1 yr 3 mos</p>
+      <p class="scene__label mono">Scene 2 · Now · 09.2025 — 11.2026 · 1 yr 3 mos</p>
       <h2 class="h-display" id="now-title">Junior Frontend Developer <span class="chip chip--ink chip--inline">at the Bypass studio</span></h2>
       <p class="lead" id="now-summary"></p>
       <div class="marquee" id="now-marquee" aria-hidden="true"><div class="marquee__track"></div></div>
@@ -79,7 +79,7 @@
 
     <section class="scene scene--work" id="work" data-scene="work" data-scene-name="WORK" aria-labelledby="work-title">
       <div class="work__head">
-        <p class="scene__label mono" id="work-title">SC.03 — Selected work, 2021 → now</p>
+        <p class="scene__label mono" id="work-title">Scene 3 · Selected work, 2021 → now</p>
         <p class="mono" id="work-counter">Clip 01 / 26</p>
       </div>
       <div class="filters" id="work-filters" role="group" aria-label="Filter by category"></div>
@@ -90,7 +90,7 @@
     </section>
 
     <section class="scene scene--stack" id="stack" data-scene="stack" data-scene-name="STACK" aria-labelledby="stack-title">
-      <p class="scene__label mono" id="stack-title">SC.04 — Stack &amp; languages</p>
+      <p class="scene__label mono" id="stack-title">Scene 4 · Stack &amp; languages</p>
       <div class="marquee marquee--a" id="stack-marquee-a" aria-hidden="true"><div class="marquee__track"></div></div>
       <div class="marquee marquee--b" id="stack-marquee-b" aria-hidden="true"><div class="marquee__track"></div></div>
       <div class="stack-grid" id="stack-groups"></div>
@@ -101,7 +101,7 @@
     </section>
 
     <section class="scene scene--contact" id="contact" data-scene="contact" data-scene-name="CONTACT" aria-labelledby="contact-title">
-      <p class="scene__label mono">SC.05 — End credits</p>
+      <p class="scene__label mono">Scene 5 · End credits</p>
       <h2 class="h-display" id="contact-title">Let's build something<span class="dot">.</span></h2>
       <p class="contact-email"><a id="contact-email" href="mailto:Q42fmr@gmail.com">Q42fmr@gmail.com</a><button id="copy-email" class="btn btn--ghost mono" type="button" data-label="Copy" data-done="Copied ✓">Copy</button></p>
       <ul class="contact-links" id="contact-links"></ul>
@@ -111,10 +111,10 @@
         <div><dt class="mono">My local time</dt><dd id="local-time">--:--</dd></div>
         <div><dt class="mono">Status</dt><dd><span class="status__dot" aria-hidden="true"></span>Open to work · Junior/Middle Frontend</dd></div>
       </dl>
-      <button id="replay" class="btn btn--ghost mono" type="button">▶ Replay from the start</button>
+      <button id="replay" class="btn btn--ghost mono" type="button">↺ Once more from the top</button>
       <footer class="footer">
         <p>© <span id="year"></span> Oleksandr Beshun</p>
-        <p class="mono">Built with HTML, CSS, JS, GSAP &amp; Lenis</p>
+        <p class="mono">HTML · CSS · JS · GSAP · Lenis — no frameworks, no build step</p>
         <span class="logo" aria-hidden="true"></span>
       </footer>
     </section>

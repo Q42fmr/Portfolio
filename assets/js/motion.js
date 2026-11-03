@@ -56,7 +56,7 @@
       const scene = scenes.find((s) => s.dataset.scene === id);
       if (!scene) return;
       const n = scenes.indexOf(scene) + 1;
-      if (indicator) indicator.textContent = `SC ${String(n).padStart(2, "0")}/${String(scenes.length).padStart(2, "0")} — ${scene.dataset.sceneName}`;
+      if (indicator) indicator.textContent = `${indicator.dataset.prefix || "Scene"} ${n}/${scenes.length} — ${scene.dataset.sceneName}`;
       markers.forEach((a) => a.classList.toggle("is-active", a.dataset.scene === id));
     }
 

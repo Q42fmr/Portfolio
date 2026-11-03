@@ -1,8 +1,6 @@
 /* Flow — студія танцю: розклад, фільтри, меню, акордеон, форма пробного. */
 "use strict";
 
-/* ---------- Дані розкладу ---------- */
-
 const DAY_NAMES = ["Понеділок", "Вівторок", "Середа", "Четвер", "Пʼятниця", "Субота", "Неділя"];
 const DAY_SHORT = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
 
@@ -40,7 +38,11 @@ const SCHEDULE = [
 
 const PHONE_RE = /^\+?[\d\s()-]{10,}$/;
 
-/* ---------- Розклад ---------- */
+/* Стан UI тримає активні фільтри розкладу — усе інше читається з DOM. */
+const state = {
+  styleFilter: "all",
+  levelFilter: "all",
+};
 
 function classWord(n) {
   const mod10 = n % 10;
@@ -51,10 +53,11 @@ function classWord(n) {
   return "занять";
 }
 
-function renderSchedule(styleFilter = "all", levelFilter = "all") {
+function renderSchedule(appState) {
   const grid = document.getElementById("schedule-grid");
   if (!grid) return;
 
+  const { styleFilter, levelFilter } = appState;
   let total = 0;
 
   const columns = DAY_NAMES.map((name, i) => {
@@ -96,57 +99,6 @@ function renderSchedule(styleFilter = "all", levelFilter = "all") {
   }
 }
 
-function initScheduleFilters() {
-  const styleSel = document.getElementById("filter-style");
-  const levelSel = document.getElementById("filter-level");
-  if (!styleSel || !levelSel) return;
-
-  const apply = () => renderSchedule(styleSel.value, levelSel.value);
-  styleSel.addEventListener("change", apply);
-  levelSel.addEventListener("change", apply);
-}
-
-/* ---------- Мобільне меню ---------- */
-
-function initMenu() {
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
-  if (!btn || !menu) return;
-
-  const setOpen = (open) => {
-    btn.setAttribute("aria-expanded", String(open));
-    btn.setAttribute("aria-label", open ? "Закрити меню" : "Відкрити меню");
-    menu.classList.toggle("hidden", !open);
-    const iconBurger = btn.querySelector(".icon-burger");
-    if (iconBurger) iconBurger.classList.toggle("hidden", open);
-    const iconClose = btn.querySelector(".icon-close");
-    if (iconClose) iconClose.classList.toggle("hidden", !open);
-  };
-
-  btn.addEventListener("click", () => setOpen(btn.getAttribute("aria-expanded") !== "true"));
-  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
-}
-
-/* ---------- FAQ-акордеон ---------- */
-
-function initAccordion() {
-  const items = Array.from(document.querySelectorAll(".faq-item"));
-  items.forEach((item) => {
-    const btn = item.querySelector(".faq-btn");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-      const willOpen = !item.classList.contains("open");
-      items.forEach((other) => {
-        const isTarget = other === item && willOpen;
-        other.classList.toggle("open", isTarget);
-        other.querySelector(".faq-btn").setAttribute("aria-expanded", String(isTarget));
-      });
-    });
-  });
-}
-
-/* ---------- Форма пробного заняття ---------- */
-
 function setFieldError(field, message) {
   const errEl = document.getElementById(field.id + "-error");
   field.setAttribute("aria-invalid", message ? "true" : "false");
@@ -157,78 +109,153 @@ function setFieldError(field, message) {
   return !message;
 }
 
-function initTrialForm() {
+function setMenuOpen(btn, menu, open) {
+  btn.setAttribute("aria-expanded", String(open));
+  btn.setAttribute("aria-label", open ? "Закрити меню" : "Відкрити меню");
+  menu.classList.toggle("hidden", !open);
+  const iconBurger = btn.querySelector(".icon-burger");
+  if (iconBurger) iconBurger.classList.toggle("hidden", open);
+  const iconClose = btn.querySelector(".icon-close");
+  if (iconClose) iconClose.classList.toggle("hidden", !open);
+}
+
+function handleMenuToggle() {
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (!btn || !menu) return;
+  setMenuOpen(btn, menu, btn.getAttribute("aria-expanded") !== "true");
+}
+
+function handleMenuLinkClick(target) {
+  const menu = document.getElementById("mobile-menu");
+  const btn = document.getElementById("menu-btn");
+  if (!menu || !btn || !menu.contains(target)) return;
+  if (target.tagName === "A") setMenuOpen(btn, menu, false);
+}
+
+function handleAccordionToggle(trigger) {
+  const item = trigger.closest(".faq-item");
+  if (!item) return;
+  const items = Array.from(document.querySelectorAll(".faq-item"));
+  const willOpen = !item.classList.contains("open");
+  items.forEach((other) => {
+    const isTarget = other === item && willOpen;
+    other.classList.toggle("open", isTarget);
+    other.querySelector(".faq-btn").setAttribute("aria-expanded", String(isTarget));
+  });
+}
+
+function handleScheduleFilterChange() {
+  const styleSel = document.getElementById("filter-style");
+  const levelSel = document.getElementById("filter-level");
+  if (!styleSel || !levelSel) return;
+  state.styleFilter = styleSel.value;
+  state.levelFilter = levelSel.value;
+  renderSchedule(state);
+}
+
+function handleStyleLinkPick(link) {
+  const styleSel = document.getElementById("trial-style");
   const form = document.getElementById("trial-form");
-  if (!form) return;
+  const success = document.getElementById("trial-success");
+  if (!styleSel) return;
+
+  if (form && form.hidden && success) {
+    success.hidden = true;
+    form.hidden = false;
+  }
+  styleSel.value = link.dataset.styleLink;
+  setFieldError(styleSel, "");
+}
+
+function handleTrialSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
 
   const styleSel = document.getElementById("trial-style");
   const nameIn = document.getElementById("trial-name");
   const phoneIn = document.getElementById("trial-phone");
   const success = document.getElementById("trial-success");
   const successStyle = document.getElementById("trial-success-style");
-  const again = document.getElementById("trial-again");
 
-  const clearOnInput = (field, evt) =>
-    field.addEventListener(evt, () => setFieldError(field, ""));
-  clearOnInput(styleSel, "change");
-  clearOnInput(nameIn, "input");
-  clearOnInput(phoneIn, "input");
+  const okStyle = setFieldError(styleSel, styleSel.value ? "" : "Оберіть напрямок зі списку");
+  const okName = setFieldError(nameIn, nameIn.value.trim().length >= 2 ? "" : "Вкажіть імʼя — щонайменше 2 символи");
+  const okPhone = setFieldError(phoneIn, PHONE_RE.test(phoneIn.value.trim()) ? "" : "Вкажіть телефон у форматі +380 (XX) XXX-XX-XX");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  if (!okStyle) { styleSel.focus(); return; }
+  if (!okName) { nameIn.focus(); return; }
+  if (!okPhone) { phoneIn.focus(); return; }
 
-    const okStyle = setFieldError(styleSel, styleSel.value ? "" : "Оберіть напрямок зі списку");
-    const okName = setFieldError(nameIn, nameIn.value.trim().length >= 2 ? "" : "Вкажіть імʼя — щонайменше 2 символи");
-    const okPhone = setFieldError(phoneIn, PHONE_RE.test(phoneIn.value.trim()) ? "" : "Вкажіть телефон у форматі +380 (XX) XXX-XX-XX");
+  if (successStyle) successStyle.textContent = styleSel.value;
+  form.hidden = true;
+  success.hidden = false;
+  success.focus();
+}
 
-    if (!okStyle) { styleSel.focus(); return; }
-    if (!okName) { nameIn.focus(); return; }
-    if (!okPhone) { phoneIn.focus(); return; }
+function handleTrialAgain() {
+  const form = document.getElementById("trial-form");
+  const success = document.getElementById("trial-success");
+  const styleSel = document.getElementById("trial-style");
+  const nameIn = document.getElementById("trial-name");
+  const phoneIn = document.getElementById("trial-phone");
+  if (!form || !success) return;
 
-    if (successStyle) successStyle.textContent = styleSel.value;
-    form.hidden = true;
-    success.hidden = false;
-    success.focus();
-  });
+  form.reset();
+  [styleSel, nameIn, phoneIn].forEach((f) => setFieldError(f, ""));
+  success.hidden = true;
+  form.hidden = false;
+  styleSel.focus();
+}
 
-  if (again) {
-    again.addEventListener("click", () => {
-      form.reset();
-      [styleSel, nameIn, phoneIn].forEach((f) => setFieldError(f, ""));
-      success.hidden = true;
-      form.hidden = false;
-      styleSel.focus();
-    });
+function handleFieldClear(field) {
+  setFieldError(field, "");
+}
+
+/* Єдиний делегований обробник кліків: кожен інтерактивний елемент несе
+   data-action, диспетчер вирішує, яку дію виконати. */
+function onDocumentClick(e) {
+  const actionEl = e.target.closest("[data-action]");
+  if (actionEl) {
+    const action = actionEl.dataset.action;
+    if (action === "menu") return handleMenuToggle();
+    if (action === "accordion") return handleAccordionToggle(actionEl);
+    if (action === "trial-again") return handleTrialAgain();
+  }
+
+  const styleLink = e.target.closest("[data-style-link]");
+  if (styleLink) {
+    handleStyleLinkPick(styleLink);
+    return;
+  }
+
+  handleMenuLinkClick(e.target);
+}
+
+function onDocumentChange(e) {
+  if (e.target.id === "filter-style" || e.target.id === "filter-level") {
+    handleScheduleFilterChange();
+    return;
+  }
+  if (e.target.id === "trial-style") {
+    handleFieldClear(e.target);
   }
 }
 
-/* ---------- Клік по напрямку → передвибір у формі ---------- */
-
-function initStyleLinks() {
-  const styleSel = document.getElementById("trial-style");
-  const form = document.getElementById("trial-form");
-  const success = document.getElementById("trial-success");
-  if (!styleSel) return;
-
-  document.querySelectorAll("[data-style-link]").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (form && form.hidden && success) {
-        success.hidden = true;
-        form.hidden = false;
-      }
-      styleSel.value = link.dataset.styleLink;
-      setFieldError(styleSel, "");
-    });
-  });
+function onDocumentInput(e) {
+  if (e.target.id === "trial-name" || e.target.id === "trial-phone") {
+    handleFieldClear(e.target);
+  }
 }
 
-/* ---------- Старт ---------- */
+function onDocumentSubmit(e) {
+  if (e.target.id === "trial-form") handleTrialSubmit(e);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderSchedule();
-  initScheduleFilters();
-  initMenu();
-  initAccordion();
-  initTrialForm();
-  initStyleLinks();
+  renderSchedule(state);
 });
+
+document.addEventListener("click", onDocumentClick);
+document.addEventListener("change", onDocumentChange);
+document.addEventListener("input", onDocumentInput);
+document.addEventListener("submit", onDocumentSubmit);

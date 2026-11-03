@@ -1,4 +1,4 @@
-/* ============ Verde — дизайн-токени та базові стилі ============ */
+/* Verde — дизайн-токени та базові стилі */
 :root {
   --brand: #16a34a;
   --brand-600: #15803d;
@@ -106,7 +106,7 @@ ul {
   }
 }
 
-/* ============ Кнопки ============ */
+/* кнопки */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -171,7 +171,7 @@ ul {
   border-color: var(--deep);
 }
 
-/* ============ Спільні дрібниці ============ */
+/* спільні дрібниці */
 .eyebrow {
   font-size: 13px;
   font-weight: 800;
@@ -186,7 +186,7 @@ ul {
   letter-spacing: -0.3px;
 }
 
-/* ============ Переходи (Vue transitions) ============ */
+/* переходи (Vue transitions) */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.22s ease;

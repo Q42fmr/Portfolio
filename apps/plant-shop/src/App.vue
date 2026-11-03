@@ -196,7 +196,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
   </header>
 
   <main id="main">
-    <!-- ================= HERO ================= -->
+    <!-- hero -->
     <section class="hero" id="top">
       <div class="container hero-inner">
         <div class="hero-text">
@@ -238,7 +238,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
       </div>
     </section>
 
-    <!-- ================= ПЕРЕВАГИ ================= -->
+    <!-- переваги -->
     <section class="benefits" id="benefits">
       <div class="container benefits-inner">
         <div class="benefit">
@@ -282,7 +282,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
       </div>
     </section>
 
-    <!-- ================= КАТАЛОГ ================= -->
+    <!-- каталог -->
     <section class="catalog" id="catalog">
       <div class="container">
         <div class="catalog-head">
@@ -394,7 +394,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
     </section>
   </main>
 
-  <!-- ================= ФУТЕР ================= -->
+  <!-- футер -->
   <footer class="site-footer" id="contacts">
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -412,9 +412,9 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
       </div>
       <div class="footer-col">
         <h4>Контакти</h4>
-        <a href="tel:+380441234567">+380 (44) 123-45-67</a>
+        <a href="tel:+380445748016">+380 (44) 574-80-16</a>
         <a href="mailto:hello@verde.plants">hello@verde.plants</a>
-        <p>м. Київ, вул. Прикладна, 1</p>
+        <p>м. Київ, вул. Ярославів Вал, 21</p>
       </div>
       <div class="footer-col">
         <h4>Графік роботи</h4>
@@ -423,7 +423,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
       </div>
     </div>
     <div class="container footer-bottom">
-      <span class="demo-badge">Демо-проєкт для портфоліо</span>
+      <span class="demo-badge">Концепт-демо для портфоліо, реального магазину не існує</span>
       <a class="back-link" href="../../index.html#projects">← До портфоліо</a>
     </div>
   </footer>
@@ -442,7 +442,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
 </template>
 
 <style>
-/* ================= ХЕДЕР ================= */
+/* хедер */
 .site-header {
   position: sticky;
   top: 0;
@@ -575,7 +575,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
   }
 }
 
-/* ================= HERO ================= */
+/* hero */
 .hero {
   padding: 64px 0 72px;
   overflow: hidden;
@@ -642,7 +642,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
   }
 }
 
-/* ================= ПЕРЕВАГИ ================= */
+/* переваги */
 .benefits {
   padding: 30px 0;
   background: var(--cream-2);
@@ -692,7 +692,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKeydown));
   }
 }
 
-/* ================= КАТАЛОГ ================= */
+/* каталог */
 .catalog {
   padding: 64px 0 88px;
   scroll-margin-top: 66px;
@@ -962,7 +962,7 @@ input[type="range"] {
   margin-bottom: 12px;
 }
 
-/* ================= ФУТЕР ================= */
+/* футер */
 .site-footer {
   background: var(--deep);
   color: rgba(253, 251, 247, 0.82);

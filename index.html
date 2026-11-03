@@ -33,7 +33,7 @@
 
   <header class="topbar">
     <a id="topbar-name" class="topbar__name" href="#title"><span class="logo" aria-hidden="true"></span>Олександр Бешун</a>
-    <p id="scene-indicator" class="topbar__scene mono" aria-live="polite">SC 01/05 — ТИТРИ</p>
+    <p id="scene-indicator" class="topbar__scene mono" aria-live="polite" data-prefix="Сцена">Сцена 1/5 — ТИТРИ</p>
     <nav class="topbar__actions" aria-label="Швидкі дії">
       <a id="topbar-cv" class="btn btn--ghost" href="./assets/files/cv.pdf" download>CV · PDF ↓</a>
       <a id="topbar-contact" class="btn btn--primary" href="#contact">Контакт ↗</a>
@@ -43,7 +43,7 @@
 
   <main>
     <section class="scene scene--title" id="title" data-scene="title" data-scene-name="ТИТРИ" aria-labelledby="hero-name">
-      <p class="scene__label mono">SC.01 — Титри</p>
+      <p class="scene__label mono">Сцена 1 · Титри</p>
       <figure class="portrait" id="portrait">
         <img src="./assets/img/portrait.jpg" alt="Олександр Бешун" width="480" height="480" onerror="this.parentElement.classList.add('portrait--missing')">
         <span class="shape shape--tri" aria-hidden="true"></span>
@@ -61,11 +61,11 @@
         <a class="btn btn--primary" href="./assets/files/cv.pdf" download>CV · PDF ↓</a>
         <a class="btn btn--ghost" href="#contact">Контакт ↗</a>
       </div>
-      <p class="hint mono">◀◀ Автоплей або скрол</p>
+      <p class="hint mono">▶ Натисни play внизу — або просто гортай</p>
     </section>
 
     <section class="scene scene--now" id="now" data-scene="now" data-scene-name="ЗАРАЗ" aria-labelledby="now-title">
-      <p class="scene__label mono">SC.02 — Зараз · 09.2025 — 11.2026 · 1 рік 3 міс</p>
+      <p class="scene__label mono">Сцена 2 · Зараз · 09.2025 — 11.2026 · 1 рік 3 міс</p>
       <h2 class="h-display" id="now-title">Junior Frontend Developer <span class="chip chip--ink chip--inline">у студії Bypass</span></h2>
       <p class="lead" id="now-summary"></p>
       <div class="marquee" id="now-marquee" aria-hidden="true"><div class="marquee__track"></div></div>
@@ -79,7 +79,7 @@
 
     <section class="scene scene--work" id="work" data-scene="work" data-scene-name="РОБОТИ" aria-labelledby="work-title">
       <div class="work__head">
-        <p class="scene__label mono" id="work-title">SC.03 — Вибрані роботи, 2021 → зараз</p>
+        <p class="scene__label mono" id="work-title">Сцена 3 · Вибрані роботи, 2021 → зараз</p>
         <p class="mono" id="work-counter">Кліп 01 / 26</p>
       </div>
       <div class="filters" id="work-filters" role="group" aria-label="Фільтр за категорією"></div>
@@ -90,7 +90,7 @@
     </section>
 
     <section class="scene scene--stack" id="stack" data-scene="stack" data-scene-name="СТЕК" aria-labelledby="stack-title">
-      <p class="scene__label mono" id="stack-title">SC.04 — Стек і мови</p>
+      <p class="scene__label mono" id="stack-title">Сцена 4 · Стек і мови</p>
       <div class="marquee marquee--a" id="stack-marquee-a" aria-hidden="true"><div class="marquee__track"></div></div>
       <div class="marquee marquee--b" id="stack-marquee-b" aria-hidden="true"><div class="marquee__track"></div></div>
       <div class="stack-grid" id="stack-groups"></div>
@@ -101,7 +101,7 @@
     </section>
 
     <section class="scene scene--contact" id="contact" data-scene="contact" data-scene-name="КОНТАКТ" aria-labelledby="contact-title">
-      <p class="scene__label mono">SC.05 — Фінальні титри</p>
+      <p class="scene__label mono">Сцена 5 · Фінальні титри</p>
       <h2 class="h-display" id="contact-title">Давай зробимо щось<span class="dot">.</span></h2>
       <p class="contact-email"><a id="contact-email" href="mailto:Q42fmr@gmail.com">Q42fmr@gmail.com</a><button id="copy-email" class="btn btn--ghost mono" type="button" data-label="Copy" data-done="Copied ✓">Copy</button></p>
       <ul class="contact-links" id="contact-links"></ul>
@@ -111,10 +111,10 @@
         <div><dt class="mono">Мій локальний час</dt><dd id="local-time">--:--</dd></div>
         <div><dt class="mono">Статус</dt><dd><span class="status__dot" aria-hidden="true"></span>Open to work · Junior/Middle Frontend</dd></div>
       </dl>
-      <button id="replay" class="btn btn--ghost mono" type="button">▶ Повтор з початку</button>
+      <button id="replay" class="btn btn--ghost mono" type="button">↺ Ще раз з початку</button>
       <footer class="footer">
         <p>© <span id="year"></span> Олександр Бешун</p>
-        <p class="mono">Built with HTML, CSS, JS, GSAP &amp; Lenis</p>
+        <p class="mono">HTML · CSS · JS · GSAP · Lenis — без фреймворків і білду</p>
         <span class="logo" aria-hidden="true"></span>
       </footer>
     </section>

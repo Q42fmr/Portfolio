@@ -40,7 +40,7 @@
 <body id="top" class="bg-ink font-sans text-white antialiased">
   <a href="#main" class="skip-link">Перейти до контенту</a>
 
-  <!-- ======== NAVBAR ======== -->
+  <!-- navbar -->
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink/85 backdrop-blur">
     <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Головна навігація">
       <a href="#top" class="font-display text-xl font-bold tracking-tight">FLOW<span class="text-brand">.</span></a>
@@ -55,7 +55,7 @@
 
       <div class="flex items-center gap-3">
         <a href="#trial" class="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">Пробне заняття</a>
-        <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center rounded-full border border-white/15 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
+        <button id="menu-btn" type="button" data-action="menu" class="grid h-10 w-10 place-items-center rounded-full border border-white/15 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
           <svg class="icon-burger h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
           <svg class="icon-close hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
@@ -75,7 +75,7 @@
   </header>
 
   <main id="main">
-    <!-- ======== HERO ======== -->
+    <!-- hero -->
     <section class="relative overflow-clip pb-16 pt-32 sm:pt-40 sm:pb-24">
       <div class="glow glow-pink -top-32 right-[-10%] h-[34rem] w-[34rem]" aria-hidden="true"></div>
       <div class="glow glow-violet left-[-14%] top-40 h-[30rem] w-[30rem]" aria-hidden="true"></div>
@@ -97,26 +97,26 @@
           <a href="#schedule" class="btn-ghost">Дивитися розклад</a>
         </div>
         <p class="mt-8 text-sm font-semibold tracking-wide text-white/40">
-          5 напрямків <span class="mx-2 text-brand">✦</span> 4 тренери <span class="mx-2 text-brand">✦</span> 21 заняття щотижня
+          5 напрямків <span class="mx-2 text-brand">•</span> 4 тренери <span class="mx-2 text-brand">•</span> 21 заняття щотижня
         </p>
       </div>
     </section>
 
-    <!-- ======== MARQUEE ======== -->
+    <!-- marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <span class="marquee-chunk">
-          Hip-Hop <i class="marquee-star">✦</i> Contemporary <i class="marquee-star">✦</i> High Heels <i class="marquee-star">✦</i> Breaking <i class="marquee-star">✦</i> Kids 6–10 <i class="marquee-star">✦</i>
-          Hip-Hop <i class="marquee-star">✦</i> Contemporary <i class="marquee-star">✦</i> High Heels <i class="marquee-star">✦</i> Breaking <i class="marquee-star">✦</i> Kids 6–10 <i class="marquee-star">✦</i>
+          Hip-Hop <i class="marquee-star">•</i> Contemporary <i class="marquee-star">•</i> High Heels <i class="marquee-star">•</i> Breaking <i class="marquee-star">•</i> Kids 6–10 <i class="marquee-star">•</i>
+          Hip-Hop <i class="marquee-star">•</i> Contemporary <i class="marquee-star">•</i> High Heels <i class="marquee-star">•</i> Breaking <i class="marquee-star">•</i> Kids 6–10 <i class="marquee-star">•</i>
         </span>
         <span class="marquee-chunk">
-          Hip-Hop <i class="marquee-star">✦</i> Contemporary <i class="marquee-star">✦</i> High Heels <i class="marquee-star">✦</i> Breaking <i class="marquee-star">✦</i> Kids 6–10 <i class="marquee-star">✦</i>
-          Hip-Hop <i class="marquee-star">✦</i> Contemporary <i class="marquee-star">✦</i> High Heels <i class="marquee-star">✦</i> Breaking <i class="marquee-star">✦</i> Kids 6–10 <i class="marquee-star">✦</i>
+          Hip-Hop <i class="marquee-star">•</i> Contemporary <i class="marquee-star">•</i> High Heels <i class="marquee-star">•</i> Breaking <i class="marquee-star">•</i> Kids 6–10 <i class="marquee-star">•</i>
+          Hip-Hop <i class="marquee-star">•</i> Contemporary <i class="marquee-star">•</i> High Heels <i class="marquee-star">•</i> Breaking <i class="marquee-star">•</i> Kids 6–10 <i class="marquee-star">•</i>
         </span>
       </div>
     </div>
 
-    <!-- ======== НАПРЯМКИ ======== -->
+    <!-- напрямки -->
     <section id="styles" class="py-20 sm:py-28">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div>
@@ -169,7 +169,7 @@
       </div>
     </section>
 
-    <!-- ======== РОЗКЛАД ======== -->
+    <!-- розклад -->
     <section id="schedule" class="border-y border-white/5 bg-[#0d0d14] py-20 sm:py-28">
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -218,7 +218,7 @@
       </div>
     </section>
 
-    <!-- ======== ТРЕНЕРИ ======== -->
+    <!-- тренери -->
     <section id="trainers" class="py-20 sm:py-28">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div>
@@ -294,7 +294,7 @@
       </div>
     </section>
 
-    <!-- ======== АБОНЕМЕНТИ ======== -->
+    <!-- абонементи -->
     <section id="pricing" class="border-y border-white/5 bg-[#0d0d14] py-20 sm:py-28">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div>
@@ -343,7 +343,7 @@
       </div>
     </section>
 
-    <!-- ======== ПРОБНЕ ЗАНЯТТЯ + КОНТАКТИ ======== -->
+    <!-- пробне заняття + контакти -->
     <section id="trial" class="relative overflow-clip py-20 sm:py-28">
       <div class="glow glow-violet -right-40 top-10 h-[28rem] w-[28rem]" aria-hidden="true"></div>
 
@@ -359,15 +359,21 @@
 
             <ul class="mt-8 space-y-3 text-sm font-semibold text-white/70">
               <li class="flex items-center gap-3">
-                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-xs text-brand">✓</span>
+                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                </span>
                 Без досвіду — саме те, групи стартують з нуля
               </li>
               <li class="flex items-center gap-3">
-                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-xs text-brand">✓</span>
+                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                </span>
                 Одяг — будь-який зручний, взуття — змінне
               </li>
               <li class="flex items-center gap-3">
-                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-xs text-brand">✓</span>
+                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                </span>
                 Тренер підкаже рівень уже на першому занятті
               </li>
             </ul>
@@ -375,11 +381,11 @@
             <dl class="mt-10 space-y-4 border-t border-white/10 pt-8 text-sm">
               <div class="flex gap-4">
                 <dt class="w-24 flex-none font-bold uppercase tracking-wider text-white/35">Адреса</dt>
-                <dd class="text-white/75">м. Київ, вул. Прикладна, 1</dd>
+                <dd class="text-white/75">м. Київ, вул. Антоновича, 44</dd>
               </div>
               <div class="flex gap-4">
                 <dt class="w-24 flex-none font-bold uppercase tracking-wider text-white/35">Телефон</dt>
-                <dd><a class="text-white/75 transition hover:text-brand" href="tel:+380441234567">+380 (44) 123-45-67</a></dd>
+                <dd><a class="text-white/75 transition hover:text-brand" href="tel:+380637021944">+380 (63) 702-19-44</a></dd>
               </div>
               <div class="flex gap-4">
                 <dt class="w-24 flex-none font-bold uppercase tracking-wider text-white/35">Графік</dt>
@@ -414,7 +420,7 @@
 
               <div class="mt-5">
                 <label class="field-label" for="trial-phone">Телефон *</label>
-                <input class="field-input" id="trial-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 (67) 123-45-67" aria-describedby="trial-phone-error">
+                <input class="field-input" id="trial-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 (XX) XXX-XX-XX" aria-describedby="trial-phone-error">
                 <p class="field-error" id="trial-phone-error" hidden></p>
               </div>
 
@@ -423,21 +429,23 @@
             </form>
 
             <div id="trial-success" class="rounded-2xl border border-brand/40 bg-surface p-6 sm:p-8" hidden tabindex="-1">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-brand text-xl font-black text-ink" aria-hidden="true">✓</span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-brand text-ink" aria-hidden="true">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+              </span>
               <h3 class="mt-5 font-display text-lg font-bold uppercase">Заявку прийнято!</h3>
               <p class="mt-3 leading-relaxed text-white/60">
                 Ми зателефонуємо впродовж дня, щоб підтвердити пробне заняття з напрямку
                 <strong class="text-brand" id="trial-success-style"></strong>.
               </p>
               <p class="mt-3 text-xs text-white/35">Це демо: дані нікуди не надсилаються.</p>
-              <button type="button" id="trial-again" class="btn-ghost mt-6 text-sm">← Записати ще раз</button>
+              <button type="button" id="trial-again" data-action="trial-again" class="btn-ghost mt-6 text-sm">← Записати ще раз</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======== FAQ ======== -->
+    <!-- faq -->
     <section id="faq" class="border-t border-white/5 py-20 sm:py-28">
       <div class="mx-auto max-w-4xl px-4 sm:px-6">
         <div>
@@ -448,7 +456,7 @@
         <div class="mt-10 border-t border-white/10">
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-btn" id="faq-b1" aria-expanded="false" aria-controls="faq-p1">
+              <button type="button" class="faq-btn" data-action="accordion" id="faq-b1" aria-expanded="false" aria-controls="faq-p1">
                 Я ніколи не танцював(-ла). Мені точно можна?
                 <span class="faq-icon" aria-hidden="true">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -464,7 +472,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-btn" id="faq-b2" aria-expanded="false" aria-controls="faq-p2">
+              <button type="button" class="faq-btn" data-action="accordion" id="faq-b2" aria-expanded="false" aria-controls="faq-p2">
                 Що взяти з собою на перше заняття?
                 <span class="faq-icon" aria-hidden="true">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -480,7 +488,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-btn" id="faq-b3" aria-expanded="false" aria-controls="faq-p3">
+              <button type="button" class="faq-btn" data-action="accordion" id="faq-b3" aria-expanded="false" aria-controls="faq-p3">
                 Чи можна заморозити абонемент?
                 <span class="faq-icon" aria-hidden="true">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -496,7 +504,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-btn" id="faq-b4" aria-expanded="false" aria-controls="faq-p4">
+              <button type="button" class="faq-btn" data-action="accordion" id="faq-b4" aria-expanded="false" aria-controls="faq-p4">
                 Як записати дитину в групу Kids 6–10?
                 <span class="faq-icon" aria-hidden="true">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -514,7 +522,7 @@
     </section>
   </main>
 
-  <!-- ======== FOOTER ======== -->
+  <!-- footer -->
   <footer class="border-t border-white/10">
     <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
@@ -529,14 +537,14 @@
           <li><a class="transition hover:text-white" href="#pricing">Ціни</a></li>
         </ul>
         <address class="text-sm not-italic leading-relaxed text-white/55">
-          м. Київ, вул. Прикладна, 1<br>
-          <a class="transition hover:text-brand" href="tel:+380441234567">+380 (44) 123-45-67</a>
+          м. Київ, вул. Антоновича, 44<br>
+          <a class="transition hover:text-brand" href="tel:+380637021944">+380 (63) 702-19-44</a>
         </address>
       </div>
 
       <div class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
         <p>
-          <span class="mr-3 inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-xs font-semibold">Демо-проєкт для портфоліо</span>
+          <span class="mr-3 inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-xs font-semibold">Навчальний демо-проєкт, не діюча студія</span>
           © 2026 Flow
         </p>
         <a class="font-semibold transition hover:text-brand" href="../../index.html#projects">← До портфоліо</a>
