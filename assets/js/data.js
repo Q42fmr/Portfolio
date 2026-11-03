@@ -207,8 +207,8 @@ window.PORTFOLIO = {
         en: "10 pages on custom CSS: a two-column hero with a photo, a floating “Quick Property Search” panel, a property grid, a testimonial slider, an FAQ, a cookie banner, legal pages."
       },
       result: {
-        ua: "Та сама ніша, інший візуальний характер — вправа в різних композиціях hero.",
-        en: "Same niche, a different visual character — an exercise in varied hero compositions."
+        ua: "Мій етап: домен і контакти по сторінках, нормалізація посилань у шапці/футері, перевірка split-hero на мобільному.",
+        en: "My stage: domain and contacts across pages, link normalisation in header/footer, a mobile check of the split hero."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
@@ -233,8 +233,8 @@ window.PORTFOLIO = {
         en: "The largest site in the series: 18 sections across 10 pages, a four-filter search panel in the hero, property cards, process steps, testimonials, an FAQ, a contact form; custom CSS and a dependency-free script."
       },
       result: {
-        ua: "Довга сторінка, яка тримає ритм: однакові відступи, типографіка й компоненти від hero до футера.",
-        en: "A long page that keeps its rhythm: consistent spacing, typography and components from hero to footer."
+        ua: "Мій етап: домен і контакти на 9 файлах, правки після рев'ю support-команди, перевірка 18 секцій на 390px.",
+        en: "My stage: domain and contacts in 9 files, fixes after the support team's review, a 390px check of all 18 sections."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
@@ -259,8 +259,8 @@ window.PORTFOLIO = {
         en: "7 pages on custom CSS: a hero with a photo and two CTAs, services, process, pricing, a testimonial slider, an FAQ, a validated consultation form, a cookie banner; a dedicated serif/sans pair for a classic tone."
       },
       result: {
-        ua: "Контрастна до «нерухомості» подача тієї ж структури — тон задає типографіка, а не лейаут.",
-        en: "The same structure with a tone opposite to the real-estate sites — typography, not layout, sets the mood."
+        ua: "Мій етап: контакти й домен у 6 файлах, фінальна правка головної, перевірка серифної типографіки в обох в'юпортах.",
+        en: "My stage: contacts and domain in 6 files, a final fix on the home page, a check of the serif typography in both viewports."
       },
       tags: ["HTML", "CSS", "JavaScript"],
       siteUrl: null,
@@ -441,8 +441,8 @@ window.PORTFOLIO = {
         en: "9 pages on Tailwind: a hero with a winter photo, a stats row (12+ / 450+ / 98 % / 365), programmes, benefits, testimonials, a Leaflet map, a validated enquiry form, a cookie banner, legal pages."
       },
       result: {
-        ua: "Швейцарська серія: один каркас, різні палітри й фото під кожного замовника.",
-        en: "The Swiss series: one skeleton, a different palette and photography per client."
+        ua: "Мій етап: заміна фотографій у hero, компанії, перевагах і відгуках на тематичні зимові, перевірка Leaflet-мапи і форми.",
+        en: "My stage: replacing the photos in the hero, company, benefits and testimonials with on-theme winter imagery, checking the Leaflet map and the form."
       },
       tags: ["HTML", "Tailwind", "JavaScript", "Leaflet"],
       siteUrl: null,
@@ -467,8 +467,8 @@ window.PORTFOLIO = {
         en: "9 pages on Tailwind with the most custom CSS/JS in the series: a hero on a dark photo, tour menu, benefits, testimonials, a Leaflet map, validated booking, a cookie banner; custom colours and gradients on top of the Tailwind config."
       },
       result: {
-        ua: "Доопрацьовувався протягом місяця за фідбеком — єдиний сайт серії з кількома ітераціями.",
-        en: "Iterated for a month on feedback — the only site in the series with several revisions."
+        ua: "Мій етап: правки в п'яти файлах у день запуску і повторна ітерація через місяць за фідбеком — єдиний сайт серії з двома раундами.",
+        en: "My stage: edits in five files on launch day and a second iteration a month later on feedback — the only site in the series with two rounds."
       },
       tags: ["HTML", "Tailwind", "JavaScript", "Leaflet"],
       siteUrl: null,
@@ -493,8 +493,8 @@ window.PORTFOLIO = {
         en: "9 pages in Arabic with dir=\"rtl\": mirrored navigation, alignment and icons, a hero with a workshop photo, services, benefits, testimonials, a Leaflet map, a validated booking form, a cookie banner."
       },
       result: {
-        ua: "Перевірка RTL у двох в'юпортах — без зламаних відступів і перевернутих іконок.",
-        en: "RTL checked in two viewports — no broken spacing or flipped icons."
+        ua: "Мій етап: перейменування 16 файлів під структуру проєкту і перевірка RTL-макета (дзеркальна навігація, вирівнювання, іконки) у двох в'юпортах.",
+        en: "My stage: renaming 16 files to the project structure and checking the RTL layout (mirrored navigation, alignment, icons) in two viewports."
       },
       tags: ["HTML", "Tailwind", "JavaScript", "RTL", "Leaflet"],
       siteUrl: null,
@@ -828,8 +828,8 @@ window.PORTFOLIO = {
     },
     {
       period: "2014 — 2017",
-      title: { ua: "Чернігівський інститут бізнесу і права", en: "Chernihiv Institute of Business and Law" },
-      detail: { ua: "Інженер-технолог; основи програмування", en: "Process engineer; programming fundamentals" }
+      title: { ua: "ЧНТУ · Чернігівський національний технологічний університет", en: "ChNTU · Chernihiv National University of Technology" },
+      detail: { ua: "Комп'ютерна інженерія (Інститут бізнесу і права); незакінчена вища", en: "Computer engineering (Institute of Business and Law); incomplete degree" }
     },
     {
       period: "2024 — 2025",
