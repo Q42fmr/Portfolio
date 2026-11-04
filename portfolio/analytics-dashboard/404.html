@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — сторінку не знайдено | Insight BI-дашборд</title>
+  <meta name="description" content="Сторінку не знайдено в демо-дашборді «Insight». Поверніться на огляд дашборда.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="404 — сторінку не знайдено | Insight BI-дашборд">
+  <meta property="og:description" content="Сторінку не знайдено в демо-дашборді «Insight». Поверніться на огляд дашборда.">
+  <meta property="og:image" content="https://insight-bi.app/assets/img/product-headphones.jpg">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: "#38bdf8", ink: "#0f172a", card: "#1e293b" },
+          fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css?v=20261104">
+</head>
+<body class="bg-ink font-sans text-slate-200 antialiased" data-page="404">
+  <a href="#main" class="skip-link">Перейти до вмісту</a>
+  <main id="main" class="error-shell">
+    <div>
+      <span class="grid h-14 w-14 mx-auto place-items-center rounded-xl bg-brand text-slate-950 shadow-lg shadow-sky-500/20">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7" aria-hidden="true">
+          <path d="M4 14.5h2.6l2.2-5.2 3.4 8.6 2.4-5.6H20"/>
+        </svg>
+      </span>
+      <p class="mt-6 text-sm font-semibold uppercase tracking-wider text-brand">Помилка 404</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-50">Сторінку не знайдено</h1>
+      <p class="mx-auto mt-3 max-w-sm text-sm text-slate-400">Такої сторінки в дашборді «Insight» немає. Можливо, посилання застаріло або адресу введено з помилкою.</p>
+      <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+        <a href="index.html" class="btn-primary">На огляд дашборда</a>
+        <a href="../../index.html#projects" class="text-sm font-medium text-brand transition hover:text-sky-300">← До портфоліо</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "KAVA Roasters",
+  "short_name": "KAVA",
+  "description": "Кавʼярня та обсмажувальня KAVA Roasters у центрі Києва",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fbf7f0",
+  "theme_color": "#92400e",
+  "lang": "uk",
+  "icons": [
+    { "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "./apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

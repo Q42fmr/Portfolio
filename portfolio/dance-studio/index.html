@@ -9,9 +9,13 @@
   <meta property="og:locale" content="uk_UA">
   <meta property="og:title" content="Flow — студія танцю у Києві">
   <meta property="og:description" content="Студія танцю Flow у Києві: Hip-Hop, Contemporary, High Heels, Breaking і дитячі групи 6–10 років. Інтерактивний розклад, тренери, абонементи та безкоштовне пробне заняття.">
-  <meta property="og:image" content="https://q42fmr.shop/assets/img/projects/dance-studio-desktop.jpg">
+  <meta property="og:image" content="https://flow-dance.studio/assets/img/hero-dancers-studio.jpg">
+  <meta property="og:url" content="https://flow-dance.studio/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ec4899'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="canonical" href="https://flow-dance.studio/">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -34,8 +38,9 @@
       },
     };
   </script>
-  <link rel="stylesheet" href="./style.css?v=20261102b">
-  <script src="./app.js?v=20261102b" defer></script>
+  <link rel="stylesheet" href="./assets/css/main.css?v=20261104">
+  <script src="./assets/js/schedule-data.js?v=20261104"></script>
+  <script src="./assets/js/main.js?v=20261104" defer></script>
 </head>
 <body id="top" class="bg-ink font-sans text-white antialiased">
   <a href="#main" class="skip-link">Перейти до контенту</a>
@@ -43,18 +48,19 @@
   <!-- navbar -->
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink/85 backdrop-blur">
     <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Головна навігація">
-      <a href="#top" class="font-display text-xl font-bold tracking-tight">FLOW<span class="text-brand">.</span></a>
+      <a href="index.html" class="font-display text-xl font-bold tracking-tight">FLOW<span class="text-brand">.</span></a>
 
       <ul class="hidden items-center gap-7 text-sm font-semibold text-white/65 md:flex">
-        <li><a class="transition hover:text-white" href="#styles">Напрямки</a></li>
-        <li><a class="transition hover:text-white" href="#schedule">Розклад</a></li>
-        <li><a class="transition hover:text-white" href="#trainers">Тренери</a></li>
-        <li><a class="transition hover:text-white" href="#pricing">Ціни</a></li>
-        <li><a class="transition hover:text-white" href="#contacts">Контакти</a></li>
+        <li><a class="transition hover:text-white text-white" href="index.html" aria-current="page">Головна</a></li>
+        <li><a class="transition hover:text-white" href="classes.html">Напрямки</a></li>
+        <li><a class="transition hover:text-white" href="schedule.html">Розклад</a></li>
+        <li><a class="transition hover:text-white" href="trainers.html">Тренери</a></li>
+        <li><a class="transition hover:text-white" href="pricing.html">Ціни</a></li>
+        <li><a class="transition hover:text-white" href="contact.html">Контакти</a></li>
       </ul>
 
       <div class="flex items-center gap-3">
-        <a href="#trial" class="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">Пробне заняття</a>
+        <a href="contact.html#trial-form" class="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">Пробне заняття</a>
         <button id="menu-btn" type="button" data-action="menu" class="grid h-10 w-10 place-items-center rounded-full border border-white/15 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
           <svg class="icon-burger h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
           <svg class="icon-close hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -64,13 +70,14 @@
 
     <div id="mobile-menu" class="hidden border-t border-white/5 bg-ink/95 px-4 pb-6 pt-3 md:hidden">
       <ul class="flex flex-col gap-1 text-base font-semibold text-white/80">
-        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="#styles">Напрямки</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="#schedule">Розклад</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="#trainers">Тренери</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="#pricing">Ціни</a></li>
-        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="#contacts">Контакти</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white bg-white/5 text-white" href="index.html" aria-current="page">Головна</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="classes.html">Напрямки</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="schedule.html">Розклад</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="trainers.html">Тренери</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="pricing.html">Ціни</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="contact.html">Контакти</a></li>
       </ul>
-      <a href="#trial" class="btn-primary mt-4 w-full">Пробне заняття — безкоштовно</a>
+      <a href="contact.html#trial-form" class="btn-primary mt-4 w-full">Пробне заняття — безкоштовно</a>
     </div>
   </header>
 
@@ -81,24 +88,30 @@
       <div class="glow glow-violet left-[-14%] top-40 h-[30rem] w-[30rem]" aria-hidden="true"></div>
       <div class="hero-dots" aria-hidden="true"></div>
 
-      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <p class="eyebrow">Студія танцю · Київ</p>
-        <h1 class="mt-6 font-display text-[clamp(2.4rem,8vw,6rem)] font-extrabold uppercase leading-[0.98] tracking-tight">
-          Танцюй так,<br>
-          <span class="text-outline">ніби всі</span><br>
-          дивляться<span class="text-brand">.</span>
-        </h1>
-        <p class="mt-7 max-w-xl text-lg leading-relaxed text-white/60">
-          Групи для дорослих і дітей — від перших кроків до сцени.
-          Обирай напрямок, приходь на пробне і залишайся в ритмі.
-        </p>
-        <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href="#trial" class="btn-primary">Пробне заняття — безкоштовно</a>
-          <a href="#schedule" class="btn-ghost">Дивитися розклад</a>
+      <div class="relative mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12">
+        <div>
+          <p class="eyebrow">Студія танцю · Київ</p>
+          <h1 class="mt-6 font-display text-[clamp(2.4rem,8vw,6rem)] font-extrabold uppercase leading-[0.98] tracking-tight">
+            Танцюй так,<br>
+            <span class="text-outline">ніби всі</span><br>
+            дивляться<span class="text-brand">.</span>
+          </h1>
+          <p class="mt-7 max-w-xl text-lg leading-relaxed text-white/60">
+            Групи для дорослих і дітей — від перших кроків до сцени.
+            Обирай напрямок, приходь на пробне і залишайся в ритмі.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="contact.html#trial-form" class="btn-primary">Пробне заняття — безкоштовно</a>
+            <a href="schedule.html" class="btn-ghost">Дивитися розклад</a>
+          </div>
+          <p class="mt-8 text-sm font-semibold tracking-wide text-white/40">
+            5 напрямків <span class="mx-2 text-brand">•</span> 4 тренери <span class="mx-2 text-brand">•</span> 21 заняття щотижня
+          </p>
         </div>
-        <p class="mt-8 text-sm font-semibold tracking-wide text-white/40">
-          5 напрямків <span class="mx-2 text-brand">•</span> 4 тренери <span class="mx-2 text-brand">•</span> 21 заняття щотижня
-        </p>
+
+        <div class="hero-photo-frame aspect-[4/5] lg:aspect-[3/4]">
+          <img src="./assets/img/hero-dancers-studio.jpg" alt="Танцюристи виступають у динамічній позі під час фестивалю сучасного танцю" width="1600" height="1067" fetchpriority="high">
+        </div>
       </div>
     </section>
 
@@ -119,404 +132,138 @@
     <!-- напрямки -->
     <section id="styles" class="py-20 sm:py-28">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div>
-          <p class="eyebrow"><span class="text-brand">01</span> Напрямки</p>
-          <h2 class="mt-4 max-w-3xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Обери свій стиль</h2>
-        </div>
-
-        <ol class="mt-10 border-t border-white/10">
-          <li>
-            <a href="#trial" data-style-link="Hip-Hop" class="style-row">
-              <span class="style-index">01</span>
-              <span class="style-name">Hip-Hop</span>
-              <span class="style-desc">Грув, базові степи та фрістайл під сучасні біти. Найенергійніша група студії.</span>
-              <span class="style-arrow">Обрати →</span>
-            </a>
-          </li>
-          <li>
-            <a href="#trial" data-style-link="Contemporary" class="style-row">
-              <span class="style-index">02</span>
-              <span class="style-name">Contemporary</span>
-              <span class="style-desc">Сучасна хореографія на межі танцю й театру: дихання, робота з підлогою, імпровізація.</span>
-              <span class="style-arrow">Обрати →</span>
-            </a>
-          </li>
-          <li>
-            <a href="#trial" data-style-link="High Heels" class="style-row">
-              <span class="style-index">03</span>
-              <span class="style-name">High Heels</span>
-              <span class="style-desc">Впевненість на підборах: пластика, хода та характер у кожному русі.</span>
-              <span class="style-arrow">Обрати →</span>
-            </a>
-          </li>
-          <li>
-            <a href="#trial" data-style-link="Breaking" class="style-row">
-              <span class="style-index">04</span>
-              <span class="style-name">Breaking</span>
-              <span class="style-desc">Топ-рок, футворк і фризи — від перших кроків до перших батлів.</span>
-              <span class="style-arrow">Обрати →</span>
-            </a>
-          </li>
-          <li>
-            <a href="#trial" data-style-link="Kids 6–10" class="style-row">
-              <span class="style-index">05</span>
-              <span class="style-name">Kids 6–10</span>
-              <span class="style-desc">Дитяча група: координація, ритміка й перші виступи на сцені — у форматі гри.</span>
-              <span class="style-arrow">Обрати →</span>
-            </a>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- розклад -->
-    <section id="schedule" class="border-y border-white/5 bg-[#0d0d14] py-20 sm:py-28">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <div class="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p class="eyebrow"><span class="text-brand">02</span> Розклад</p>
-            <h2 class="mt-4 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Тиждень у Flow</h2>
-            <p class="mt-4 max-w-lg text-white/55">Обирай стиль і рівень — розклад оновиться миттєво. Порожній день означає, що за фільтром занять немає.</p>
+            <p class="eyebrow"><span class="text-brand">01</span> Напрямки</p>
+            <h2 class="mt-4 max-w-3xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Обери свій стиль</h2>
           </div>
-
-          <div class="flex flex-wrap items-end gap-4">
-            <div class="w-full min-w-[10rem] sm:w-auto">
-              <label class="field-label" for="filter-style">Стиль</label>
-              <select id="filter-style" class="field-input !py-2.5 text-sm">
-                <option value="all" selected>Усі</option>
-                <option value="Hip-Hop">Hip-Hop</option>
-                <option value="Contemporary">Contemporary</option>
-                <option value="High Heels">High Heels</option>
-                <option value="Breaking">Breaking</option>
-                <option value="Kids 6–10">Kids 6–10</option>
-              </select>
-            </div>
-            <div class="w-full min-w-[10rem] sm:w-auto">
-              <label class="field-label" for="filter-level">Рівень</label>
-              <select id="filter-level" class="field-input !py-2.5 text-sm">
-                <option value="all" selected>Усі</option>
-                <option value="Початківці">Початківці</option>
-                <option value="Продовжуючі">Продовжуючі</option>
-                <option value="Всі рівні">Всі рівні</option>
-              </select>
-            </div>
-          </div>
+          <a href="classes.html" class="btn-ghost text-sm">Усі напрямки докладно →</a>
         </div>
 
-        <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <p id="schedule-count" class="text-sm font-semibold text-white/45" aria-live="polite"></p>
-          <ul class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Позначення стилів">
-            <li class="legend-item" style="--c:#ec4899"><span class="legend-dot"></span>Hip-Hop</li>
-            <li class="legend-item" style="--c:#8b5cf6"><span class="legend-dot"></span>Contemporary</li>
-            <li class="legend-item" style="--c:#f472b6"><span class="legend-dot"></span>High Heels</li>
-            <li class="legend-item" style="--c:#d946ef"><span class="legend-dot"></span>Breaking</li>
-            <li class="legend-item" style="--c:#e2e8f0"><span class="legend-dot"></span>Kids 6–10</li>
-          </ul>
-        </div>
-
-        <div id="schedule-grid" class="mt-6 grid grid-cols-1 gap-7 lg:grid-cols-7 lg:gap-2.5"></div>
+        <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <li>
+            <a href="classes.html#hip-hop" class="direction-card group block">
+              <img class="direction-photo" src="./assets/img/card-hip-hop.jpg" alt="Танцівниця виконує експресивний рух у яскравому костюмі на вуличному фестивалі" loading="lazy" width="900" height="675">
+              <div class="p-5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="style-index">01</span>
+                  <a href="schedule.html?style=Hip-Hop" class="text-xs font-extrabold uppercase tracking-wider text-white/40 transition hover:text-brand">Розклад →</a>
+                </div>
+                <h3 class="mt-2 font-display text-xl font-bold uppercase leading-tight transition group-hover:text-brand">Hip-Hop</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/55">Грув, базові степи та фрістайл під сучасні біти. Найенергійніша група студії.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html#contemporary" class="direction-card group block">
+              <img class="direction-photo" src="./assets/img/card-contemporary.jpg" alt="Танцівниці театру сучасного танцю виступають на сцені під час вистави" loading="lazy" width="900" height="675">
+              <div class="p-5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="style-index">02</span>
+                  <a href="schedule.html?style=Contemporary" class="text-xs font-extrabold uppercase tracking-wider text-white/40 transition hover:text-brand">Розклад →</a>
+                </div>
+                <h3 class="mt-2 font-display text-xl font-bold uppercase leading-tight transition group-hover:text-brand">Contemporary</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/55">Сучасна хореографія на межі танцю й театру: дихання, робота з підлогою, імпровізація.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html#high-heels" class="direction-card group block">
+              <img class="direction-photo" src="./assets/img/card-high-heels.jpg" alt="Чорні жіночі туфлі на високих підборах на відбиваючій підлозі" loading="lazy" width="900" height="675">
+              <div class="p-5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="style-index">03</span>
+                  <a href="schedule.html?style=High%20Heels" class="text-xs font-extrabold uppercase tracking-wider text-white/40 transition hover:text-brand">Розклад →</a>
+                </div>
+                <h3 class="mt-2 font-display text-xl font-bold uppercase leading-tight transition group-hover:text-brand">High Heels</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/55">Впевненість на підборах: пластика, хода та характер у кожному русі.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html#breaking" class="direction-card group block">
+              <img class="direction-photo" src="./assets/img/card-breaking.jpg" alt="Брейк-дансер виконує стрибковий елемент під час батлу просто неба" loading="lazy" width="900" height="675">
+              <div class="p-5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="style-index">04</span>
+                  <a href="schedule.html?style=Breaking" class="text-xs font-extrabold uppercase tracking-wider text-white/40 transition hover:text-brand">Розклад →</a>
+                </div>
+                <h3 class="mt-2 font-display text-xl font-bold uppercase leading-tight transition group-hover:text-brand">Breaking</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/55">Топ-рок, футворк і фризи — від перших кроків до перших батлів.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html#kids" class="direction-card group block">
+              <img class="direction-photo" src="./assets/img/card-kids.jpg" alt="Діти танцюють groupою на заняттях з хореографії" loading="lazy" width="900" height="675">
+              <div class="p-5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="style-index">05</span>
+                  <a href="schedule.html?style=Kids%206%E2%80%9310" class="text-xs font-extrabold uppercase tracking-wider text-white/40 transition hover:text-brand">Розклад →</a>
+                </div>
+                <h3 class="mt-2 font-display text-xl font-bold uppercase leading-tight transition group-hover:text-brand">Kids 6–10</h3>
+                <p class="mt-2 text-sm leading-relaxed text-white/55">Дитяча група: координація, ритміка й перші виступи на сцені — у форматі гри.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- тренери -->
-    <section id="trainers" class="py-20 sm:py-28">
+    <!-- чому ми -->
+    <section class="border-y border-white/5 bg-[#0d0d14] py-20 sm:py-28">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div>
-          <p class="eyebrow"><span class="text-brand">03</span> Тренери</p>
-          <h2 class="mt-4 max-w-3xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Команда, що задає ритм</h2>
+          <p class="eyebrow"><span class="text-brand">02</span> Чому ми</p>
+          <h2 class="mt-4 max-w-3xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Студія, у яку хочеться повертатись</h2>
         </div>
 
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <article class="trainer-card">
-            <div class="avatar-tile" style="--tint: rgba(236,72,153,0.24)">
-              <svg viewBox="0 0 120 120" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="64" cy="18" r="9" fill="rgba(255,255,255,0.92)" stroke="none"/>
-                <path d="M62 30 L54 58"/>
-                <path d="M60 36 L40 28 L30 12"/>
-                <path d="M60 38 L78 46 L92 40"/>
-                <path d="M54 58 L38 74 L36 94"/>
-                <path d="M54 58 L68 76 L60 98"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 font-display text-base font-bold">Даша Коваль</h3>
-            <p class="mt-1 text-xs font-extrabold uppercase tracking-[0.14em] text-brand">Hip-Hop · Kids</p>
-            <p class="mt-2.5 text-sm leading-relaxed text-white/55">9 років у хіп-хопі, фіналістка всеукраїнських батлів.</p>
-          </article>
-
-          <article class="trainer-card">
-            <div class="avatar-tile" style="--tint: rgba(139,92,246,0.26)">
-              <svg viewBox="0 0 120 120" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="30" cy="74" r="9" fill="rgba(255,255,255,0.92)" stroke="none"/>
-                <path d="M38 68 L64 46"/>
-                <path d="M46 62 L40 90"/>
-                <path d="M58 52 L66 30"/>
-                <path d="M64 46 L86 34 L100 42"/>
-                <path d="M64 46 L78 24"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 font-display text-base font-bold">Артем Білий</h3>
-            <p class="mt-1 text-xs font-extrabold uppercase tracking-[0.14em] text-brand">Breaking</p>
-            <p class="mt-2.5 text-sm leading-relaxed text-white/55">12 років у брейкінгу, суддя регіональних джемів.</p>
-          </article>
-
-          <article class="trainer-card">
-            <div class="avatar-tile" style="--tint: rgba(217,70,239,0.2)">
-              <svg viewBox="0 0 120 120" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="42" cy="16" r="9" fill="rgba(255,255,255,0.92)" stroke="none"/>
-                <path d="M44 28 L56 54"/>
-                <path d="M48 34 L28 44 L12 38"/>
-                <path d="M50 32 L70 24 L88 16"/>
-                <path d="M56 54 L52 76 L50 98"/>
-                <path d="M56 54 L78 62 L100 54"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 font-display text-base font-bold">Соломія Ткач</h3>
-            <p class="mt-1 text-xs font-extrabold uppercase tracking-[0.14em] text-brand">Contemporary</p>
-            <p class="mt-2.5 text-sm leading-relaxed text-white/55">10 років сценічного досвіду, хореографка театральних постановок.</p>
-          </article>
-
-          <article class="trainer-card">
-            <div class="avatar-tile" style="--tint: rgba(244,114,182,0.22)">
-              <svg viewBox="0 0 120 120" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="66" cy="14" r="9" fill="rgba(255,255,255,0.92)" stroke="none"/>
-                <path d="M64 26 L58 56"/>
-                <path d="M62 32 L46 42 L56 50"/>
-                <path d="M63 30 L80 22 L86 6"/>
-                <path d="M58 56 L50 76 L56 98 L62 100"/>
-                <path d="M58 56 L64 74 L58 96 L52 98"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 font-display text-base font-bold">Ліля Романюк</h3>
-            <p class="mt-1 text-xs font-extrabold uppercase tracking-[0.14em] text-brand">High Heels</p>
-            <p class="mt-2.5 text-sm leading-relaxed text-white/55">7 років викладання, авторка курсу впевненої ходи.</p>
-          </article>
+          <div class="rounded-2xl border border-white/10 bg-surface p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 6.9L22 11l-7.4 2.1L12 20l-2.6-6.9L2 11l7.4-2.1z"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-base font-bold uppercase">4 тренери-практики</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Діючі танцівники та хореографи зі сцени, а не лише з дипломом.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-surface p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-base font-bold uppercase">21 заняття щотижня</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Гнучкий розклад для будь-якого графіка — від буднього ранку до вихідних.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-surface p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-base font-bold uppercase">Пробне безкоштовно</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Приходь оцінити групу й тренера до першої оплати — без зобовʼязань.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-surface p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.4-9.5 9-9.5 9z"/></svg>
+            </span>
+            <h3 class="mt-4 font-display text-base font-bold uppercase">У центрі Києва</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">5 хвилин від метро, зручна локація для занять після роботи чи школи.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- абонементи -->
-    <section id="pricing" class="border-y border-white/5 bg-[#0d0d14] py-20 sm:py-28">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div>
-          <p class="eyebrow"><span class="text-brand">04</span> Абонементи</p>
-          <h2 class="mt-4 max-w-3xl font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Скільки коштує танцювати</h2>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-3 md:items-start">
-          <article class="plan-card">
-            <h3 class="font-display text-sm font-bold uppercase tracking-wide text-white/70">Разове</h3>
-            <p class="plan-price mt-5">250 <span class="text-lg text-white/50">₴</span></p>
-            <p class="mt-1.5 text-sm text-white/45">за одне заняття</p>
-            <ul class="mt-6 space-y-3">
-              <li class="plan-feature">Будь-яке групове заняття</li>
-              <li class="plan-feature">Без зобовʼязань і передоплат</li>
-              <li class="plan-feature">Підходить, щоб спробувати</li>
-            </ul>
-            <a href="#trial" class="btn-ghost mt-8 w-full text-sm">Обрати</a>
-          </article>
-
-          <article class="plan-card plan-featured relative md:-translate-y-3">
-            <p class="absolute -top-3.5 left-6 rounded-full bg-brand px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-ink">Найвигідніший</p>
-            <h3 class="font-display text-sm font-bold uppercase tracking-wide text-white/70">8 занять</h3>
-            <p class="plan-price mt-5">1600 <span class="text-lg text-white/50">₴</span></p>
-            <p class="mt-1.5 text-sm text-white/45">200 ₴ за заняття · діє 6 тижнів</p>
-            <ul class="mt-6 space-y-3">
-              <li class="plan-feature">Будь-які напрямки та тренери</li>
-              <li class="plan-feature">Заморозка до 7 днів</li>
-              <li class="plan-feature">Перенесення заняття без штрафу</li>
-            </ul>
-            <a href="#trial" class="btn-primary mt-8 w-full text-sm">Обрати</a>
-          </article>
-
-          <article class="plan-card">
-            <h3 class="font-display text-sm font-bold uppercase tracking-wide text-white/70">Безліміт</h3>
-            <p class="plan-price mt-5">2400 <span class="text-lg text-white/50">₴</span></p>
-            <p class="mt-1.5 text-sm text-white/45">на місяць</p>
-            <ul class="mt-6 space-y-3">
-              <li class="plan-feature">Усі групові без обмежень</li>
-              <li class="plan-feature">Пріоритетний запис у групи</li>
-              <li class="plan-feature">1 гостьовий візит для друга</li>
-            </ul>
-            <a href="#trial" class="btn-ghost mt-8 w-full text-sm">Обрати</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- пробне заняття + контакти -->
-    <section id="trial" class="relative overflow-clip py-20 sm:py-28">
+    <!-- trial CTA -->
+    <section class="relative overflow-clip py-20 sm:py-28">
       <div class="glow glow-violet -right-40 top-10 h-[28rem] w-[28rem]" aria-hidden="true"></div>
-
-      <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div id="contacts">
-            <p class="eyebrow"><span class="text-brand">05</span> Пробне заняття</p>
-            <h2 class="mt-4 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Перший крок — <span class="text-brand">за нами</span></h2>
-            <p class="mt-5 max-w-md leading-relaxed text-white/55">
-              Залиш заявку — адміністратор зателефонує, підбере групу за рівнем
-              і забронює місце. Пробне заняття для нових учнів безкоштовне.
-            </p>
-
-            <ul class="mt-8 space-y-3 text-sm font-semibold text-white/70">
-              <li class="flex items-center gap-3">
-                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
-                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-                </span>
-                Без досвіду — саме те, групи стартують з нуля
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
-                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-                </span>
-                Одяг — будь-який зручний, взуття — змінне
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="grid h-6 w-6 flex-none place-items-center rounded-full bg-brand/15 text-brand" aria-hidden="true">
-                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-                </span>
-                Тренер підкаже рівень уже на першому занятті
-              </li>
-            </ul>
-
-            <dl class="mt-10 space-y-4 border-t border-white/10 pt-8 text-sm">
-              <div class="flex gap-4">
-                <dt class="w-24 flex-none font-bold uppercase tracking-wider text-white/35">Адреса</dt>
-                <dd class="text-white/75">м. Київ, вул. Антоновича, 44</dd>
-              </div>
-              <div class="flex gap-4">
-                <dt class="w-24 flex-none font-bold uppercase tracking-wider text-white/35">Телефон</dt>
-                <dd><a class="text-white/75 transition hover:text-brand" href="tel:+380637021944">+380 (63) 702-19-44</a></dd>
-              </div>
-              <div class="flex gap-4">
-                <dt class="w-24 flex-none font-bold uppercase tracking-wider text-white/35">Графік</dt>
-                <dd class="text-white/75">Будні 16:00–22:00 · Вихідні 10:00–17:00</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div>
-            <form id="trial-form" class="rounded-2xl border border-white/10 bg-surface p-6 sm:p-8" novalidate>
-              <h3 class="font-display text-lg font-bold uppercase">Запис на пробне</h3>
-              <p class="mt-2 text-sm text-white/45">Заповніть форму — передзвонимо впродовж дня.</p>
-
-              <div class="mt-7">
-                <label class="field-label" for="trial-style">Напрямок *</label>
-                <select id="trial-style" name="style" class="field-input" required aria-describedby="trial-style-error">
-                  <option value="" selected>Оберіть стиль</option>
-                  <option value="Hip-Hop">Hip-Hop</option>
-                  <option value="Contemporary">Contemporary</option>
-                  <option value="High Heels">High Heels</option>
-                  <option value="Breaking">Breaking</option>
-                  <option value="Kids 6–10">Kids 6–10</option>
-                </select>
-                <p class="field-error" id="trial-style-error" hidden></p>
-              </div>
-
-              <div class="mt-5">
-                <label class="field-label" for="trial-name">Імʼя *</label>
-                <input class="field-input" id="trial-name" name="name" type="text" autocomplete="name" placeholder="Як до вас звертатися?" aria-describedby="trial-name-error">
-                <p class="field-error" id="trial-name-error" hidden></p>
-              </div>
-
-              <div class="mt-5">
-                <label class="field-label" for="trial-phone">Телефон *</label>
-                <input class="field-input" id="trial-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 (XX) XXX-XX-XX" aria-describedby="trial-phone-error">
-                <p class="field-error" id="trial-phone-error" hidden></p>
-              </div>
-
-              <button type="submit" class="btn-primary mt-7 w-full">Записатися на пробне</button>
-              <p class="mt-4 text-xs leading-relaxed text-white/35">Це демо-форма: дані нікуди не надсилаються й не зберігаються.</p>
-            </form>
-
-            <div id="trial-success" class="rounded-2xl border border-brand/40 bg-surface p-6 sm:p-8" hidden tabindex="-1">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-brand text-ink" aria-hidden="true">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-              </span>
-              <h3 class="mt-5 font-display text-lg font-bold uppercase">Заявку прийнято!</h3>
-              <p class="mt-3 leading-relaxed text-white/60">
-                Ми зателефонуємо впродовж дня, щоб підтвердити пробне заняття з напрямку
-                <strong class="text-brand" id="trial-success-style"></strong>.
-              </p>
-              <p class="mt-3 text-xs text-white/35">Це демо: дані нікуди не надсилаються.</p>
-              <button type="button" id="trial-again" data-action="trial-again" class="btn-ghost mt-6 text-sm">← Записати ще раз</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- faq -->
-    <section id="faq" class="border-t border-white/5 py-20 sm:py-28">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6">
-        <div>
-          <p class="eyebrow"><span class="text-brand">06</span> FAQ</p>
-          <h2 class="mt-4 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Часті питання</h2>
-        </div>
-
-        <div class="mt-10 border-t border-white/10">
-          <div class="faq-item">
-            <h3>
-              <button type="button" class="faq-btn" data-action="accordion" id="faq-b1" aria-expanded="false" aria-controls="faq-p1">
-                Я ніколи не танцював(-ла). Мені точно можна?
-                <span class="faq-icon" aria-hidden="true">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                </span>
-              </button>
-            </h3>
-            <div class="faq-panel" id="faq-p1" role="region" aria-labelledby="faq-b1">
-              <div>
-                <p class="faq-answer">Так. Групи з позначкою «Початківці» стартують з нуля: перші заняття — це база, ритміка та прості звʼязки. Тренер підлаштовує темп під групу, тож наздоганяти нікого не доведеться.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <h3>
-              <button type="button" class="faq-btn" data-action="accordion" id="faq-b2" aria-expanded="false" aria-controls="faq-p2">
-                Що взяти з собою на перше заняття?
-                <span class="faq-icon" aria-hidden="true">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                </span>
-              </button>
-            </h3>
-            <div class="faq-panel" id="faq-p2" role="region" aria-labelledby="faq-b2">
-              <div>
-                <p class="faq-answer">Зручний спортивний одяг, змінне взуття з чистою підошвою та воду. Для High Heels — підбори зі стійким каблуком, але перші заняття можна проходити без них.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <h3>
-              <button type="button" class="faq-btn" data-action="accordion" id="faq-b3" aria-expanded="false" aria-controls="faq-p3">
-                Чи можна заморозити абонемент?
-                <span class="faq-icon" aria-hidden="true">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                </span>
-              </button>
-            </h3>
-            <div class="faq-panel" id="faq-p3" role="region" aria-labelledby="faq-b3">
-              <div>
-                <p class="faq-answer">Абонемент на 8 занять можна заморозити один раз на строк до 7 днів, безліміт — до 14 днів. Достатньо написати адміністратору щонайменше за день до паузи.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <h3>
-              <button type="button" class="faq-btn" data-action="accordion" id="faq-b4" aria-expanded="false" aria-controls="faq-p4">
-                Як записати дитину в групу Kids 6–10?
-                <span class="faq-icon" aria-hidden="true">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-                </span>
-              </button>
-            </h3>
-            <div class="faq-panel" id="faq-p4" role="region" aria-labelledby="faq-b4">
-              <div>
-                <p class="faq-answer">Оберіть напрямок «Kids 6–10» у формі запису — ми зателефонуємо й підберемо групу за віком. Пробне заняття для дітей теж безкоштовне, батьки можуть бути присутні в залі.</p>
-              </div>
-            </div>
-          </div>
+      <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <p class="eyebrow justify-center"><span class="text-brand">03</span> Пробне заняття</p>
+        <h2 class="mt-4 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Перший крок — <span class="text-brand">за нами</span></h2>
+        <p class="mx-auto mt-5 max-w-md leading-relaxed text-white/55">
+          Залиш заявку — адміністратор зателефонує, підбере групу за рівнем і забронює місце.
+          Пробне заняття для нових учнів безкоштовне.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+          <a href="contact.html#trial-form" class="btn-primary">Записатися на пробне</a>
+          <a href="pricing.html" class="btn-ghost">Переглянути ціни</a>
         </div>
       </div>
     </section>
@@ -531,10 +278,10 @@
           <p class="mt-2 max-w-xs text-sm leading-relaxed text-white/45">Студія танцю в центрі Києва. Танцюй так, ніби всі дивляться.</p>
         </div>
         <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-white/55">
-          <li><a class="transition hover:text-white" href="#styles">Напрямки</a></li>
-          <li><a class="transition hover:text-white" href="#schedule">Розклад</a></li>
-          <li><a class="transition hover:text-white" href="#trainers">Тренери</a></li>
-          <li><a class="transition hover:text-white" href="#pricing">Ціни</a></li>
+          <li><a class="transition hover:text-white" href="classes.html">Напрямки</a></li>
+          <li><a class="transition hover:text-white" href="schedule.html">Розклад</a></li>
+          <li><a class="transition hover:text-white" href="trainers.html">Тренери</a></li>
+          <li><a class="transition hover:text-white" href="pricing.html">Ціни</a></li>
         </ul>
         <address class="text-sm not-italic leading-relaxed text-white/55">
           м. Київ, вул. Антоновича, 44<br>
@@ -543,9 +290,10 @@
       </div>
 
       <div class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
-        <p>
-          <span class="mr-3 inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-xs font-semibold">Навчальний демо-проєкт, не діюча студія</span>
+        <p class="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span class="inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-xs font-semibold">Навчальний демо-проєкт, не діюча студія</span>
           © 2026 Flow
+          <a class="font-semibold underline decoration-white/20 underline-offset-4 transition hover:text-brand" href="credits.html">Фото: автори та ліцензії</a>
         </p>
         <a class="font-semibold transition hover:text-brand" href="../../index.html#projects">← До портфоліо</a>
       </div>

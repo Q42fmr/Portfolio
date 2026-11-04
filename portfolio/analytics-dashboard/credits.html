@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фото та ліцензії — Insight BI-дашборд</title>
+  <meta name="description" content="Список фотографій, використаних у демо-дашборді «Insight», з автором, ліцензією та посиланням на джерело (Wikimedia Commons).">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Фото та ліцензії — Insight BI-дашборд">
+  <meta property="og:description" content="Список фотографій, використаних у демо-дашборді «Insight», з автором, ліцензією та посиланням на джерело (Wikimedia Commons).">
+  <meta property="og:image" content="https://insight-bi.app/assets/img/product-headphones.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: "#38bdf8", ink: "#0f172a", card: "#1e293b" },
+          fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/main.css?v=20261104">
+  <script src="assets/js/data.js?v=20261104" defer></script>
+  <script src="assets/js/app.js?v=20261104" defer></script>
+</head>
+<body class="bg-ink font-sans text-slate-200 antialiased" data-page="credits">
+  <a href="#main" class="skip-link">Перейти до вмісту</a>
+
+  <div class="flex min-h-screen">
+    <div id="backdrop" class="pointer-events-none fixed inset-0 z-40 bg-slate-950/60 opacity-0 lg:hidden" aria-hidden="true"></div>
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 flex w-64 -translate-x-full flex-col border-r border-slate-800 bg-ink px-4 py-5 lg:static lg:translate-x-0" aria-label="Бічна навігація">
+      <div class="flex items-center justify-between px-1">
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-brand text-slate-950 shadow-lg shadow-sky-500/20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
+              <path d="M4 14.5h2.6l2.2-5.2 3.4 8.6 2.4-5.6H20"/>
+            </svg>
+          </span>
+          <span class="text-lg font-bold tracking-tight text-slate-50">Insight</span>
+        </div>
+        <button id="sidebarClose" class="icon-btn lg:hidden" type="button" aria-label="Закрити меню">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="h-5 w-5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <nav class="mt-8 flex-1 space-y-7" aria-label="Основне меню">
+        <div>
+          <p class="nav-caption">Меню</p>
+          <ul class="mt-2 space-y-1">
+            <li>
+              <a href="index.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+                Огляд
+              </a>
+            </li>
+            <li>
+              <a href="transactions.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-.9 11.1a2 2 0 0 1-2 1.9H8.4a2 2 0 0 1-2-1.9L5.5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
+                Замовлення
+              </a>
+            </li>
+            <li>
+              <a href="customers.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-4.8 5.5-4.8s4.9 1.6 5.5 4.8"/><path d="M15.5 5.7a3.2 3.2 0 0 1 0 5.6"/><path d="M17.5 14.9c1.7.7 2.6 2.1 3 4.6"/></svg>
+                Клієнти
+              </a>
+            </li>
+            <li>
+              <a href="products.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="3.5" width="15" height="17" rx="2"/><path d="M8.5 14.5V17M12 11v6M15.5 8v9"/></svg>
+                Товари
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="nav-caption">Система</p>
+          <ul class="mt-2 space-y-1">
+            <li>
+              <a href="settings.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5h8.5M17.5 7.5H20M4 16.5h2.5M11.5 16.5H20"/><circle cx="15" cy="7.5" r="2.2"/><circle cx="8.5" cy="16.5" r="2.2"/></svg>
+                Налаштування
+              </a>
+            </li>
+            <li>
+              <a href="login.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4H18a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 18 20h-7.5A1.5 1.5 0 0 1 9 18.5V17"/><path d="M14 12H3.5M3.5 12l3-3M3.5 12l3 3"/></svg>
+                Вийти
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="mt-6 rounded-xl border border-slate-700/40 bg-card/60 p-3.5">
+        <p class="text-xs font-medium text-slate-400">Навчальний кейс без реальних продажів</p>
+        <a href="../../index.html#projects" class="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">← До портфоліо</a>
+      </div>
+    </aside>
+
+    <div class="flex min-w-0 flex-1 flex-col">
+      <header class="sticky top-0 z-30 border-b border-slate-800 bg-ink/85 backdrop-blur">
+        <div class="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
+          <button id="sidebarOpen" class="icon-btn -ml-1.5 lg:hidden" type="button" aria-label="Відкрити меню" aria-controls="sidebar" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="h-5 w-5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          </button>
+          <nav class="hidden items-center gap-2 text-sm text-slate-500 md:flex" aria-label="Хлібні крихти">
+            <span>Панель</span>
+            <span class="text-slate-700">/</span>
+            <span class="font-medium text-slate-200">Фото та ліцензії</span>
+          </nav>
+          <div class="flex-1"></div>
+          <div class="ml-1 hidden h-6 w-px bg-slate-800 sm:block" aria-hidden="true"></div>
+          <a href="settings.html" class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand/15 text-xs font-bold text-brand transition hover:bg-brand/25" title="Ірина Коваль — аналітик (демо)">ІК</a>
+        </div>
+      </header>
+
+      <main id="main" class="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div>
+          <h1 class="text-2xl font-bold tracking-tight text-slate-50">Фото та ліцензії</h1>
+          <p class="mt-1 text-sm text-slate-400">Усі фотографії — з Wikimedia Commons, за вільними ліцензіями CC0 / CC BY / CC BY-SA. Нижче — автор і джерело кожного знімка.</p>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-headphones.jpg" alt="Afterglow AGU.1 Wireless Headphones.jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">Afterglow AGU.1 Wireless Headphones.jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: Seqqis</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY-SA 3.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3AAfterglow_AGU.1_Wireless_Headphones.jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-sneakers.jpg" alt="Superga COTW LINEA UP & DOWN Sneaker mit Plateau 2790A Canvas weiß (white) (1).jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">Superga COTW LINEA UP & DOWN Sneaker mit Plateau 2790A Canvas weiß (white) (1).jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: SPERA.de Designerschuhe, Taschen und Accessoires</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY 2.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3ASuperga_COTW_LINEA_UP_%26_DOWN_Sneaker_mit_Plateau_2790A_Canvas_wei%C3%9F_(white)_(1).jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-mug.jpg" alt="Black Coffee and Tea in White Cup is Hot.png" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">Black Coffee and Tea in White Cup is Hot.png</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: epSos.de</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY 2.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3ABlack_Coffee_and_Tea_in_White_Cup_is_Hot.png" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-backpack.jpg" alt="Backpack (AM 650840).jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">Backpack (AM 650840).jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: Unknown authorUnknown author</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY 4.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3ABackpack_(AM_650840).jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-smartwatch.jpg" alt="The smallest Palm PDA (34651142366).jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">The smallest Palm PDA (34651142366).jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: Jiri Brozovsky from Ostrava, Czech Republic</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY 2.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3AThe_smallest_Palm_PDA_(34651142366).jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-sunglasses.jpg" alt="American Optical Original Pilot Aviator sunglasses.jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">American Optical Original Pilot Aviator sunglasses.jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: Guy Sie</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY-SA 2.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3AAmerican_Optical_Original_Pilot_Aviator_sunglasses.jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-notebook.jpg" alt="A white desk is arranged in a cozy room.jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">A white desk is arranged in a cozy room.jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: Shixart1985</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY 2.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3AA_white_desk_is_arranged_in_a_cozy_room.jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/product-houseplant.jpg" alt="Flaming Katy in a Ceramic Pot 2.jpg" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">Flaming Katy in a Ceramic Pot 2.jpg</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: Slyronit</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY-SA 4.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3AFlaming_Katy_in_a_Ceramic_Pot_2.jpg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+          <article class="credit-card card rise overflow-hidden" style="--d:0s">
+            <img src="assets/img/login-office.jpg" alt="Modern glass wall at the Old Post Office in Madrid, Spain.JPG" loading="lazy">
+            <div class="p-4">
+              <p class="text-sm font-medium text-slate-100">Modern glass wall at the Old Post Office in Madrid, Spain.JPG</p>
+              <p class="mt-1 text-xs text-slate-400">Автор: David Adam Kess</p>
+              <p class="mt-0.5 text-xs text-slate-400">Ліцензія: CC BY-SA 4.0</p>
+              <a href="https://commons.wikimedia.org/wiki/File%3AModern_glass_wall_at_the_Old_Post_Office_in_Madrid%2C_Spain.JPG" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand transition hover:text-sky-300">Джерело на Wikimedia Commons →</a>
+            </div>
+          </article>
+        </div>
+
+        <footer class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row">
+          <p>© 2026 «Insight» · Навчальний BI-кейс, зібраний для портфоліо · <a href="credits.html" class="font-medium text-brand transition hover:text-sky-300">Фото: автори та ліцензії</a></p>
+          <a href="../../index.html#projects" class="font-medium text-brand transition hover:text-sky-300">← До портфоліо</a>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

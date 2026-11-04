@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://insight-bi.app/sitemap.xml

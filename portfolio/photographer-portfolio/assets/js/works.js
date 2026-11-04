@@ -1,0 +1,37 @@
+/* Анна Коваленко — дані галереї (32 роботи: 4 жанри × 8) */
+'use strict';
+
+const WORKS = [
+  { id: 1, genre: 'wedding', title: "Обійми з букетом", file: "wedding-01-embrace-bouquet.jpg", alt: "Наречені обіймаються, в руках нареченої весільний букет" },
+  { id: 2, genre: 'wedding', title: "Деталь: обручки", file: "wedding-02-rings-detail.jpg", alt: "Крупним планом весільні обручки на тканині" },
+  { id: 3, genre: 'wedding', title: "Букет у руках", file: "wedding-03-bouquet-hands.jpg", alt: "Весільний букет у руках нареченої, обличчя не у кадрі" },
+  { id: 4, genre: 'wedding', title: "Букет тюльпанів", file: "wedding-04-bouquet-tulips.jpg", alt: "Весільний букет з тюльпанів на світлому тлі" },
+  { id: 5, genre: 'wedding', title: "Святковий стіл", file: "wedding-05-table-setting.jpg", alt: "Сервірування святкового весільного столу" },
+  { id: 6, genre: 'wedding', title: "Пара йде геть", file: "wedding-06-couple-walking-away.jpg", alt: "Молодята йдуть геть, знято збоку та ззаду" },
+  { id: 7, genre: 'wedding', title: "Архівне весілля в парку", file: "wedding-07-archival-kyiv-park.jpg", alt: "Весільна пара фотографується в парку, архівний кадр" },
+  { id: 8, genre: 'wedding', title: "Весілля на Закарпатті", file: "wedding-08-berehove-couple.jpg", alt: "Наречені в день весілля в Берегові, Закарпаття" },
+  { id: 9, genre: 'portrait', title: "Автопортрет з камерою", file: "portraits-09-self-portrait-camera.jpg", alt: "Чорно-білий автопортрет фотографа, обличчя приховане камерою" },
+  { id: 10, genre: 'portrait', title: "Профіль при боковому світлі", file: "portraits-10-profile-side-light.jpg", alt: "Чорно-білий портрет чоловіка в профіль при боковому світлі" },
+  { id: 11, genre: 'portrait', title: "Портрет при денному світлі", file: "portraits-11-natural-light-profile.jpg", alt: "Портрет жінки в профіль при м'якому природному світлі" },
+  { id: 12, genre: 'portrait', title: "Портрет у сонцезахисних окулярах", file: "portraits-12-elderly-profile-sunglasses.jpg", alt: "Портрет чоловіка в профіль у сонцезахисних окулярах, чорно-біле фото" },
+  { id: 13, genre: 'portrait', title: "Портрет у студії", file: "portraits-05-studio-male-portrait.jpg", alt: "Студійний портрет чоловіка, природний вираз обличчя" },
+  { id: 14, genre: 'portrait', title: "Профіль у сонцезахисних окулярах", file: "portraits-06-profile-sunglasses.jpg", alt: "Профільний портрет жінки в чорних сонцезахисних окулярах" },
+  { id: 15, genre: 'portrait', title: "Червона сукня біля водоспаду", file: "portraits-07-red-dress-waterfall.jpg", alt: "Жінка в червоній сукні сидить на каменях біля водоспаду" },
+  { id: 16, genre: 'portrait', title: "Міська прогулянка", file: "portraits-08-urban-walk-portrait.jpg", alt: "Силует людини, що йде вулицею зруйнованого міського кварталу" },
+  { id: 17, genre: 'street', title: "Вулиця з автівками", file: "street-01-parked-cars-bw.jpg", alt: "Чорно-біле вуличне фото людей біля припаркованих автівок" },
+  { id: 18, genre: 'street', title: "Біля залізної огорожі", file: "street-02-iron-fence-bw.jpg", alt: "Чорно-біле вуличне фото людей перед залізною огорожею" },
+  { id: 19, genre: 'street', title: "Посмішка на ринку", file: "street-03-market-fishmonger-smile.jpg", alt: "Продавець риби усміхається на вуличному ринку" },
+  { id: 20, genre: 'street', title: "Вулиця Подолу", file: "street-04-podil-tram-street.jpg", alt: "Старовинна вулиця з трамваєм і перехожими у Києві" },
+  { id: 21, genre: 'street', title: "Площа Дам", file: "street-05-dam-square-stalls.jpg", alt: "Люди біля вуличних наметів на міській площі" },
+  { id: 22, genre: 'street', title: "Парасольки під дощем", file: "street-06-rain-umbrellas.jpg", alt: "Перехожі з різнокольоровими парасольками під дощем на вулиці" },
+  { id: 23, genre: 'street', title: "Силуети під дощем", file: "street-07-rain-silhouettes-bw.jpg", alt: "Чорно-білі силуети двох перехожих під дощем" },
+  { id: 24, genre: 'street', title: "Одна парасолька на двох", file: "street-08-umbrella-new-orleans.jpg", alt: "Двоє перехожих діляться однією парасолькою під дощем на вулиці" },
+  { id: 25, genre: 'landscape', title: "Туман над Карпатами", file: "landscape-01-carpathian-mountains-mist.jpg", alt: "Карпатські гори, вкриті вранішнім туманом" },
+  { id: 26, genre: 'landscape', title: "Вид на Говерлу", file: "landscape-02-hoverla-view.jpg", alt: "Панорама Карпатських гір з вершиною Говерла" },
+  { id: 27, genre: 'landscape', title: "Полонина Григорівка", file: "landscape-03-polonina-hryhorivka.jpg", alt: "Полонина Григорівка в Карпатах під хмарним небом" },
+  { id: 28, genre: 'landscape', title: "Морозний ранок у Карпатах", file: "landscape-04-biosphere-reserve.jpg", alt: "Морозний ранок у Карпатському біосферному заповіднику" },
+  { id: 29, genre: 'landscape', title: "Після грози", file: "landscape-05-polonina-after-storm.jpg", alt: "Полонина в Карпатах одразу після грози" },
+  { id: 30, genre: 'landscape', title: "Схід сонця над Яремче", file: "landscape-06-carpathian-sunrise.jpg", alt: "Морозний світанок над Яремче в Карпатах" },
+  { id: 31, genre: 'landscape', title: "Рододендрони в горах", file: "landscape-07-rhododendron-mountains.jpg", alt: "Квітучі рододендрони на тлі Карпатських гір" },
+  { id: 32, genre: 'landscape', title: "Масив Близниці", file: "landscape-08-biosphere-reserve-field.jpg", alt: "Гірський масив Близниці в Карпатському біосферному заповіднику" }
+];

@@ -4,15 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Insight — BI-дашборд аналітики продажів</title>
-  <meta name="description" content="Інтерактивний BI-дашборд «Insight»: KPI продажів із динамікою, графіки доходу за днями, категоріями та каналами на Chart.js, таблиця транзакцій із пошуком, сортуванням і пагінацією. Демо-проєкт для портфоліо.">
+  <meta name="description" content="Інтерактивний BI-дашборд «Insight»: KPI продажів із динамікою, графіки доходу за днями, категоріями та каналами на Chart.js, таблиця останніх транзакцій. Демо-проєкт для портфоліо.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="uk_UA">
   <meta property="og:title" content="Insight — BI-дашборд аналітики продажів">
-  <meta property="og:description" content="Інтерактивний BI-дашборд «Insight»: KPI продажів із динамікою, графіки доходу за днями, категоріями та каналами на Chart.js, таблиця транзакцій із пошуком, сортуванням і пагінацією. Демо-проєкт для портфоліо.">
-  <meta property="og:image" content="https://q42fmr.shop/assets/img/projects/analytics-dashboard-desktop.jpg">
+  <meta property="og:description" content="Інтерактивний BI-дашборд «Insight»: KPI продажів із динамікою, графіки доходу за днями, категоріями та каналами на Chart.js, таблиця останніх транзакцій. Демо-проєкт для портфоліо.">
+  <meta property="og:image" content="https://insight-bi.app/assets/img/product-headphones.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0f172a">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2338bdf8'/%3E%3Cpath d='M5 14.5h2.4l2.1-5 3.4 8.5 2.3-5.5H19' stroke='%230f172a' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,18 +29,18 @@
       },
     };
   </script>
-  <link rel="stylesheet" href="./style.css?v=20261102b">
+  <link rel="stylesheet" href="assets/css/main.css?v=20261104">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4" defer></script>
-  <script src="./app.js?v=20261102b" defer></script>
+  <script src="assets/js/data.js?v=20261104" defer></script>
+  <script src="assets/js/charts.js?v=20261104" defer></script>
+  <script src="assets/js/table.js?v=20261104" defer></script>
+  <script src="assets/js/app.js?v=20261104" defer></script>
 </head>
-<body class="bg-ink font-sans text-slate-200 antialiased">
+<body class="bg-ink font-sans text-slate-200 antialiased" data-page="overview">
   <a href="#main" class="skip-link">Перейти до вмісту</a>
 
   <div class="flex min-h-screen">
-    <!-- Бекдроп мобільного меню -->
     <div id="backdrop" class="pointer-events-none fixed inset-0 z-40 bg-slate-950/60 opacity-0 lg:hidden" aria-hidden="true"></div>
-
-    <!-- Сайдбар -->
     <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 flex w-64 -translate-x-full flex-col border-r border-slate-800 bg-ink px-4 py-5 lg:static lg:translate-x-0" aria-label="Бічна навігація">
       <div class="flex items-center justify-between px-1">
         <div class="flex items-center gap-2.5">
@@ -59,28 +61,27 @@
           <p class="nav-caption">Меню</p>
           <ul class="mt-2 space-y-1">
             <li>
-              <a href="#" class="side-link active" aria-current="page" data-decorative="true">
+              <a href="index.html" class="side-link active" aria-current="page">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
                 Огляд
               </a>
             </li>
             <li>
-              <a href="#" class="side-link" data-decorative>
+              <a href="transactions.html" class="side-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-.9 11.1a2 2 0 0 1-2 1.9H8.4a2 2 0 0 1-2-1.9L5.5 8Z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
                 Замовлення
-                <span class="ml-auto rounded-md bg-slate-700/50 px-1.5 py-0.5 text-[11px] font-semibold text-slate-300">24</span>
               </a>
             </li>
             <li>
-              <a href="#" class="side-link" data-decorative>
+              <a href="customers.html" class="side-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.2 2.8-4.8 5.5-4.8s4.9 1.6 5.5 4.8"/><path d="M15.5 5.7a3.2 3.2 0 0 1 0 5.6"/><path d="M17.5 14.9c1.7.7 2.6 2.1 3 4.6"/></svg>
                 Клієнти
               </a>
             </li>
             <li>
-              <a href="#" class="side-link" data-decorative>
+              <a href="products.html" class="side-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="3.5" width="15" height="17" rx="2"/><path d="M8.5 14.5V17M12 11v6M15.5 8v9"/></svg>
-                Звіти
+                Товари
               </a>
             </li>
           </ul>
@@ -89,9 +90,15 @@
           <p class="nav-caption">Система</p>
           <ul class="mt-2 space-y-1">
             <li>
-              <a href="#" class="side-link" data-decorative>
+              <a href="settings.html" class="side-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5h8.5M17.5 7.5H20M4 16.5h2.5M11.5 16.5H20"/><circle cx="15" cy="7.5" r="2.2"/><circle cx="8.5" cy="16.5" r="2.2"/></svg>
                 Налаштування
+              </a>
+            </li>
+            <li>
+              <a href="login.html" class="side-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4H18a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 18 20h-7.5A1.5 1.5 0 0 1 9 18.5V17"/><path d="M14 12H3.5M3.5 12l3-3M3.5 12l3 3"/></svg>
+                Вийти
               </a>
             </li>
           </ul>
@@ -104,7 +111,6 @@
       </div>
     </aside>
 
-    <!-- Контент -->
     <div class="flex min-w-0 flex-1 flex-col">
       <header class="sticky top-0 z-30 border-b border-slate-800 bg-ink/85 backdrop-blur">
         <div class="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
@@ -123,7 +129,7 @@
             <button class="seg-btn" type="button" data-period="90" aria-pressed="false"><span class="sm:hidden">90д</span><span class="hidden sm:inline">90 днів</span></button>
           </div>
           <div class="ml-1 hidden h-6 w-px bg-slate-800 sm:block" aria-hidden="true"></div>
-          <div class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand/15 text-xs font-bold text-brand" title="Ірина Коваль — аналітик (демо)">ІК</div>
+          <a href="settings.html" class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand/15 text-xs font-bold text-brand transition hover:bg-brand/25" title="Ірина Коваль — аналітик (демо)">ІК</a>
         </div>
       </header>
 
@@ -240,47 +246,38 @@
             </article>
           </div>
 
-          <!-- Таблиця -->
+          <!-- Останні транзакції -->
           <article class="card rise overflow-hidden" style="--d:.35s">
             <div class="flex flex-col gap-3 border-b border-slate-700/40 p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 class="card-title">Останні транзакції</h2>
-                <p class="card-sub" id="tableMeta">—</p>
+                <p class="card-sub">10 найновіших записів обраного періоду</p>
               </div>
-              <div class="search-wrap sm:w-72">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.8-3.8"/></svg>
-                <label class="sr-only" for="searchInput">Пошук за клієнтом або ID</label>
-                <input id="searchInput" type="search" placeholder="Пошук: клієнт або ID…" autocomplete="off">
-              </div>
+              <a href="transactions.html" class="btn-primary">Переглянути всі<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
 
             <div class="overflow-x-auto">
               <table class="w-full min-w-[760px] text-left text-sm">
                 <caption class="sr-only">Таблиця останніх транзакцій за обраний період</caption>
-                <thead id="txHead">
+                <thead>
                   <tr class="text-xs uppercase tracking-wider text-slate-500">
-                    <th scope="col"><button class="th-btn" type="button" data-key="date">Дата<span class="sort-ind" aria-hidden="true"></span></button></th>
-                    <th scope="col"><button class="th-btn" type="button" data-key="id">ID<span class="sort-ind" aria-hidden="true"></span></button></th>
-                    <th scope="col"><button class="th-btn" type="button" data-key="customer">Клієнт<span class="sort-ind" aria-hidden="true"></span></button></th>
-                    <th scope="col"><button class="th-btn" type="button" data-key="category">Категорія<span class="sort-ind" aria-hidden="true"></span></button></th>
-                    <th scope="col"><button class="th-btn" type="button" data-key="channel">Канал<span class="sort-ind" aria-hidden="true"></span></button></th>
-                    <th scope="col" class="text-right"><button class="th-btn w-full justify-end" type="button" data-key="amount">Сума<span class="sort-ind" aria-hidden="true"></span></button></th>
-                    <th scope="col"><button class="th-btn" type="button" data-key="status">Статус<span class="sort-ind" aria-hidden="true"></span></button></th>
+                    <th scope="col" class="px-4 py-2.5">Дата</th>
+                    <th scope="col" class="px-4 py-2.5">ID</th>
+                    <th scope="col" class="px-4 py-2.5">Клієнт</th>
+                    <th scope="col" class="px-4 py-2.5">Категорія</th>
+                    <th scope="col" class="px-4 py-2.5">Канал</th>
+                    <th scope="col" class="px-4 py-2.5 text-right">Сума</th>
+                    <th scope="col" class="px-4 py-2.5">Статус</th>
                   </tr>
                 </thead>
-                <tbody id="txBody"></tbody>
+                <tbody id="recentBody"></tbody>
               </table>
-            </div>
-
-            <div class="flex flex-col items-center justify-between gap-3 border-t border-slate-700/40 p-4 sm:flex-row">
-              <p id="pageInfo" class="text-xs text-slate-500"></p>
-              <nav id="pager" class="flex items-center gap-1" aria-label="Сторінки таблиці"></nav>
             </div>
           </article>
         </div>
 
         <footer class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row">
-          <p>© 2026 «Insight» · Навчальний BI-кейс, зібраний для портфоліо</p>
+          <p>© 2026 «Insight» · Навчальний BI-кейс, зібраний для портфоліо · <a href="credits.html" class="font-medium text-brand transition hover:text-sky-300">Фото: автори та ліцензії</a></p>
           <a href="../../index.html#projects" class="font-medium text-brand transition hover:text-sky-300">← До портфоліо</a>
         </footer>
       </main>

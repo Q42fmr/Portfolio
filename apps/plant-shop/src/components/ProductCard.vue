@@ -6,7 +6,7 @@ import { formatPrice } from "../format.js";
 const props = defineProps({
   product: { type: Object, required: true },
 });
-const emit = defineEmits(["open", "add"]);
+const emit = defineEmits(["add"]);
 
 const added = ref(false);
 let timer = null;
@@ -20,15 +20,10 @@ function add() {
 </script>
 
 <template>
-  <article
-    class="card"
-    role="button"
-    tabindex="0"
-    :aria-label="`Детальніше про ${product.name}`"
-    @click="emit('open', product)"
-    @keydown.enter.prevent="emit('open', product)"
-  >
-    <div class="card-media" v-html="product.svg"></div>
+  <RouterLink :to="`/product/${product.id}`" class="card" :aria-label="`Детальніше про ${product.name}`">
+    <div class="card-media">
+      <img :src="product.image" :alt="product.name" width="900" height="900" loading="lazy" />
+    </div>
     <div class="card-body">
       <span class="card-cat">{{ CATEGORY_LABELS[product.category] }}</span>
       <h3 class="card-name">{{ product.name }}</h3>
@@ -39,7 +34,7 @@ function add() {
           :class="{ 'is-added': added }"
           type="button"
           :aria-label="`Додати в кошик: ${product.name}`"
-          @click.stop="add"
+          @click.prevent.stop="add"
         >
           <svg v-if="!added" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M5 8h14l-1.3 12H6.3L5 8z" />
@@ -52,7 +47,7 @@ function add() {
         </button>
       </div>
     </div>
-  </article>
+  </RouterLink>
 </template>
 
 <style>
@@ -78,13 +73,14 @@ function add() {
 
 .card-media {
   aspect-ratio: 1 / 1;
-  padding: 14px;
   background: var(--cream-2);
+  overflow: hidden;
 }
 
-.card-media svg {
+.card-media img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .card-body {
@@ -154,10 +150,6 @@ function add() {
 }
 
 @media (max-width: 560px) {
-  .card-media {
-    padding: 10px;
-  }
-
   .card-body {
     padding: 10px 12px 12px;
   }

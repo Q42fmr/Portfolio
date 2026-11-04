@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Про нас — KAVA Roasters</title>
+  <meta name="description" content="Історія обсмажувальні KAVA Roasters, процес обсмаження зерна у три кроки та команда, яка стоїть за кожною чашкою.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Про нас — KAVA Roasters">
+  <meta property="og:description" content="Історія обсмажувальні KAVA Roasters, процес обсмаження зерна у три кроки та команда, яка стоїть за кожною чашкою.">
+  <meta property="og:image" content="https://kavaroasters.coffee/assets/img/roastery-drum-roaster.jpg">
+  <meta property="og:url" content="https://kavaroasters.coffee/about.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#92400e",
+            "brand-deep": "#712f08",
+            cream: "#fbf7f0",
+            latte: "#f2e8d8",
+            line: "#e8dac3",
+            espresso: "#26170f",
+            cocoa: "#5f4736",
+            gold: { DEFAULT: "#c98b2d", light: "#e6b26a" }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', "Georgia", "serif"],
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/main.css?v=20261104">
+</head>
+<body class="bg-cream font-sans text-espresso antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brand focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-cream">Перейти до контенту</a>
+
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <defs>
+      <g id="bean">
+        <ellipse rx="11" ry="15" fill="currentColor"></ellipse>
+        <path d="M0 -12 C 6 -5, -6 5, 0 12" fill="none" stroke="var(--bean-bg, #fbf7f0)" stroke-width="3" stroke-linecap="round"></path>
+      </g>
+      <g id="bean-line" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+        <ellipse rx="10" ry="14"></ellipse>
+        <path d="M0 -11 C 5 -5, -5 5, 0 11"></path>
+      </g>
+    </defs>
+  </svg>
+
+  <header id="site-header" class="sticky top-0 z-40 border-b border-line bg-cream/90 backdrop-blur">
+    <div class="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
+      <a href="./index.html" class="flex items-center gap-2.5" aria-label="KAVA Roasters — на головну">
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-brand text-cream shadow-[0_8px_18px_-8px_rgba(146,64,14,.7)]">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.68)"></use></svg>
+        </span>
+        <span class="font-display text-xl font-bold leading-none tracking-tight">KAVA <span class="italic text-brand">Roasters</span></span>
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex" aria-label="Основна навігація">
+        <a class="nav-link" href="./menu.html">Меню</a>
+        <a class="nav-link text-brand" href="./about.html" aria-current="page">Про нас</a>
+        <a class="nav-link" href="./index.html#gallery">Галерея</a>
+        <a class="nav-link" href="./contact.html">Контакти</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="./contact.html#booking" class="btn btn-primary btn-sm hidden md:inline-flex">Забронювати</a>
+        <button id="nav-toggle" class="burger md:hidden" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Відкрити меню навігації">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="nav-panel" class="nav-panel border-t border-line bg-cream md:hidden">
+      <nav class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6" aria-label="Мобільна навігація">
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./index.html">Головна</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./menu.html">Меню</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-brand bg-latte" href="./about.html" aria-current="page">Про нас</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./index.html#gallery">Галерея</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./contact.html">Контакти</a>
+        <a href="./contact.html#booking" class="btn btn-primary mt-3">Забронювати столик</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- історія -->
+    <section class="scroll-mt-24 py-16 md:py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:gap-16">
+        <div data-reveal>
+          <p class="eyebrow">Історія</p>
+          <h1 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl">
+            Від ростера на 1 кг — <span class="italic text-brand">до власної обсмажувальні</span>
+          </h1>
+          <p class="mt-6 leading-relaxed text-cocoa">
+            У 2019 році ми купили перший барабанний ростер на кухні у 12 квадратних
+            метрів і почали обсмажувати каву для друзів. Сьогодні KAVA Roasters —
+            це обсмажувальня та кавʼярня в центрі Києва: ми купуємо мікролоти
+            напряму у фермерів, обсмажуємо малими партіями щотижня та подаємо
+            каву не пізніше ніж за 48 годин від обсмаження.
+          </p>
+          <p class="mt-4 leading-relaxed text-cocoa">
+            У чашці — тільки спешелті-зерно: від квіткової Ефіопії до щільної
+            Колумбії. А якщо хочеться вдома як у нас — беріть зерно на вагу,
+            змелемо під ваш спосіб заварювання.
+          </p>
+          <blockquote class="mt-8 border-l-4 border-gold pl-5 font-display text-lg italic text-espresso/90">
+            «Кава — це фрукт. Наша робота — просто не заважати йому смакувати.»
+            <footer class="mt-2 font-sans text-sm not-italic text-cocoa/80">— Юрій, головний обсмажувач</footer>
+          </blockquote>
+        </div>
+
+        <div data-reveal>
+          <img src="./assets/img/roastery-drum-roaster.jpg?v=20261104" alt="Барабанний ростер для обсмаження кавових зерен у майстерні" width="900" height="600" loading="lazy" class="w-full rounded-[2rem] object-cover shadow-[0_30px_60px_-24px_rgba(38,23,15,.45)]">
+        </div>
+      </div>
+    </section>
+
+    <!-- процес обсмаження -->
+    <section class="scroll-mt-24 border-y border-line bg-white/60 py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center" data-reveal>
+          <p class="eyebrow">Процес</p>
+          <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Три кроки до чашки</h2>
+          <p class="mx-auto mt-4 max-w-lg text-cocoa">Від зеленого зерна до свіжообсмаженої партії, яка потрапляє у вашу чашку протягом 48 годин.</p>
+        </div>
+
+        <div class="mt-12 grid gap-10 sm:grid-cols-3" data-reveal>
+          <div class="process-step">
+            <span class="process-step-number grid h-10 w-10 place-items-center rounded-full bg-brand font-display text-lg font-bold text-cream shadow-[0_10px_20px_-8px_rgba(146,64,14,.6)]">1</span>
+            <img src="./assets/img/beans-green-closeup.jpg?v=20261104" alt="Необсмажені зелені кавові зерна великим планом" width="900" height="675" loading="lazy" class="process-photo">
+            <h3 class="mt-5 font-display text-xl font-semibold">Відбір зерна</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cocoa">Купуємо мікролоти напряму у фермерів і перевіряємо кожну партію на вологість та дефекти.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-number grid h-10 w-10 place-items-center rounded-full bg-brand font-display text-lg font-bold text-cream shadow-[0_10px_20px_-8px_rgba(146,64,14,.6)]">2</span>
+            <img src="./assets/img/roastery-drum-roaster.jpg?v=20261104" alt="Барабанний ростер під час обсмаження кавових зерен" width="900" height="675" loading="lazy" class="process-photo">
+            <h3 class="mt-5 font-display text-xl font-semibold">Обсмаження</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cocoa">Малими партіями на барабанному ростері, за профілем, який ми підбираємо під кожне зерно.</p>
+          </div>
+          <div class="process-step">
+            <span class="process-step-number grid h-10 w-10 place-items-center rounded-full bg-brand font-display text-lg font-bold text-cream shadow-[0_10px_20px_-8px_rgba(146,64,14,.6)]">3</span>
+            <img src="./assets/img/beans-scale-closeup.jpg?v=20261104" alt="Обсмажені кавові зерна на кухонних вагах перед фасуванням" width="900" height="675" loading="lazy" class="process-photo">
+            <h3 class="mt-5 font-display text-xl font-semibold">Каппінг і фасування</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cocoa">Дегустуємо кожну партію на каппінгу, зважуємо та фасуємо — у кавʼярні або на вагу з собою.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- команда -->
+    <section class="scroll-mt-24 py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center" data-reveal>
+          <p class="eyebrow">Команда</p>
+          <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Люди за кожною чашкою</h2>
+          <p class="mx-auto mt-4 max-w-lg text-cocoa">Невелика команда, яка відбирає зерно, обсмажує й варить каву щодня.</p>
+        </div>
+
+        <div class="mt-12 grid gap-8 sm:grid-cols-3" data-reveal>
+          <div class="text-center">
+            <img src="./assets/img/team-hands-sorting-beans.jpg?v=20261104" alt="Руки сортують зелені кавові зерна перед обсмаженням" width="600" height="600" loading="lazy" class="team-photo">
+            <h3 class="mt-5 font-display text-lg font-semibold">Відбір зерна</h3>
+            <p class="mt-1 text-sm text-cocoa/80">Перевіряємо кожну партію вручну перед обсмаженням.</p>
+          </div>
+          <div class="text-center">
+            <img src="./assets/img/team-at-roaster.jpg?v=20261104" alt="Барабанний ростер у роботі на обсмажувальні" width="600" height="600" loading="lazy" class="team-photo">
+            <h3 class="mt-5 font-display text-lg font-semibold">За машиною</h3>
+            <p class="mt-1 text-sm text-cocoa/80">Обсмажувач стежить за профілем кожної партії від початку до кінця.</p>
+          </div>
+          <div class="text-center">
+            <img src="./assets/img/team-pouring-kettle.jpg?v=20261104" alt="Бариста заварює каву методом пуровер, вид зі спини" width="600" height="600" loading="lazy" class="team-photo">
+            <h3 class="mt-5 font-display text-lg font-semibold">На барі</h3>
+            <p class="mt-1 text-sm text-cocoa/80">Готуємо кожну чашку вручну — від еспресо до фільтра.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#1a0f08] text-cream/75">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.2fr_.8fr_1fr] md:gap-8">
+      <div>
+        <a href="./index.html" class="flex items-center gap-2.5" aria-label="KAVA Roasters — на головну">
+          <span class="grid h-10 w-10 place-items-center rounded-full bg-brand text-cream">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.68)"></use></svg>
+          </span>
+          <span class="font-display text-xl font-bold leading-none text-cream">KAVA <span class="italic text-gold-light">Roasters</span></span>
+        </a>
+        <p class="mt-5 max-w-xs text-sm leading-relaxed">
+          Обсмажувальня та кавʼярня в центрі Києва. Працюємо з мікролотами
+          напряму від ферм — і подаємо каву свіжою.
+        </p>
+      </div>
+
+      <nav aria-label="Навігація у футері">
+        <h3 class="text-sm font-semibold uppercase tracking-widest text-cream">Навігація</h3>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a href="./menu.html" class="hover:text-gold-light">Меню</a></li>
+          <li><a href="./about.html" class="hover:text-gold-light">Про нас</a></li>
+          <li><a href="./index.html#gallery" class="hover:text-gold-light">Галерея</a></li>
+          <li><a href="./contact.html" class="hover:text-gold-light">Контакти</a></li>
+          <li><a href="./contact.html#booking" class="hover:text-gold-light">Бронювання столика</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-widest text-cream">Контакти</h3>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li>м. Київ, вул. Ярославів Вал, 21</li>
+          <li><a href="tel:+380443317805" class="hover:text-gold-light">+380 (44) 331-78-05</a></li>
+          <li><a href="mailto:info@kavaroasters.coffee" class="hover:text-gold-light">info@kavaroasters.coffee</a></li>
+          <li class="pt-1 text-cream/55">Пн–Пт 8:00–21:00 · Сб–Нд 9:00–22:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-cream/10">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm sm:px-6 md:flex-row md:text-left">
+        <p class="text-cream/55">© <span id="year">2026</span> KAVA Roasters</p>
+        <span class="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/10 px-4 py-1.5 text-xs font-medium text-cream/90">
+          <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-gold-light" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.7)"></use></svg>
+          Концепт для портфоліо — реальної кавʼярні не існує
+        </span>
+        <a href="./credits.html" class="font-medium text-gold-light hover:underline">Фото: автори та ліцензії</a>
+        <a href="../../index.html#projects" class="font-medium text-gold-light hover:underline">← До портфоліо</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/menu.js?v=20261104"></script>
+  <script src="./assets/js/main.js?v=20261104"></script>
+</body>
+</html>

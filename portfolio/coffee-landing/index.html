@@ -9,9 +9,12 @@
   <meta property="og:locale" content="uk_UA">
   <meta property="og:title" content="KAVA Roasters — свіжообсмажена кава у центрі Києва">
   <meta property="og:description" content="Кавʼярня та обсмажувальня KAVA Roasters у центрі Києва: свіжообсмажене зерно, авторські напої, десерти та бронювання столика онлайн.">
-  <meta property="og:image" content="https://q42fmr.shop/assets/img/projects/coffee-landing-desktop.jpg">
+  <meta property="og:image" content="https://kavaroasters.coffee/assets/img/hero-barista-espresso.jpg">
+  <meta property="og:url" content="https://kavaroasters.coffee/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2392400e'/%3E%3Cellipse cx='16' cy='16' rx='7' ry='10' fill='none' stroke='%23fbf7f0' stroke-width='2.5'/%3E%3Cpath d='M16 8c4 4-4 12 0 16' stroke='%23fbf7f0' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=20261102b">
+  <link rel="stylesheet" href="./assets/css/main.css?v=20261104">
 </head>
 <body class="bg-cream font-sans text-espresso antialiased">
 
@@ -61,7 +64,7 @@
   <!-- navbar -->
   <header id="site-header" class="sticky top-0 z-40 border-b border-line bg-cream/90 backdrop-blur">
     <div class="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
-      <a href="#top" class="flex items-center gap-2.5" aria-label="KAVA Roasters — на початок сторінки">
+      <a href="./index.html" class="flex items-center gap-2.5" aria-label="KAVA Roasters — на головну">
         <span class="grid h-10 w-10 place-items-center rounded-full bg-brand text-cream shadow-[0_8px_18px_-8px_rgba(146,64,14,.7)]">
           <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.68)"></use></svg>
         </span>
@@ -69,14 +72,14 @@
       </a>
 
       <nav class="hidden items-center gap-8 md:flex" aria-label="Основна навігація">
-        <a class="nav-link" href="#menu">Меню</a>
-        <a class="nav-link" href="#about">Про нас</a>
+        <a class="nav-link" href="./menu.html">Меню</a>
+        <a class="nav-link" href="./about.html">Про нас</a>
         <a class="nav-link" href="#gallery">Галерея</a>
-        <a class="nav-link" href="#contacts">Контакти</a>
+        <a class="nav-link" href="./contact.html">Контакти</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="#booking" class="btn btn-primary btn-sm hidden md:inline-flex">Забронювати</a>
+        <a href="./contact.html#booking" class="btn btn-primary btn-sm hidden md:inline-flex">Забронювати</a>
         <button id="nav-toggle" class="burger md:hidden" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Відкрити меню навігації">
           <span></span><span></span><span></span>
         </button>
@@ -85,11 +88,12 @@
 
     <div id="nav-panel" class="nav-panel border-t border-line bg-cream md:hidden">
       <nav class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6" aria-label="Мобільна навігація">
-        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="#menu">Меню</a>
-        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="#about">Про нас</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-brand" href="./index.html" aria-current="page">Головна</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./menu.html">Меню</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./about.html">Про нас</a>
         <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="#gallery">Галерея</a>
-        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="#contacts">Контакти</a>
-        <a href="#booking" class="btn btn-primary mt-3">Забронювати столик</a>
+        <a class="rounded-xl px-3 py-3 font-medium text-cocoa hover:bg-latte hover:text-brand" href="./contact.html">Контакти</a>
+        <a href="./contact.html#booking" class="btn btn-primary mt-3">Забронювати столик</a>
       </nav>
     </div>
   </header>
@@ -99,19 +103,17 @@
 
     <!-- hero -->
     <section class="hero-bg relative overflow-hidden text-cream">
-      <svg class="pointer-events-none absolute inset-0 h-full w-full text-cream/[0.13]" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <img src="./assets/img/hero-barista-espresso.jpg?v=20261104" alt="" aria-hidden="true" width="1100" height="733" loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1a0f08]/95 via-[#1a0f08]/75 to-[#1a0f08]/30"></div>
+      <svg class="pointer-events-none absolute inset-0 h-full w-full text-cream/[0.1]" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <use href="#bean-line" transform="translate(90 110) rotate(-28) scale(2.4)"></use>
         <use href="#bean-line" transform="translate(240 500) rotate(18) scale(1.7)"></use>
         <use href="#bean-line" transform="translate(430 120) rotate(40) scale(1.3)"></use>
         <use href="#bean-line" transform="translate(640 560) rotate(-12) scale(2.1)"></use>
-        <use href="#bean-line" transform="translate(880 90) rotate(24) scale(1.8)"></use>
-        <use href="#bean-line" transform="translate(1080 420) rotate(-35) scale(2.6)"></use>
-        <use href="#bean-line" transform="translate(1010 610) rotate(8) scale(1.4)"></use>
-        <use href="#bean-line" transform="translate(60 350) rotate(52) scale(1.2)"></use>
       </svg>
 
-      <div class="relative mx-auto grid max-w-6xl items-center gap-14 px-4 py-20 sm:px-6 md:py-24 lg:grid-cols-[1.05fr_.95fr] lg:py-28">
-        <div data-reveal>
+      <div class="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24 lg:py-28">
+        <div class="max-w-xl" data-reveal>
           <p class="eyebrow eyebrow--light">Обсмажувальня · Київ</p>
           <h1 class="mt-5 font-display text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-[3.6rem]">
             Свіжообсмажена кава <span class="italic text-gold-light">у центрі міста</span>
@@ -121,8 +123,8 @@
             від обсмаження. Приходьте на чашку — або забирайте зерно додому.
           </p>
           <div class="mt-9 flex flex-wrap items-center gap-4">
-            <a href="#booking" class="btn btn-primary">Забронювати столик</a>
-            <a href="#menu" class="btn btn-ghost">Дивитися меню</a>
+            <a href="./contact.html#booking" class="btn btn-primary">Забронювати столик</a>
+            <a href="./menu.html" class="btn btn-ghost">Дивитися меню</a>
           </div>
           <ul class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-cream/70">
             <li class="flex items-center gap-2">
@@ -139,36 +141,13 @@
             </li>
           </ul>
         </div>
+      </div>
 
-        <div class="relative mx-auto hidden w-full max-w-md sm:block" data-reveal>
-          <svg viewBox="0 0 380 340" class="w-full drop-shadow-[0_30px_40px_rgba(0,0,0,.35)]" role="img" aria-label="Ілюстрація: чашка свіжої кави з парою">
-            <g stroke="#f2e8d8" stroke-width="7" stroke-linecap="round" fill="none">
-              <path class="steam" d="M150 96c-9-16 7-23 0-39"></path>
-              <path class="steam steam-2" d="M190 100c-9-16 7-23 0-39"></path>
-              <path class="steam steam-3" d="M230 96c-9-16 7-23 0-39"></path>
-            </g>
-            <ellipse cx="190" cy="304" rx="126" ry="15" fill="rgba(0,0,0,.3)"></ellipse>
-            <ellipse cx="190" cy="290" rx="110" ry="19" fill="#d9c6a6"></ellipse>
-            <ellipse cx="190" cy="285" rx="110" ry="19" fill="#fbf7f0"></ellipse>
-            <path d="M294 162c40 0 42 66-16 66" stroke="#fbf7f0" stroke-width="16" fill="none" stroke-linecap="round"></path>
-            <clipPath id="cup-clip">
-              <path d="M92 128h196c4 0 8 4 8 9-2 74-40 130-106 130-66 0-104-56-106-130 0-5 4-9 8-9Z"></path>
-            </clipPath>
-            <path d="M92 128h196c4 0 8 4 8 9-2 74-40 130-106 130-66 0-104-56-106-130 0-5 4-9 8-9Z" fill="#fbf7f0"></path>
-            <g clip-path="url(#cup-clip)">
-              <rect x="60" y="196" width="260" height="22" fill="#c98b2d"></rect>
-            </g>
-            <use href="#bean" transform="translate(190 170) scale(1.5)" style="color:#92400e"></use>
-            <ellipse cx="190" cy="132" rx="92" ry="14" fill="#3f2310"></ellipse>
-            <ellipse cx="190" cy="130" rx="76" ry="10" fill="#8a4a1c"></ellipse>
-          </svg>
-          <div class="absolute -bottom-4 -left-2 flex items-center gap-3 rounded-2xl bg-cream px-4 py-3 text-espresso shadow-[0_20px_40px_-18px_rgba(0,0,0,.5)] sm:-left-6">
-            <span class="grid h-9 w-9 place-items-center rounded-full bg-brand/10 text-brand">
-              <svg viewBox="0 0 24 24" class="h-4.5 w-4.5" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.72)"></use></svg>
-            </span>
-            <span class="text-sm leading-tight"><strong class="block font-semibold">Партія №142</strong><span class="text-cocoa/80">Ефіопія, світле обсмаження</span></span>
-          </div>
-        </div>
+      <div class="relative z-10 mx-4 mb-6 flex max-w-xs items-center gap-3 rounded-2xl bg-cream px-4 py-3 text-espresso shadow-[0_20px_40px_-18px_rgba(0,0,0,.5)] sm:mx-6">
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-brand/10 text-brand">
+          <svg viewBox="0 0 24 24" class="h-4.5 w-4.5" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.72)"></use></svg>
+        </span>
+        <span class="text-sm leading-tight"><strong class="block font-semibold">Партія №142</strong><span class="text-cocoa/80">Ефіопія, світле обсмаження</span></span>
       </div>
     </section>
 
@@ -198,7 +177,7 @@
       </div>
     </div>
 
-    <!-- about -->
+    <!-- about teaser -->
     <section id="about" class="scroll-mt-24 py-16 md:py-24">
       <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
         <div data-reveal>
@@ -211,15 +190,11 @@
             у фермерів, обсмажуємо малими партіями щотижня та подаємо каву
             не пізніше ніж за 48 годин від обсмаження — саме тоді вона розкривається найкраще.
           </p>
-          <p class="mt-4 leading-relaxed text-cocoa">
-            У чашці — тільки спешелті-зерно: від квіткової Ефіопії до щільної Колумбії.
-            А якщо хочеться вдома як у нас — беріть зерно на вагу, змелемо під ваш
-            спосіб заварювання.
-          </p>
           <blockquote class="mt-8 border-l-4 border-gold pl-5 font-display text-lg italic text-espresso/90">
             «Кава — це фрукт. Наша робота — просто не заважати йому смакувати.»
             <footer class="mt-2 font-sans text-sm not-italic text-cocoa/80">— Юрій, головний обсмажувач</footer>
           </blockquote>
+          <a href="./about.html" class="btn btn-ghost mt-8 border-brand/30 !text-brand hover:bg-brand/5">Більше про обсмажувальню</a>
         </div>
 
         <div class="grid content-center gap-6" data-reveal>
@@ -239,97 +214,21 @@
       </div>
     </section>
 
-    <!-- menu tabs -->
+    <!-- featured menu -->
     <section id="menu" class="scroll-mt-24 border-y border-line bg-white/60 py-16 md:py-24">
       <div class="mx-auto max-w-6xl px-4 sm:px-6">
         <div class="text-center" data-reveal>
           <p class="eyebrow">Меню</p>
           <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Сьогодні на барі</h2>
-          <p class="mx-auto mt-4 max-w-lg text-cocoa">Коротке меню, яке ми знаємо напамʼять: кава, кілька десертів і зерно, яке можна забрати з собою.</p>
+          <p class="mx-auto mt-4 max-w-lg text-cocoa">Шість позицій, які беруть найчастіше. Повне меню з кавою, десертами та зерном на вагу — на окремій сторінці.</p>
         </div>
 
-        <div class="mt-10 flex justify-center" data-reveal>
-          <div role="tablist" aria-label="Розділи меню" class="inline-flex max-w-full flex-wrap justify-center gap-1 rounded-full bg-latte p-1.5">
-            <button class="menu-tab" id="tab-coffee" type="button" role="tab" aria-selected="true" aria-controls="panel-coffee">Кава</button>
-            <button class="menu-tab" id="tab-desserts" type="button" role="tab" aria-selected="false" aria-controls="panel-desserts" tabindex="-1">Десерти</button>
-            <button class="menu-tab" id="tab-beans" type="button" role="tab" aria-selected="false" aria-controls="panel-beans" tabindex="-1">Зерно на вагу</button>
-          </div>
+        <div id="featured-menu-grid" class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+          <!-- рендериться assets/js/main.js з даних assets/js/menu.js -->
         </div>
 
-        <div class="mx-auto mt-10 max-w-2xl" data-reveal>
-          <div id="panel-coffee" role="tabpanel" aria-labelledby="tab-coffee">
-            <ul class="space-y-6">
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Еспресо</span><span class="mt-0.5 block text-sm text-cocoa/80">подвійний шот, зерно тижня</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">65&nbsp;₴</span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Капучино</span><span class="mt-0.5 block text-sm text-cocoa/80">класична пінка, фермерське молоко</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">85&nbsp;₴</span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Фільтр</span><span class="mt-0.5 block text-sm text-cocoa/80">V60 або батч-брю — запитайте бариста</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">75&nbsp;₴</span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Флет вайт</span><span class="mt-0.5 block text-sm text-cocoa/80">два шоти еспресо, оксамитове молоко</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">90&nbsp;₴</span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Раф</span><span class="mt-0.5 block text-sm text-cocoa/80">вершковий, з мадагаскарською ваніллю</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">95&nbsp;₴</span>
-              </li>
-            </ul>
-          </div>
-
-          <div id="panel-desserts" role="tabpanel" aria-labelledby="tab-desserts" hidden>
-            <ul class="space-y-6">
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Чізкейк</span><span class="mt-0.5 block text-sm text-cocoa/80">нью-йорк на пісочній основі</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">120&nbsp;₴</span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Круасан</span><span class="mt-0.5 block text-sm text-cocoa/80">на вершковому маслі, випікаємо зранку</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">75&nbsp;₴</span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Тірамісу</span><span class="mt-0.5 block text-sm text-cocoa/80">з еспресо власного обсмаження</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="font-display text-lg font-bold text-brand">130&nbsp;₴</span>
-              </li>
-            </ul>
-          </div>
-
-          <div id="panel-beans" role="tabpanel" aria-labelledby="tab-beans" hidden>
-            <ul class="space-y-6">
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Ефіопія</span><span class="mt-0.5 block text-sm text-cocoa/80">Їргачеффе · жасмин, бергамот, цитрус</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="whitespace-nowrap font-display text-lg font-bold text-brand">420&nbsp;₴<span class="text-sm font-semibold text-cocoa/70">&nbsp;/&nbsp;250&nbsp;г</span></span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Колумбія</span><span class="mt-0.5 block text-sm text-cocoa/80">Уїла · карамель, какао, червоне яблуко</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="whitespace-nowrap font-display text-lg font-bold text-brand">390&nbsp;₴<span class="text-sm font-semibold text-cocoa/70">&nbsp;/&nbsp;250&nbsp;г</span></span>
-              </li>
-              <li class="menu-row">
-                <span><span class="block font-display text-lg font-semibold">Бленд дому</span><span class="mt-0.5 block text-sm text-cocoa/80">для еспресо та молочних напоїв</span></span>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="whitespace-nowrap font-display text-lg font-bold text-brand">350&nbsp;₴<span class="text-sm font-semibold text-cocoa/70">&nbsp;/&nbsp;250&nbsp;г</span></span>
-              </li>
-            </ul>
-          </div>
-
-          <p class="mt-10 border-t border-dashed border-line pt-5 text-center text-sm text-cocoa/70">
-            Молоко: коровʼяче, вівсяне або безлактозне (+10 ₴). Весь посуд — багаторазовий.
-          </p>
+        <div class="mt-10 text-center" data-reveal>
+          <a href="./menu.html" class="btn btn-primary">Переглянути повне меню</a>
         </div>
       </div>
     </section>
@@ -340,107 +239,33 @@
         <div class="text-center" data-reveal>
           <p class="eyebrow">Галерея</p>
           <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Атмосфера KAVA</h2>
-          <p class="mx-auto mt-4 max-w-lg text-cocoa">Шість речей, без яких нас неможливо уявити.</p>
+          <p class="mx-auto mt-4 max-w-lg text-cocoa">Шість кадрів, без яких нас неможливо уявити.</p>
         </div>
 
         <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6" data-reveal>
-          <!-- Чашка -->
-          <figure class="tile rounded-3xl bg-latte p-5 md:p-7">
-            <svg viewBox="0 0 120 120" class="mx-auto w-full max-w-[170px]" role="img" aria-label="Ілюстрація: чашка кави з парою">
-              <path class="steam" d="M52 32c-4-7 3-10 0-17" stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round"></path>
-              <path class="steam steam-2" d="M66 34c-4-7 3-10 0-17" stroke="#92400e" stroke-width="3" fill="none" stroke-linecap="round"></path>
-              <ellipse cx="59" cy="97" rx="34" ry="7" fill="#e0cdb0"></ellipse>
-              <path d="M88 56c9 0 15 5 15 12s-7 13-17 13" fill="none" stroke="#92400e" stroke-width="6" stroke-linecap="round"></path>
-              <path d="M30 48h58c0 26-11 44-29 44S30 74 30 48Z" fill="#92400e"></path>
-              <ellipse cx="59" cy="48" rx="29" ry="6.5" fill="#3a2214"></ellipse>
-              <ellipse cx="59" cy="47.4" rx="23" ry="4.6" fill="#8a4a1c"></ellipse>
-            </svg>
-            <figcaption class="mt-4 text-center">
-              <span class="block font-display text-lg font-semibold">Чашка</span>
-              <span class="mt-0.5 block text-xs text-cocoa/80">напій дня від бариста</span>
-            </figcaption>
+          <figure class="gallery-tile">
+            <img src="./assets/img/latte-art-leaf.jpg?v=20261104" alt="Капучино з візерунком-листком на молочній пінці" width="900" height="600" loading="lazy">
+            <figcaption class="font-display text-sm font-semibold">Латте-арт</figcaption>
           </figure>
-
-          <!-- Зерна -->
-          <figure class="tile rounded-3xl border border-line bg-white p-5 md:p-7">
-            <svg viewBox="0 0 120 120" class="mx-auto w-full max-w-[170px]" role="img" aria-label="Ілюстрація: розсип кавових зерен">
-              <use href="#bean" transform="translate(36 36) rotate(-24)" style="color:#92400e;--bean-bg:#ffffff"></use>
-              <use href="#bean" transform="translate(76 30) rotate(14) scale(.85)" style="color:#5f4736;--bean-bg:#ffffff"></use>
-              <use href="#bean" transform="translate(95 62) rotate(-42) scale(.9)" style="color:#c98b2d;--bean-bg:#ffffff"></use>
-              <use href="#bean" transform="translate(60 64) rotate(28) scale(1.1)" style="color:#712f08;--bean-bg:#ffffff"></use>
-              <use href="#bean" transform="translate(28 82) rotate(8) scale(.8)" style="color:#c98b2d;--bean-bg:#ffffff"></use>
-              <use href="#bean" transform="translate(72 96) rotate(-14) scale(.95)" style="color:#92400e;--bean-bg:#ffffff"></use>
-            </svg>
-            <figcaption class="mt-4 text-center">
-              <span class="block font-display text-lg font-semibold">Зерна</span>
-              <span class="mt-0.5 block text-xs text-cocoa/80">обсмаження цього тижня</span>
-            </figcaption>
+          <figure class="gallery-tile">
+            <img src="./assets/img/beans-scale-closeup.jpg?v=20261104" alt="Обсмажені кавові зерна на кухонних вагах" width="900" height="600" loading="lazy">
+            <figcaption class="font-display text-sm font-semibold">Зерна цього тижня</figcaption>
           </figure>
-
-          <!-- Турка -->
-          <figure class="tile rounded-3xl bg-brand/10 p-5 md:p-7">
-            <svg viewBox="0 0 120 120" class="mx-auto w-full max-w-[170px]" role="img" aria-label="Ілюстрація: мідна турка для кави">
-              <path d="M76 40 100 22" stroke="#5f4736" stroke-width="5" stroke-linecap="round"></path>
-              <circle cx="101" cy="21" r="4" fill="#c98b2d"></circle>
-              <path d="M44 42l-7-8 12 2Z" fill="#92400e"></path>
-              <path d="M44 40h32l7 46c0 10-46 10-46 0Z" fill="#92400e"></path>
-              <ellipse cx="60" cy="40" rx="16" ry="4" fill="#3a2214"></ellipse>
-              <path d="M40 64h40" stroke="#c98b2d" stroke-width="3.5" stroke-linecap="round"></path>
-              <ellipse cx="60" cy="98" rx="27" ry="5" fill="#e0cdb0"></ellipse>
-            </svg>
-            <figcaption class="mt-4 text-center">
-              <span class="block font-display text-lg font-semibold">Турка</span>
-              <span class="mt-0.5 block text-xs text-cocoa/80">кава по-східному на піску</span>
-            </figcaption>
+          <figure class="gallery-tile">
+            <img src="./assets/img/roastery-drum-roaster.jpg?v=20261104" alt="Барабанний ростер для обсмаження кавових зерен" width="900" height="600" loading="lazy">
+            <figcaption class="font-display text-sm font-semibold">Обсмажувальня</figcaption>
           </figure>
-
-          <!-- Пакет зерна -->
-          <figure class="tile rounded-3xl bg-latte p-5 md:p-7">
-            <svg viewBox="0 0 120 120" class="mx-auto w-full max-w-[170px]" role="img" aria-label="Ілюстрація: пакет кави на вагу">
-              <path d="M36 42h48v48c0 4-3 7-7 7H43c-4 0-7-3-7-7Z" fill="#fbf7f0" stroke="#5f4736" stroke-width="2.5"></path>
-              <path d="M33 30h54v12H33Z" fill="#5f4736"></path>
-              <path d="M38 36h44" stroke="#f2e8d8" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"></path>
-              <circle cx="60" cy="68" r="13" fill="#f2e8d8" stroke="#92400e" stroke-width="2"></circle>
-              <use href="#bean" transform="translate(60 68) scale(.55)" style="color:#92400e;--bean-bg:#f2e8d8"></use>
-              <path d="M48 89h24" stroke="#5f4736" stroke-width="2.4" stroke-linecap="round"></path>
-              <path d="M53 94h14" stroke="#c98b2d" stroke-width="2.4" stroke-linecap="round"></path>
-            </svg>
-            <figcaption class="mt-4 text-center">
-              <span class="block font-display text-lg font-semibold">Пакет зерна</span>
-              <span class="mt-0.5 block text-xs text-cocoa/80">250 г — додому з собою</span>
-            </figcaption>
+          <figure class="gallery-tile">
+            <img src="./assets/img/dessert-tiramisu.jpg?v=20261104" alt="Порція тірамісу на тарілці" width="900" height="600" loading="lazy">
+            <figcaption class="font-display text-sm font-semibold">Десерт дня</figcaption>
           </figure>
-
-          <!-- Латте-арт -->
-          <figure class="tile rounded-3xl bg-espresso p-5 md:p-7">
-            <svg viewBox="0 0 120 120" class="mx-auto w-full max-w-[170px]" role="img" aria-label="Ілюстрація: латте-арт серце у чашці">
-              <circle cx="60" cy="60" r="43" fill="#f6ead8"></circle>
-              <circle cx="60" cy="60" r="34" fill="#b0713b"></circle>
-              <path d="M60 47c-7-9-21-1-12 10 4 5 8 8 12 12 4-4 8-7 12-12 9-11-5-19-12-10Z" fill="#f6ead8"></path>
-              <path d="M60 70v13" stroke="#f6ead8" stroke-width="3.2" stroke-linecap="round"></path>
-            </svg>
-            <figcaption class="mt-4 text-center">
-              <span class="block font-display text-lg font-semibold text-cream">Латте-арт</span>
-              <span class="mt-0.5 block text-xs text-cream/70">серце у кожній чашці</span>
-            </figcaption>
+          <figure class="gallery-tile">
+            <img src="./assets/img/interior-wooden-cafe.jpg?v=20261104" alt="Дерев'яний інтер'єр кавʼярні" width="900" height="600" loading="lazy">
+            <figcaption class="font-display text-sm font-semibold">Інтер'єр</figcaption>
           </figure>
-
-          <!-- Кавомолка -->
-          <figure class="tile rounded-3xl border border-line bg-white p-5 md:p-7">
-            <svg viewBox="0 0 120 120" class="mx-auto w-full max-w-[170px]" role="img" aria-label="Ілюстрація: ручна кавомолка">
-              <path d="M60 24h24" stroke="#5f4736" stroke-width="4.5" stroke-linecap="round"></path>
-              <circle cx="86" cy="24" r="5" fill="#c98b2d"></circle>
-              <path d="M60 24v8" stroke="#5f4736" stroke-width="4.5" stroke-linecap="round"></path>
-              <path d="M42 48c0-11 8-17 18-17s18 6 18 17Z" fill="#92400e"></path>
-              <rect x="38" y="48" width="44" height="8" rx="3" fill="#712f08"></rect>
-              <rect x="41" y="58" width="38" height="38" rx="4" fill="#f2e8d8" stroke="#5f4736" stroke-width="2.5"></rect>
-              <rect x="47" y="76" width="26" height="13" rx="2" fill="#ffffff" stroke="#5f4736" stroke-width="2"></rect>
-              <circle cx="60" cy="82.5" r="2.4" fill="#92400e"></circle>
-            </svg>
-            <figcaption class="mt-4 text-center">
-              <span class="block font-display text-lg font-semibold">Кавомолка</span>
-              <span class="mt-0.5 block text-xs text-cocoa/80">ручний помел за запитом</span>
-            </figcaption>
+          <figure class="gallery-tile">
+            <img src="./assets/img/beans-bags-roastery.jpg?v=20261104" alt="Мішки з кавовими зернами на складі обсмажувальні" width="900" height="600" loading="lazy">
+            <figcaption class="font-display text-sm font-semibold">Зерно на вагу</figcaption>
           </figure>
         </div>
       </div>
@@ -512,152 +337,49 @@
       </div>
     </section>
 
-    <!-- contacts -->
-    <section id="contacts" class="scroll-mt-24 py-16 md:py-24">
-      <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
-        <div data-reveal>
-          <p class="eyebrow">Контакти</p>
-          <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Як нас знайти</h2>
-          <p class="mt-4 max-w-md leading-relaxed text-cocoa">Ми за два кроки від метро. Заходьте на чашку — або пишіть, якщо потрібна кава для офісу.</p>
+    <!-- contacts teaser + booking CTA -->
+    <section id="contacts" class="relative scroll-mt-24 overflow-hidden bg-espresso py-16 text-cream md:py-24">
+      <svg class="pointer-events-none absolute inset-0 h-full w-full text-cream/[0.07]" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <use href="#bean-line" transform="translate(120 120) rotate(-20) scale(2.2)"></use>
+        <use href="#bean-line" transform="translate(1050 150) rotate(-40) scale(2.5)"></use>
+        <use href="#bean-line" transform="translate(620 80) rotate(45) scale(1.3)"></use>
+      </svg>
 
+      <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
+        <div data-reveal>
+          <p class="eyebrow eyebrow--light">Контакти</p>
+          <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Як нас знайти</h2>
           <ul class="mt-9 space-y-6">
             <li class="flex items-start gap-4">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-brand/10 text-brand">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-cream/10 text-gold-light">
                 <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </span>
               <div>
-                <span class="block text-sm font-semibold uppercase tracking-wider text-cocoa/70">Адреса</span>
+                <span class="block text-sm font-semibold uppercase tracking-wider text-cream/60">Адреса</span>
                 <span class="mt-1 block font-medium">м. Київ, вул. Ярославів Вал, 21</span>
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-brand/10 text-brand">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-cream/10 text-gold-light">
                 <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
               </span>
               <div>
-                <span class="block text-sm font-semibold uppercase tracking-wider text-cocoa/70">Години роботи</span>
+                <span class="block text-sm font-semibold uppercase tracking-wider text-cream/60">Години роботи</span>
                 <span class="mt-1 block font-medium">Пн–Пт 8:00–21:00</span>
                 <span class="block font-medium">Сб–Нд 9:00–22:00</span>
               </div>
             </li>
-            <li class="flex items-start gap-4">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-brand/10 text-brand">
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"></path></svg>
-              </span>
-              <div>
-                <span class="block text-sm font-semibold uppercase tracking-wider text-cocoa/70">Телефон</span>
-                <a href="tel:+380443317805" class="mt-1 block font-medium hover:text-brand">+380 (44) 331-78-05</a>
-              </div>
-            </li>
           </ul>
         </div>
 
-        <div class="relative h-72 overflow-hidden rounded-3xl border border-line md:h-96" data-reveal aria-label="Схематична мапа розташування кавʼярні">
-          <div class="map-grid absolute inset-0"></div>
-          <div class="map-street left-0 right-0 top-[38%] h-4">
-            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-semibold uppercase tracking-[0.25em] text-cocoa/50">вул. Ярославів Вал</span>
-          </div>
-          <div class="map-street bottom-0 top-0 left-[26%] w-4"></div>
-          <div class="map-street bottom-0 top-0 right-[18%] w-3 opacity-70"></div>
-          <div class="absolute bottom-[14%] left-[8%] h-16 w-24 rounded-2xl bg-gold/15" aria-hidden="true"></div>
-          <div class="absolute right-[6%] top-[10%] h-14 w-20 rounded-2xl bg-brand/10" aria-hidden="true"></div>
-
-          <div class="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-full">
-            <span class="pin-ring absolute left-1/2 top-[26px] h-10 w-10 -translate-x-1/2 rounded-full bg-brand/40" aria-hidden="true"></span>
-            <svg viewBox="0 0 24 24" class="relative h-12 w-12 drop-shadow-[0_10px_10px_rgba(38,23,15,.35)]" aria-hidden="true">
-              <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" fill="#92400e"></path>
-              <circle cx="12" cy="10" r="3.2" fill="#fbf7f0"></circle>
-            </svg>
-          </div>
-
-          <div class="absolute bottom-4 left-4 flex items-center gap-2.5 rounded-2xl bg-cream/95 px-4 py-2.5 shadow-[0_14px_30px_-16px_rgba(38,23,15,.5)]">
-            <svg viewBox="0 0 24 24" class="h-4 w-4 text-brand" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.72)"></use></svg>
-            <span class="text-sm font-semibold">KAVA Roasters — ми тут</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- booking -->
-    <section id="booking" class="relative scroll-mt-24 overflow-hidden bg-espresso py-16 text-cream md:py-24">
-      <svg class="pointer-events-none absolute inset-0 h-full w-full text-cream/[0.07]" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <use href="#bean-line" transform="translate(120 120) rotate(-20) scale(2.2)"></use>
-        <use href="#bean-line" transform="translate(320 480) rotate(30) scale(1.6)"></use>
-        <use href="#bean-line" transform="translate(1050 150) rotate(-40) scale(2.5)"></use>
-        <use href="#bean-line" transform="translate(900 520) rotate(12) scale(1.8)"></use>
-        <use href="#bean-line" transform="translate(620 80) rotate(45) scale(1.3)"></use>
-      </svg>
-
-      <div class="relative mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
-        <div data-reveal>
-          <p class="eyebrow eyebrow--light">Бронювання</p>
-          <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">Забронюйте столик</h2>
-          <p class="mt-5 max-w-md leading-relaxed text-cream/75">
-            Ввечері та на вихідних місця розлітаються швидко. Залиште заявку —
-            і ми притримаємо для вас столик біля вікна.
-          </p>
-          <ul class="mt-8 space-y-4 text-[15px] text-cream/85">
-            <li class="flex items-start gap-3">
-              <svg viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-gold-light" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.5 2.5 2.5 5-6"></path></svg>
-              Столик тримаємо 15 хвилин після заброньованого часу
-            </li>
-            <li class="flex items-start gap-3">
-              <svg viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-gold-light" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.5 2.5 2.5 5-6"></path></svg>
-              Групам від 6 гостей — міні-дегустація від бариста
-            </li>
-            <li class="flex items-start gap-3">
-              <svg viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-gold-light" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.5 2.5 2.5 5-6"></path></svg>
-              Скасування — безкоштовне, достатньо подзвонити
-            </li>
-          </ul>
-          <p class="mt-8 text-sm text-cream/60">Або просто зателефонуйте: <a href="tel:+380443317805" class="font-semibold text-gold-light hover:underline">+380 (44) 331-78-05</a></p>
-        </div>
-
-        <div class="rounded-3xl bg-cream p-6 text-espresso shadow-[0_40px_80px_-40px_rgba(0,0,0,.6)] sm:p-8" data-reveal>
-          <form id="booking-form" novalidate class="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label for="bk-name" class="mb-1.5 block text-sm font-semibold">Імʼя</label>
-              <input class="input" type="text" id="bk-name" name="name" autocomplete="name" placeholder="Як до вас звертатися?">
-              <p class="field-error" id="bk-name-error" hidden></p>
-            </div>
-            <div>
-              <label for="bk-phone" class="mb-1.5 block text-sm font-semibold">Телефон</label>
-              <input class="input" type="tel" id="bk-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="+380 (44) 331-78-05">
-              <p class="field-error" id="bk-phone-error" hidden></p>
-            </div>
-            <div>
-              <label for="bk-date" class="mb-1.5 block text-sm font-semibold">Дата візиту</label>
-              <input class="input" type="date" id="bk-date" name="date">
-              <p class="field-error" id="bk-date-error" hidden></p>
-            </div>
-            <div>
-              <label for="bk-guests" class="mb-1.5 block text-sm font-semibold">Кількість гостей</label>
-              <select class="input" id="bk-guests" name="guests">
-                <option value="1">1 гість</option>
-                <option value="2" selected>2 гості</option>
-                <option value="3">3 гості</option>
-                <option value="4">4 гості</option>
-                <option value="5">5 гостей</option>
-                <option value="6">6 гостей</option>
-                <option value="7">7 гостей</option>
-                <option value="8">8 гостей</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary mt-1 sm:col-span-2">Забронювати столик</button>
-            <p class="text-center text-xs leading-relaxed text-cocoa/70 sm:col-span-2">
-              Підтвердимо бронювання дзвінком протягом 15 хвилин у робочі години.
-            </p>
-          </form>
-
-          <div id="booking-success" hidden tabindex="-1" class="py-4 text-center" role="status">
-            <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand/10 text-brand">
-              <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
-            </span>
-            <h3 class="mt-5 font-display text-2xl font-bold">Столик заброньовано!</h3>
-            <p id="booking-summary" class="mx-auto mt-3 max-w-sm leading-relaxed text-cocoa"></p>
-            <p class="mt-2 text-sm text-cocoa/70">Ми зателефонуємо, щоб підтвердити бронювання.</p>
-            <button type="button" id="booking-again" class="btn btn-primary btn-sm mt-6">Нове бронювання</button>
-          </div>
+        <div class="rounded-3xl bg-cream p-8 text-center text-espresso shadow-[0_40px_80px_-40px_rgba(0,0,0,.6)] sm:p-10" data-reveal>
+          <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand/10 text-brand">
+            <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+          </span>
+          <h3 class="mt-5 font-display text-2xl font-bold">Забронюйте столик</h3>
+          <p class="mx-auto mt-3 max-w-xs leading-relaxed text-cocoa">Ввечері та на вихідних місця розлітаються швидко. Залиште заявку — і ми притримаємо столик біля вікна.</p>
+          <a href="./contact.html#booking" class="btn btn-primary mt-7">Перейти до бронювання</a>
+          <p class="mt-5 text-sm text-cocoa/70">Або зателефонуйте: <a href="tel:+380443317805" class="font-semibold text-brand hover:underline">+380 (44) 331-78-05</a></p>
         </div>
       </div>
     </section>
@@ -667,7 +389,7 @@
   <footer class="bg-[#1a0f08] text-cream/75">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.2fr_.8fr_1fr] md:gap-8">
       <div>
-        <a href="#top" class="flex items-center gap-2.5" aria-label="KAVA Roasters — на початок сторінки">
+        <a href="./index.html" class="flex items-center gap-2.5" aria-label="KAVA Roasters — на головну">
           <span class="grid h-10 w-10 place-items-center rounded-full bg-brand text-cream">
             <svg viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.68)"></use></svg>
           </span>
@@ -682,11 +404,11 @@
       <nav aria-label="Навігація у футері">
         <h3 class="text-sm font-semibold uppercase tracking-widest text-cream">Навігація</h3>
         <ul class="mt-5 space-y-3 text-sm">
-          <li><a href="#menu" class="hover:text-gold-light">Меню</a></li>
-          <li><a href="#about" class="hover:text-gold-light">Про нас</a></li>
+          <li><a href="./menu.html" class="hover:text-gold-light">Меню</a></li>
+          <li><a href="./about.html" class="hover:text-gold-light">Про нас</a></li>
           <li><a href="#gallery" class="hover:text-gold-light">Галерея</a></li>
-          <li><a href="#contacts" class="hover:text-gold-light">Контакти</a></li>
-          <li><a href="#booking" class="hover:text-gold-light">Бронювання столика</a></li>
+          <li><a href="./contact.html" class="hover:text-gold-light">Контакти</a></li>
+          <li><a href="./contact.html#booking" class="hover:text-gold-light">Бронювання столика</a></li>
         </ul>
       </nav>
 
@@ -702,17 +424,19 @@
     </div>
 
     <div class="border-t border-cream/10">
-      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm sm:px-6 md:flex-row">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-6 text-center text-sm sm:px-6 md:flex-row md:text-left">
         <p class="text-cream/55">© <span id="year">2026</span> KAVA Roasters</p>
         <span class="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/10 px-4 py-1.5 text-xs font-medium text-cream/90">
           <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-gold-light" aria-hidden="true"><use href="#bean-line" transform="translate(12 12) scale(0.7)"></use></svg>
           Концепт для портфоліо — реальної кавʼярні не існує
         </span>
+        <a href="./credits.html" class="font-medium text-gold-light hover:underline">Фото: автори та ліцензії</a>
         <a href="../../index.html#projects" class="font-medium text-gold-light hover:underline">← До портфоліо</a>
       </div>
     </div>
   </footer>
 
-  <script src="./app.js?v=20261102b"></script>
+  <script src="./assets/js/menu.js?v=20261104"></script>
+  <script src="./assets/js/main.js?v=20261104"></script>
 </body>
 </html>

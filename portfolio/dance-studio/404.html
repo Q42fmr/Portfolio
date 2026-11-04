@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сторінку не знайдено — Flow, студія танцю у Києві</title>
+  <meta name="description" content="Сторінку, яку ви шукали, не знайдено. Поверніться на головну сторінку студії танцю Flow.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Сторінку не знайдено — Flow, студія танцю у Києві">
+  <meta property="og:description" content="Сторінку, яку ви шукали, не знайдено. Поверніться на головну сторінку студії танцю Flow.">
+  <meta property="og:image" content="https://flow-dance.studio/assets/img/hero-dancers-studio.jpg">
+  <meta property="og:url" content="https://flow-dance.studio/404.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://flow-dance.studio/404.html">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#ec4899",
+            grape: "#8b5cf6",
+            ink: "#0a0a0f",
+            surface: "#12121a",
+          },
+          fontFamily: {
+            display: ["Unbounded", "system-ui", "sans-serif"],
+            sans: ["Manrope", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="./assets/css/main.css?v=20261104">
+  <script src="./assets/js/schedule-data.js?v=20261104"></script>
+  <script src="./assets/js/main.js?v=20261104" defer></script>
+</head>
+<body id="top" class="bg-ink font-sans text-white antialiased">
+  <a href="#main" class="skip-link">Перейти до контенту</a>
+
+  <!-- navbar -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink/85 backdrop-blur">
+    <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Головна навігація">
+      <a href="index.html" class="font-display text-xl font-bold tracking-tight">FLOW<span class="text-brand">.</span></a>
+
+      <ul class="hidden items-center gap-7 text-sm font-semibold text-white/65 md:flex">
+        <li><a class="transition hover:text-white" href="index.html">Головна</a></li>
+        <li><a class="transition hover:text-white" href="classes.html">Напрямки</a></li>
+        <li><a class="transition hover:text-white" href="schedule.html">Розклад</a></li>
+        <li><a class="transition hover:text-white" href="trainers.html">Тренери</a></li>
+        <li><a class="transition hover:text-white" href="pricing.html">Ціни</a></li>
+        <li><a class="transition hover:text-white" href="contact.html">Контакти</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <a href="contact.html#trial-form" class="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">Пробне заняття</a>
+        <button id="menu-btn" type="button" data-action="menu" class="grid h-10 w-10 place-items-center rounded-full border border-white/15 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
+          <svg class="icon-burger h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          <svg class="icon-close hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-white/5 bg-ink/95 px-4 pb-6 pt-3 md:hidden">
+      <ul class="flex flex-col gap-1 text-base font-semibold text-white/80">
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="index.html">Головна</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="classes.html">Напрямки</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="schedule.html">Розклад</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="trainers.html">Тренери</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="pricing.html">Ціни</a></li>
+        <li><a class="block rounded-lg px-3 py-2.5 transition hover:bg-white/5 hover:text-white" href="contact.html">Контакти</a></li>
+      </ul>
+      <a href="contact.html#trial-form" class="btn-primary mt-4 w-full">Пробне заняття — безкоштовно</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="relative overflow-clip py-32 sm:py-40">
+      <div class="glow glow-pink -top-32 right-[-10%] h-[30rem] w-[30rem]" aria-hidden="true"></div>
+      <div class="glow glow-violet left-[-14%] top-40 h-[26rem] w-[26rem]" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <p class="not-found-code">404</p>
+        <h1 class="mt-6 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">Такої сторінки в нас немає</h1>
+        <p class="mx-auto mt-5 max-w-md leading-relaxed text-white/60">Можливо, посилання застаріло або адреса вказана з помилкою. Повертайся на головну або переглянь розклад занять.</p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+          <a href="index.html" class="btn-primary">На головну</a>
+          <a href="schedule.html" class="btn-ghost">Дивитися розклад</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p class="font-display text-xl font-bold">FLOW<span class="text-brand">.</span></p>
+          <p class="mt-2 max-w-xs text-sm leading-relaxed text-white/45">Студія танцю в центрі Києва. Танцюй так, ніби всі дивляться.</p>
+        </div>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-white/55">
+          <li><a class="transition hover:text-white" href="classes.html">Напрямки</a></li>
+          <li><a class="transition hover:text-white" href="schedule.html">Розклад</a></li>
+          <li><a class="transition hover:text-white" href="trainers.html">Тренери</a></li>
+          <li><a class="transition hover:text-white" href="pricing.html">Ціни</a></li>
+        </ul>
+        <address class="text-sm not-italic leading-relaxed text-white/55">
+          м. Київ, вул. Антоновича, 44<br>
+          <a class="transition hover:text-brand" href="tel:+380637021944">+380 (63) 702-19-44</a>
+        </address>
+      </div>
+
+      <div class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <p class="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span class="inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-xs font-semibold">Навчальний демо-проєкт, не діюча студія</span>
+          © 2026 Flow
+          <a class="font-semibold underline decoration-white/20 underline-offset-4 transition hover:text-brand" href="credits.html">Фото: автори та ліцензії</a>
+        </p>
+        <a class="font-semibold transition hover:text-brand" href="../../index.html#projects">← До портфоліо</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

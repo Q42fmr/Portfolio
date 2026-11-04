@@ -9,7 +9,7 @@ Static «cinematic resume» (UA `/`, EN `/en/`) deployed to Cloudflare Pages →
 - `assets/js/motion.js` — GSAP ScrollTrigger scenes, hero/counter tweens, Lenis smooth scroll and the autoplay player; honours `prefers-reduced-motion`.
 - `assets/js/main.js` — bootstrap: language, filters, Gantt navigation, copy-email, local time, replay.
 - `assets/css/style.css` — tokens, scene palettes, components, Gantt, player, print CV.
-- `portfolio/<demo>/` — six static demo sites + `Assistant`; `apps/plant-shop/` is the Vue source of `portfolio/plant-shop/`.
+- `portfolio/<demo>/` — six concept sites (Pulse, KAVA Roasters, Anna Kovalenko, Flow, Insight, Verde): multi-page, each with its own `assets/{css,js,img}`, favicon set, `robots.txt`, `sitemap.xml`, README and a `credits.html` page. Photos come from Wikimedia Commons under free licences; `assets/credits.json` in each demo lists author, licence and source for every file. `apps/plant-shop/` is the Vue source of `portfolio/plant-shop/`; `portfolio/wp/dashdoor/` is a copy of a client white page.
 - `assets/img/projects/<clip id>-desktop.jpg|-mobile.jpg` — screenshots per clip id; `assets/img/og.jpg`, `assets/img/portrait.jpg`.
 - `assets/files/cv.pdf`, `cv-en.pdf` — printed from the hidden `#cv-print` section.
 

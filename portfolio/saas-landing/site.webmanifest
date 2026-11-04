@@ -1,0 +1,11 @@
+{
+  "name": "Pulse — аналітика продажів",
+  "short_name": "Pulse",
+  "icons": [
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "theme_color": "#6366f1",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "./index.html"
+}

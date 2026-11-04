@@ -101,7 +101,7 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
         <div class="drawer-body">
           <ul v-if="items.length" class="cart-list">
             <li v-for="item in items" :key="item.id" class="cart-item">
-              <div class="cart-thumb" v-html="item.svg"></div>
+              <div class="cart-thumb"><img :src="item.image" :alt="item.name" width="62" height="62" loading="lazy" /></div>
               <div class="cart-info">
                 <p class="cart-name">{{ item.name }}</p>
                 <p class="cart-unit">{{ formatPrice(item.price) }} ₴ / шт.</p>
@@ -339,12 +339,13 @@ const titles = { cart: "Кошик", form: "Оформлення", success: "З�
   height: 62px;
   border-radius: 10px;
   background: var(--cream-2);
-  padding: 4px;
+  overflow: hidden;
 }
 
-.cart-thumb svg {
+.cart-thumb img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .cart-info {

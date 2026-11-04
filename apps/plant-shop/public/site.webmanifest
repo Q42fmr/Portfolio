@@ -1,0 +1,21 @@
+{
+  "name": "Verde — магазин кімнатних рослин",
+  "short_name": "Verde",
+  "description": "Концепт-магазин кімнатних рослин: каталог, кошик і оформлення замовлення.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fdfbf7",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

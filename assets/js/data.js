@@ -12,7 +12,7 @@ window.PORTFOLIO = {
     phone: "+380633758707",
     phoneDisplay: "+380 63 375 87 07",
     telegram: "https://t.me/alex_daymar",
-    linkedin: "https://linkedin.com/in/олександр-бешун-3051b3166",
+    linkedin: "https://www.linkedin.com/in/oleksandr-beshun",
     github: "https://github.com/Q42fmr",
     site: "https://q42fmr.shop",
     timeZone: "Europe/Kyiv",
@@ -379,18 +379,18 @@ window.PORTFOLIO = {
       from: "2025-10",
       to: "2025-10",
       nda: false,
-      title: { ua: "Pulse · SaaS-лендінг", en: "Pulse · SaaS landing page" },
+      title: { ua: "Pulse · сайт SaaS-продукту", en: "Pulse · SaaS product site" },
       tagline: {
-        ua: "Офер, тарифи з перемикачем, FAQ",
-        en: "Offer, pricing toggle, FAQ"
+        ua: "Лендінг, фічі, тарифи, кейси, legal",
+        en: "Landing, features, pricing, case studies, legal"
       },
       what: {
-        ua: "Hero з CSS-мокапом дашборда, 6 фіч, how-it-works, pricing місяць/рік (−20 %), відгуки, FAQ-акордеон, CTA-форма.",
-        en: "A hero with a CSS dashboard mockup, 6 features, how-it-works, monthly/yearly pricing (−20 %), testimonials, an FAQ accordion, a CTA form."
+        ua: "Сайт на 9 сторінок: hero зі справжніми скриншотами продукту, фічі з кропами інтерфейсу, тарифи місяць/рік (−20 %) з таблицею порівняння і FAQ, три кейси клієнтів, «про нас», privacy/terms, 404; спільні шапка/футер, favicon-набір, sitemap, robots.",
+        en: "A 9-page site: a hero with real product screenshots, features with UI crops, monthly/yearly pricing (−20 %) with a comparison table and FAQ, three customer case studies, about, privacy/terms, 404; shared header/footer, a favicon set, sitemap, robots."
       },
       result: {
-        ua: "Конверсійна структура лендінгу і scroll-reveal без бібліотек.",
-        en: "A conversion-oriented landing structure and scroll-reveal without libraries."
+        ua: "Повноцінний маркетинговий сайт продукту без бібліотек: scroll-reveal, акордеони, перемикач тарифів на чистому JS.",
+        en: "A complete product marketing site without libraries: scroll-reveal, accordions and the pricing toggle in plain JavaScript."
       },
       tags: ["HTML", "Tailwind", "JavaScript"],
       siteUrl: "portfolio/saas-landing/",
@@ -509,18 +509,18 @@ window.PORTFOLIO = {
       from: "2025-12",
       to: "2025-12",
       nda: false,
-      title: { ua: "KAVA Roasters · лендінг кав'ярні", en: "KAVA Roasters · coffee shop landing" },
+      title: { ua: "KAVA Roasters · сайт кав'ярні", en: "KAVA Roasters · coffee shop website" },
       tagline: {
-        ua: "Меню з табами і бронювання столика",
-        en: "A tabbed menu and table booking"
+        ua: "Меню, обсмажувальня, бронювання",
+        en: "Menu, roastery, table booking"
       },
       what: {
-        ua: "Атмосферний лендінг: меню (кава/десерти/зерно) з доступними табами, галерея, відгуки, години й адреса, форма бронювання з валідацією.",
-        en: "An atmospheric landing: a menu (coffee/desserts/beans) with accessible tabs, a gallery, reviews, hours and address, a booking form with validation."
+        ua: "Сайт на 6 сторінок: головна з «сьогодні на барі» та галереєю, повне меню з доступними табами (кава/десерти/зерно) з одного джерела даних, «про нас» з процесом обсмаження і командою, контакти з годинами та формою бронювання з валідацією; 15 фото під вільними ліцензіями зі сторінкою кредитів.",
+        en: "A 6-page site: a home page with today's picks and a gallery, a full menu with accessible tabs (coffee/desserts/beans) rendered from one data source, an about page with the roasting process and team, contacts with hours and a booking form with validation; 15 free-licence photos with a credits page."
       },
       result: {
-        ua: "Доступні таби з клавіатурною навігацією; локальний бізнес «під ключ».",
-        en: "Accessible tabs with keyboard navigation; a turnkey site for a local business."
+        ua: "Сайт локального бізнесу «під ключ»: клавіатурні таби, дані меню в одному модулі, favicon-набір, sitemap і robots.",
+        en: "A turnkey local-business site: keyboard-navigable tabs, menu data in one module, a favicon set, sitemap and robots."
       },
       tags: ["HTML", "Tailwind", "JavaScript"],
       siteUrl: "portfolio/coffee-landing/",
@@ -535,18 +535,18 @@ window.PORTFOLIO = {
       from: "2026-02",
       to: "2026-02",
       nda: false,
-      title: { ua: "Anna Kovalenko · портфоліо фотографа", en: "Anna Kovalenko · photographer portfolio" },
+      title: { ua: "Anna Kovalenko · сайт фотографа", en: "Anna Kovalenko · photographer website" },
       tagline: {
-        ua: "Галерея за жанрами з лайтбоксом",
-        en: "A gallery by genre with a lightbox"
+        ua: "Галереї за жанрами, лайтбокс, пакети",
+        en: "Galleries by genre, lightbox, packages"
       },
       what: {
-        ua: "Masonry-галерея з фільтром за жанром, лайтбокс (←/→/Esc, focus trap), послуги й пакети, форма запису.",
-        en: "A masonry gallery filtered by genre, a lightbox (←/→/Esc, focus trap), services and packages, a booking form."
+        ua: "Сайт на 11 сторінок: головна з вибраними роботами, загальна галерея з фільтром і окремі сторінки для весіль, портретів, стріту й пейзажу (по 8 робіт), лайтбокс (←/→/Esc, focus trap), «про мене», послуги й пакети, форма запису; 34 фото під вільними ліцензіями з єдиного модуля даних.",
+        en: "An 11-page site: a home page with selected works, an all-works gallery with a filter and separate pages for weddings, portraits, street and landscape (8 works each), a lightbox (←/→/Esc, focus trap), about, services and packages, a booking form; 34 free-licence photos driven by one data module."
       },
       result: {
-        ua: "Мінімалістичний візуал з акцентом на фото; доступний лайтбокс.",
-        en: "A minimalist look that puts the photos first; an accessible lightbox."
+        ua: "Мінімалістичний візуал з акцентом на фото; одна логіка галереї на п'ять сторінок; сторінка кредитів з авторами й ліцензіями.",
+        en: "A minimalist look that puts the photos first; one gallery logic shared by five pages; a credits page with authors and licences."
       },
       tags: ["HTML", "Tailwind", "JavaScript"],
       siteUrl: "portfolio/photographer-portfolio/",
@@ -561,18 +561,18 @@ window.PORTFOLIO = {
       from: "2026-04",
       to: "2026-04",
       nda: false,
-      title: { ua: "Flow · студія танцю", en: "Flow · dance studio" },
+      title: { ua: "Flow · сайт студії танцю", en: "Flow · dance studio website" },
       tagline: {
-        ua: "Інтерактивний розклад з фільтрами",
-        en: "An interactive schedule with filters"
+        ua: "Напрямки, розклад з фільтрами, тренери, ціни",
+        en: "Styles, a filterable schedule, trainers, pricing"
       },
       what: {
-        ua: "Напрямки, тижневий розклад із фільтрами за стилем і рівнем (дані в JS), тренери, абонементи, форма запису на пробне, FAQ.",
-        en: "Dance styles, a weekly schedule filtered by style and level (data in JS), trainers, memberships, a trial-class form, FAQ."
+        ua: "Сайт на 8 сторінок: напрямки з фото, тижневий розклад із фільтрами за стилем і рівнем (дані в окремому модулі, стиль передається через URL), тренери, абонементи з FAQ-акордеоном, форма запису на пробне з валідацією, 404; favicon-набір, sitemap, robots, сторінка кредитів.",
+        en: "An 8-page site: styles with photos, a weekly schedule filtered by style and level (data in a separate module, the style is passed through the URL), trainers, memberships with an FAQ accordion, a trial-class form with validation, 404; a favicon set, sitemap, robots, a credits page."
       },
       result: {
-        ua: "Динамічний розклад на чистому JS; темна енергійна палітра.",
-        en: "A dynamic schedule in plain JavaScript; a dark, energetic palette."
+        ua: "Динамічний розклад на чистому JS з делегуванням подій; темна енергійна палітра; фото тренерів без упізнаваних облич.",
+        en: "A dynamic schedule in plain JavaScript with event delegation; a dark, energetic palette; trainer photos without identifiable faces."
       },
       tags: ["HTML", "Tailwind", "JavaScript"],
       siteUrl: "portfolio/dance-studio/",
@@ -615,16 +615,16 @@ window.PORTFOLIO = {
       nda: false,
       title: { ua: "Insight · BI-дашборд", en: "Insight · BI dashboard" },
       tagline: {
-        ua: "KPI, графіки і таблиця транзакцій",
-        en: "KPIs, charts and a transactions table"
+        ua: "Огляд, транзакції, товари, клієнти",
+        en: "Overview, transactions, products, customers"
       },
       what: {
-        ua: "Sidebar + topbar, KPI з дельтами, line/bar/donut на Chart.js, перемикач періоду 7/30/90, таблиця з сортуванням, пошуком і пагінацією; детерміновані дані.",
-        en: "Sidebar + topbar, KPIs with deltas, line/bar/donut charts on Chart.js, a 7/30/90-day period switch, a table with sorting, search and pagination; deterministic data."
+        ua: "Багатосторінковий дашборд: огляд з KPI і line/bar/donut на Chart.js та перемикачем періоду 7/30/90; транзакції з сортуванням, пошуком, фільтром статусу, пагінацією та експортом у CSV; товари з фото, клієнти з LTV, налаштування, логін, 404. Детермінований генератор даних (seed) спільний для всіх сторінок; код розбитий на data/charts/table/app.",
+        en: "A multi-page dashboard: an overview with KPIs, line/bar/donut charts on Chart.js and a 7/30/90-day period switch; transactions with sorting, search, a status filter, pagination and CSV export; products with photos, customers with LTV, settings, login, 404. A seeded deterministic data generator shared by all pages; code split into data/charts/table/app."
       },
       result: {
-        ua: "Дашборд рівня внутрішнього BI без бекенда; опора на analyst-бекграунд.",
-        en: "An internal-BI-grade dashboard without a back end; built on my analyst background."
+        ua: "Дашборд рівня внутрішнього BI без бекенда: цифри на всіх сторінках узгоджені між собою; опора на analyst-бекграунд.",
+        en: "An internal-BI-grade dashboard without a back end: the numbers agree across every page; built on my analyst background."
       },
       tags: ["HTML", "Tailwind", "JavaScript", "Chart.js"],
       siteUrl: "portfolio/analytics-dashboard/",
@@ -691,20 +691,20 @@ window.PORTFOLIO = {
       from: "2026-09",
       to: "2026-09",
       nda: false,
-      title: { ua: "Verde · магазин рослин", en: "Verde · plant shop" },
+      title: { ua: "Verde · інтернет-магазин рослин", en: "Verde · plant web shop" },
       tagline: {
-        ua: "Каталог, фільтри, кошик і checkout на Vue 3",
-        en: "Catalogue, filters, cart and checkout on Vue 3"
+        ua: "Vue 3 + Router: каталог, картка товару, кошик, checkout",
+        en: "Vue 3 + Router: catalogue, product page, cart, checkout"
       },
       what: {
-        ua: "SPA на Vue 3 + Vite: каталог 12 товарів, фільтри за категорією/ціною, пошук, сортування; кошик-drawer з persist у LocalStorage; форма замовлення з валідацією і success-станом.",
-        en: "A Vue 3 + Vite SPA: a 12-product catalogue, category/price filters, search, sorting; a cart drawer persisted in LocalStorage; an order form with validation and a success state."
+        ua: "SPA на Vue 3 + Vite + vue-router: головна, каталог 12 товарів з фільтрами за категорією/ціною, пошуком і сортуванням, сторінка товару з доглядом і схожими рослинами, «про нас», доставка, контакти, кредити, 404; кошик-drawer з persist у LocalStorage, форма замовлення з валідацією і success-станом; фото товарів під вільними ліцензіями.",
+        en: "A Vue 3 + Vite + vue-router SPA: home, a 12-product catalogue with category/price filters, search and sorting, a product page with care notes and related plants, about, delivery, contacts, credits, 404; a cart drawer persisted in LocalStorage, an order form with validation and a success state; free-licence product photos."
       },
       result: {
-        ua: "Повний клієнтський флоу покупки без бекенда; IIFE-білд відкривається з диска.",
-        en: "A complete client-side purchase flow without a back end; the IIFE build opens straight from disk."
+        ua: "Повний клієнтський флоу покупки без бекенда; hash-роутинг і IIFE-білд, що відкривається з диска.",
+        en: "A complete client-side purchase flow without a back end; hash routing and an IIFE build that opens straight from disk."
       },
-      tags: ["Vue 3", "Vite", "JavaScript", "CSS", "LocalStorage"],
+      tags: ["Vue 3", "Vue Router", "Vite", "JavaScript", "CSS", "LocalStorage"],
       siteUrl: "portfolio/plant-shop/",
       githubUrl: null,
       images: true
